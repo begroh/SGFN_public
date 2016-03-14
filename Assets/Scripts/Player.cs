@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
         {
             this.input = new PlayerControl.ControllerInput(this.playerNumber);
         }
+
+        this.cart = new ShoppingCart();
     }
 
     void Update()
