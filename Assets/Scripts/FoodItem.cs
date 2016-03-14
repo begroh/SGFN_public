@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum FoodType { CHEESE, BREAD, MEAT, CONDIMENT, TOPPING }
 
-public class FoodItem : MonoBehaviour
+public class FoodItem
 {
     private FoodType _type;
     private string _name;

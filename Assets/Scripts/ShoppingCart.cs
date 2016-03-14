@@ -1,7 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
 
-public class ShoppingCart : MonoBehaviour
+public class ShoppingCart
 {
     private Queue<FoodItem> cart;
 
