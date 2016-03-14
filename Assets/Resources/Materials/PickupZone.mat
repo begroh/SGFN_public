@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Map
+  m_Name: PickupZone
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -131,8 +131,8 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0.9632353, g: 0.76775515, b: 0.347048, a: 1}
+        second: {r: 0.10142735, g: 0.10412539, b: 0.49264705, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0.9929006, b: 0.89705884, a: 1}
+        second: {r: 0.39608562, g: 0.5032812, b: 0.8161765, a: 1}
