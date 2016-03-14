@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Collectible : MonoBehaviour {
+public class Collectible : MonoBehaviour
+{
+    public PickupZone pickup;
 
-	public PickupZone pickup;
-
-	void OnDestroy ()
-	{
-		pickup.StartRespawn ();
-	}
+    void OnDestroy()
+    {
+        pickup.StartRespawn();
+    }
 }

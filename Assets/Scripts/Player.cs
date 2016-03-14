@@ -5,12 +5,11 @@ public class Player : MonoBehaviour
     public int playerNumber = 1;    // Joystick slot, default to 1
     public bool useKeyboard = true; // Use keyboard instead of controller, defaults to true for development
 
-	private ShoppingCart cart;
+    private ShoppingCart cart;
 
     private float speed = 4;
     private Rigidbody2D body;
     private PlayerControl.PlayerInput input;
-
 
     void Awake()
     {
@@ -33,16 +32,14 @@ public class Player : MonoBehaviour
         input.DetectInput(this);
     }
 
-	void OnTriggerEnter2D (Collider2D other)
-	{
-		if (other.gameObject.tag == "FoodPickup")
-		{
-			cart.Add (other.gameObject.GetComponent<FoodItem> ());
-			Destroy (other.gameObject);
-		}
-	}
-
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "FoodPickup")
+        {
+            cart.Add(other.gameObject.GetComponent<FoodItem>());
+            Destroy(other.gameObject);
+        }
+    }
 
     /*
      * Called by a PlayerInput with the users desired move direction
