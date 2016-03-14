@@ -48,4 +48,16 @@ public class Player : MonoBehaviour
     {
         this.body.velocity = direction.normalized * speed;
     }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        OnConveyorBelt(other.gameObject.GetComponent<ConveyorBelt>());
+    }
+
+    private void OnConveyorBelt(ConveyorBelt belt)
+    {
+        FoodItem bread = new FoodItem();
+
+        belt.DepositItem(bread);
+    }
 }
