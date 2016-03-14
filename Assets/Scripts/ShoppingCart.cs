@@ -4,6 +4,11 @@ public class ShoppingCart
 {
     private Queue<FoodItem> cart;
 
+    public ShoppingCart()
+    {
+        this.cart = new Queue<FoodItem>();
+    }
+
     public int Count
     {
         get { return cart.Count; }
