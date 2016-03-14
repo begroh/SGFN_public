@@ -1,18 +1,24 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ConveyorBelt : MonoBehaviour
 {
     private enum Direction { FORWARD, REVERSE };
 
-    private float speed = 0.1;      // 10 cm / second
-    private float marign = 0.05;    // 5 cm spacing
+    public GameObject foodConveyorBeltItemPrefab;
+
+    private float speed = 0.5f;     // 50 cm / second
+    private float margin = 0.1f;    // 10 cm spacing
     private LinkedList<ConveyorBeltItem> items;
     private Vector2 startPosition;
     private Vector2 endPosition;
+    private bool haveFriend = false;
 
     void Awake()
     {
         items = new LinkedList<ConveyorBeltItem>();
+        startPosition = (Vector2) this.transform.position + Vector2.up;
+        endPosition = (Vector2) this.transform.position + Vector2.down;
     }
 
     void Update()
@@ -38,32 +44,20 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     /*
-     * Attempt to take an item from the conveyor belt.
-     * Returns null if there is no available item.
-     */
-    public ConveyorBeltItem TakeItem()
-    {
-        ConveyorBeltItem item = AvailableItem();
-
-        if (item != null)
-        {
-            items.Remove(item);
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    /*
      * Attempt to add an item to the conveyor belt.
      * Returns whether or not there was room to add the item.
      */
-    public bool DepositItem(ConveyorBeltItem item)
+    public bool DepositItem(FoodItem item)
     {
         if (HasRoom())
         {
-            items.Add(item);
+            GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
+            obj.transform.parent = this.gameObject.transform;
+            obj.transform.position = startPosition;
+            FoodConveyorBeltItem beltItem = obj.GetComponent<FoodConveyorBeltItem>();
+            beltItem.SetItem(item);
+
+            items.AddLast(beltItem);
             return true;
         }
         else
@@ -77,7 +71,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private bool FriendlyPlayer()
     {
-        return false;
+        return haveFriend;
     }
 
     /*
@@ -94,10 +88,10 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void Run(Direction direction)
     {
+        // See if an item falls off the back of the conveyor
         if (direction == Direction.REVERSE && AvailableItem() != null)
         {
-            // An item is already waiting at the start of the belt, cannot reverse any more.
-            return;
+            FallOff(AvailableItem());
         }
 
         float maxDistance = Time.deltaTime * speed;
@@ -125,9 +119,9 @@ public class ConveyorBelt : MonoBehaviour
      */
     private ConveyorBeltItem AvailableItem()
     {
-        ConveyorBeltItem item = items.Last();
+        ConveyorBeltItem item = LastItem();
 
-        if (Vector2.Distance(item.Position(), startPosition) < 0.01)
+        if (item != null && Vector2.Distance(item.Position(), startPosition) < 0.01)
         {
             return item;
         }
@@ -142,7 +136,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private bool HasRoom()
     {
-        ConveyorBeltItem last = AvailableItem();
+        ConveyorBeltItem last = LastItem();
 
         if (last == null)
         {
@@ -151,12 +145,40 @@ public class ConveyorBelt : MonoBehaviour
         else
         {
             Vector2 position = last.Position();
-            return (Vector2.Distance(position, startPosition) > (margin + item.Size() / 2.0f);
+            float distance = Vector2.Distance(position, startPosition);
+            return (distance > margin + last.Size());
         }
+    }
+
+    private void FallOff(ConveyorBeltItem item)
+    {
+        items.Remove(item);
+        Destroy(((FoodConveyorBeltItem) item).gameObject);
     }
 
     private void MoveItemToBag(ConveyorBeltItem item)
     {
+        items.Remove(item);
+        Destroy(((FoodConveyorBeltItem) item).gameObject);
+    }
 
+    private ConveyorBeltItem LastItem()
+    {
+        ConveyorBeltItem last = null;
+        if (items.Last != null) {
+            last = items.Last.Value;
+        }
+
+        return last;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        haveFriend = true;
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        haveFriend = false;
     }
 }
