@@ -31,6 +31,6 @@ public class FoodItem : MonoBehaviour
 
     public static bool operator != (FoodItem a, FoodItem b)
     {
-        return a._type == b._type;
+        return a._type != b._type;
     }
 }
