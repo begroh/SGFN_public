@@ -85,12 +85,18 @@ public class Player : MonoBehaviour
 
     private void OnConveyorBelt(ConveyorBelt belt)
     {
-        if (cart.Count == 0 || !belt.HasRoom())
-            return;
+        if (cart.Count > 0)
+        {
+            FoodItem item = cart.Remove();
 
-        FoodItem item = cart.Remove();
-
-        belt.DepositItem(item);
-        foodStates[item.type] = FoodState.ON_CONVEYER;
+            if (belt.DepositItem(this, item))
+            {
+                foodStates[item.type] = FoodState.ON_CONVEYER;
+            }
+            else
+            {
+                cart.Add(item);
+            }
+        }
     }
 }

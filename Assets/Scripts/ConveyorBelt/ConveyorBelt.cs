@@ -59,9 +59,9 @@ public class ConveyorBelt : MonoBehaviour
      * Attempt to add an item to the conveyor belt.
      * Returns whether or not there was room to add the item.
      */
-    public bool DepositItem(FoodItem item)
+    public bool DepositItem(Player player, FoodItem item)
     {
-        if (HasRoom())
+        if (HasRoom() && (PlayerTeam(player) == currentTeam))
         {
             GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
             obj.transform.parent = this.gameObject.transform;
@@ -98,8 +98,7 @@ public class ConveyorBelt : MonoBehaviour
         bool present = false;
         foreach (Player player in players)
         {
-            if ((team == Team.BLUE && player.playerNumber < 3) ||
-                (team == Team.RED  && player.playerNumber > 2))
+            if (PlayerTeam(player) == team)
             {
                 present = true;
                 break;
@@ -121,6 +120,18 @@ public class ConveyorBelt : MonoBehaviour
         else
         {
             return Team.NONE;
+        }
+    }
+
+    private Team PlayerTeam(Player player)
+    {
+        if (player.playerNumber < 3)
+        {
+            return Team.BLUE;
+        }
+        else
+        {
+            return Team.RED;
         }
     }
 
