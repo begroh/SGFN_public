@@ -5,18 +5,26 @@ public class ConveyorBelt : MonoBehaviour
 {
     private enum Direction { FORWARD, REVERSE };
 
+    private enum Team { NONE, RED, BLUE };
+
     public GameObject foodConveyorBeltItemPrefab;
+    public Material defaultMaterial;
+    public Material blueMaterial;
+    public Material redMaterial;
 
     private float speed = 0.5f;     // 50 cm / second
     private float margin = 0.1f;    // 10 cm spacing
     private LinkedList<ConveyorBeltItem> items;
     private Vector2 startPosition;
     private Vector2 endPosition;
-    private bool haveFriend = false;
+
+    private List<Player> players;
+    private Team currentTeam = Team.NONE;
 
     void Awake()
     {
         items = new LinkedList<ConveyorBeltItem>();
+        players = new List<Player>();
         startPosition = (Vector2) this.transform.position + Vector2.up;
         endPosition = (Vector2) this.transform.position + Vector2.down;
     }
@@ -71,7 +79,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private bool FriendlyPlayer()
     {
-        return haveFriend;
+        return AnyPlayerWithTeam(currentTeam);
     }
 
     /*
@@ -79,7 +87,37 @@ public class ConveyorBelt : MonoBehaviour
      */
     private bool EnemyPlayer()
     {
-        return false;
+        return AnyPlayerWithTeam(EnemyTeam());
+    }
+
+    private bool AnyPlayerWithTeam(Team team) {
+        bool present = false;
+        foreach (Player player in players)
+        {
+            if ((team == Team.BLUE && player.playerNumber < 3) ||
+                (team == Team.RED  && player.playerNumber > 2))
+            {
+                present = true;
+                break;
+            }
+        }
+        return present;
+    }
+
+    private Team EnemyTeam()
+    {
+        if (currentTeam == Team.RED)
+        {
+            return Team.BLUE;
+        }
+        else if (currentTeam == Team.BLUE)
+        {
+            return Team.RED;
+        }
+        else
+        {
+            return Team.NONE;
+        }
     }
 
     /*
@@ -100,6 +138,7 @@ public class ConveyorBelt : MonoBehaviour
             maxDistance *= -1;
         }
 
+        // Move all of the items on the belt
         foreach (ConveyorBeltItem item in items)
         {
             Vector2 move = Vector2.MoveTowards(item.Position(), endPosition, maxDistance);
@@ -150,10 +189,19 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
+    /*
+     * Destroy an item that has fallen off the conveyor belt
+     * Changes the team to the enemy team
+     */
     private void FallOff(ConveyorBeltItem item)
     {
         items.Remove(item);
         Destroy(((FoodConveyorBeltItem) item).gameObject);
+
+        if (items.Count == 0)
+        {
+            ChangeTeam(EnemyTeam());
+        }
     }
 
     private void MoveItemToBag(ConveyorBeltItem item)
@@ -174,11 +222,61 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        haveFriend = true;
+        if (other.tag == "Player")
+        {
+            PlayerEnter(other.GetComponent<Player>());
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        haveFriend = false;
+        if (other.tag == "Player")
+        {
+            PlayerExit(other.GetComponent<Player>());
+        }
+    }
+
+    /*
+     * Called when a player enters the conveyor belt zone
+     * Changes the current team if there is no team yet
+     */
+    private void PlayerEnter(Player player)
+    {
+        if (currentTeam == Team.NONE)
+        {
+            ChangeTeam((player.playerNumber < 3) ? Team.BLUE : Team.RED);
+        }
+        players.Add(player);
+    }
+
+    /*
+     * Called when a player exits the conveyor belt zone
+     */
+    private void PlayerExit(Player player)
+    {
+        players.Remove(player);
+    }
+
+    /*
+     * Change the currentTeam variable and update the material to reflect the currentTeam
+     */
+    private void ChangeTeam(Team team)
+    {
+        currentTeam = team;
+
+        Renderer renderer = GetComponent<Renderer>();
+
+        if (team == Team.BLUE)
+        {
+            renderer.material = blueMaterial;
+        }
+        else if (team == Team.RED)
+        {
+            renderer.material = redMaterial;
+        }
+        else
+        {
+            renderer.material = defaultMaterial;
+        }
     }
 }
