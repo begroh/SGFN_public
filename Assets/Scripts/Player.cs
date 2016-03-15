@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
 
             if (belt.DepositItem(this, item))
             {
-                foodStates[item.type] = FoodState.ON_CONVEYER;
+                foodStates[item.type] = FoodState.ON_CONVEYOR;
             }
             else
             {
