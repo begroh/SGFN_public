@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum FoodType { CHEESE, BREAD, MEAT, CONDIMENT, TOPPING }
 
-public class FoodItem
+public class FoodItem : MonoBehaviour
 {
     public FoodType _type;
     private string _name;
@@ -22,5 +22,15 @@ public class FoodItem
     public string name
     {
         get { return _name; }
+    }
+
+    public static bool operator == (FoodItem a, FoodItem b)
+    {
+        return a._type == b._type;
+    }
+
+    public static bool operator != (FoodItem a, FoodItem b)
+    {
+        return a._type == b._type;
     }
 }

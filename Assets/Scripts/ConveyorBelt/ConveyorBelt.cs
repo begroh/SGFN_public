@@ -134,7 +134,7 @@ public class ConveyorBelt : MonoBehaviour
     /*
      * Returns true if there is enough room to deposit an item.
      */
-    private bool HasRoom()
+    public bool HasRoom()
     {
         ConveyorBeltItem last = LastItem();
 
