@@ -44,7 +44,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.52}
+  m_Size: {x: 3.5, y: 4}
 --- !u!114 &11448094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 170362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08ba71847b61aad43a371fd26966def1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8232c80cff70a430fb41deba343181c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0

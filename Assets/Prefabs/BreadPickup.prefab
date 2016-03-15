@@ -14,7 +14,7 @@ GameObject:
   - 61: {fileID: 6168018}
   m_Layer: 0
   m_Name: BreadPickup
-  m_TagString: Pickup
+  m_TagString: FoodPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.52}
+  m_Size: {x: 6, y: 5}
 --- !u!114 &11448094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 170362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08ba71847b61aad43a371fd26966def1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8232c80cff70a430fb41deba343181c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
@@ -112,11 +112,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Pickup
+      value: FoodPickup
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
