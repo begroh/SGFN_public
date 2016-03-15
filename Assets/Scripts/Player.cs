@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public enum FoodState {IN_CART, ON_CONVEYER, BAGGED, ON_GROUND}
+public enum FoodState {IN_CART, ON_CONVEYOR, BAGGED, ON_GROUND}
 
 public class Player : MonoBehaviour
 {
@@ -91,6 +91,6 @@ public class Player : MonoBehaviour
         FoodItem item = cart.Remove();
 
         belt.DepositItem(item);
-        foodStates[item.type] = FoodState.ON_CONVEYER;
+        foodStates[item.type] = FoodState.ON_CONVEYOR;
     }
 }

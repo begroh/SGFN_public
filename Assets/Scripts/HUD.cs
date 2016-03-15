@@ -20,24 +20,27 @@ public class HUD : MonoBehaviour {
 		SetStartColors();
 	}
 
-	public void OnItemStateChanged(FoodItem item, HUDState state)
-	// public void OnItemStateChanged(Dictionary<FoodItem, FoodState> foodStates)
+	// public void OnItemStateChanged(FoodItem item, HUDState state)
+	public void OnItemStateChanged(Dictionary<FoodItem, FoodState> foodStates)
 	{
-		if (state == HUDState.REQUIRED)
+		foreach (KeyValuePair<FoodItem, FoodState> state in foodStates)
 		{
-			DisplayItemAsRequired(item.type);
-		}
-		else if (state == HUDState.CART)
-		{
-			DisplayItemInCart(item.type);
-		}
-		else if (state == HUDState.CONVEYOR)
-		{
-			DisplayItemOnConveyor(item.type);
-		}
-		else if (state == HUDState.BAGGED)
-		{
-			DisplayItemAsBagged(item.type);
+			if (state.Value == FoodState.ON_GROUND)
+			{
+				DisplayItemAsRequired(state.Key.type);
+			}
+			else if (state.Value == FoodState.IN_CART)
+			{
+				DisplayItemInCart(state.Key.type);
+			}
+			else if (state.Value == FoodState.ON_CONVEYOR)
+			{
+				DisplayItemOnConveyor(state.Key.type);
+			}
+			else if (state.Value == FoodState.BAGGED)
+			{
+				DisplayItemAsBagged(state.Key.type);
+			}
 		}
 	}
 
