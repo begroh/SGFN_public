@@ -17,6 +17,11 @@ namespace PlayerControl
             {
                 Vector2 move = MoveDirection();
                 player.HandleMoveDirection(move);
+
+                if (Shoot())
+                {
+                    player.HandleShoot();
+                }
             }
         }
 
@@ -51,6 +56,22 @@ namespace PlayerControl
             }
 
             return direction;
+        }
+
+        /*
+         * Detects that a player wishes to shoot.
+         * Returns true when spacebar or left mouse is held down.
+         */
+        private bool Shoot()
+        {
+            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /*

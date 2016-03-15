@@ -75,6 +75,14 @@ public class Player : MonoBehaviour
         this.body.velocity = direction.normalized * speed;
     }
 
+    /*
+     * Called by a PlayerInput when the user is holding the shoot button
+     */
+    public void HandleShoot()
+    {
+        print("Shoot");
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "ConveyorBelt")

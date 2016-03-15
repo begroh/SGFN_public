@@ -34,6 +34,11 @@ namespace PlayerControl
         {
             Vector2 move = MoveDirection();
             player.HandleMoveDirection(move);
+
+            if (Shoot())
+            {
+                player.HandleShoot();
+            }
         }
 
         /*
@@ -48,6 +53,21 @@ namespace PlayerControl
             else
             {
                 return new Vector2(device.LeftStickX, device.LeftStickY);
+            }
+        }
+
+        /*
+         * Detect player shooting from right trigger
+         */
+        private bool Shoot()
+        {
+            if (device.RightTrigger)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
