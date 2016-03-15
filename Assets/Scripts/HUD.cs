@@ -18,6 +18,14 @@ public class HUD : MonoBehaviour {
 	{
 		GetSprites();
 		SetStartColors();
+		Invoke("ChangeStuff", 2);
+	}
+
+	void ChangeStuff()
+	{
+		DisplayItemInCart(FoodType.BREAD);
+		DisplayItemInCart(FoodType.CHEESE);
+		DisplayItemAsBagged(FoodType.CHEESE);
 	}
 
 	public void OnItemStateChanged(FoodItem item, HUDState state)
@@ -43,29 +51,30 @@ public class HUD : MonoBehaviour {
 
 	void DisplayItemAsRequired(FoodType type)
 	{
-		SpriteRenderer sprend = GetSpriteByType(type);
-		Color tmp = sprend.color;
+		HUDIcon icon = GetIconByType(type);
+		Color tmp = icon.artwork.color;
 		tmp.a = 0.5f;
-		sprend.color = tmp;
+		icon.artwork.color = tmp;
 	}
 
 	void DisplayItemInCart(FoodType type)
 	{
-		SpriteRenderer sprend = GetSpriteByType(type);
-		Color tmp = sprend.color;
+		HUDIcon icon = GetIconByType(type);
+		Color tmp = icon.artwork.color;
 		tmp.a = 1f;
-		sprend.color = tmp;
+		icon.artwork.color = tmp;
 	}
 
 	void DisplayItemOnConveyor(FoodType type)
 	{
-		SpriteRenderer sprend = GetSpriteByType(type);
+		HUDIcon icon = GetIconByType(type);
 		// TODO overlay sprite with something to signify conveyor
 	}
 
 	void DisplayItemAsBagged(FoodType type)
 	{
-		SpriteRenderer sprend = GetSpriteByType(type);
+		HUDIcon icon = GetIconByType(type);
+		icon.bagged.enabled = true;
 		// TODO overlay sprite with something to signify bagged
 	}
 
@@ -75,23 +84,23 @@ public class HUD : MonoBehaviour {
 
 	}
 
-	SpriteRenderer GetSpriteByType(FoodType type)
+	HUDIcon GetIconByType(FoodType type)
 	{
 		if (type == FoodType.CHEESE)
 		{
-			return cheeseIcon.artwork;
+			return cheeseIcon;
 		}
 		else if (type == FoodType.BREAD)
 		{
-			return breadIcon.artwork;
+			return breadIcon;
 		}
 		else if (type == FoodType.MEAT)
 		{
-			return meatIcon.artwork;
+			return meatIcon;
 		}
 		else if (type == FoodType.CONDIMENT)
 		{
-			return condimentIcon.artwork;
+			return condimentIcon;
 		}
 		return null;
 	}
