@@ -12,6 +12,14 @@ public class HUDIcon : MonoBehaviour
 		GameObject child = gameObject.transform.Find("FoodIcon").gameObject;
 		artwork = child.GetComponent<SpriteRenderer>();
 		artwork.enabled = true;
+
+		child = gameObject.transform.Find("ConveyorIcon").gameObject;
+		conveyor = child.GetComponent<SpriteRenderer>();
+		conveyor.enabled = false;
+
+		child = gameObject.transform.Find("BaggedIcon").gameObject;
+		bagged = child.GetComponent<SpriteRenderer>();
+		bagged.enabled = false;
 	}
 
 	public void SetSprite(Sprite art)

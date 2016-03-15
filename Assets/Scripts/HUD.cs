@@ -7,13 +7,10 @@ public enum HUDState { REQUIRED, CART, CONVEYOR, BAGGED, BONUS }
 
 public class HUD : MonoBehaviour {
 
-	public SpriteRenderer cheeseSprite;
-	public SpriteRenderer breadSprite;
-	public SpriteRenderer meatSprite;
-	public SpriteRenderer condimentSprite;
-
-	public SpriteRenderer conveyorSprite;
-	public SpriteRenderer baggedSprite;
+	public HUDIcon cheeseIcon;
+	public HUDIcon breadIcon;
+	public HUDIcon meatIcon;
+	public HUDIcon condimentIcon;
 
 	List<SpriteRenderer> bonusSprites; // TODO since we might not use them
 
@@ -82,64 +79,62 @@ public class HUD : MonoBehaviour {
 	{
 		if (type == FoodType.CHEESE)
 		{
-			return cheeseSprite;
+			return cheeseIcon.artwork;
 		}
 		else if (type == FoodType.BREAD)
 		{
-			return breadSprite;
+			return breadIcon.artwork;
 		}
 		else if (type == FoodType.MEAT)
 		{
-			return meatSprite;
+			return meatIcon.artwork;
 		}
 		else if (type == FoodType.CONDIMENT)
 		{
-			return condimentSprite;
+			return condimentIcon.artwork;
 		}
 		return null;
 	}
 
 	void GetSprites()
 	{
-		GameObject child = gameObject.transform.Find("BreadIcon").gameObject;
-		breadSprite = child.GetComponent<SpriteRenderer>();
-		breadSprite.enabled = true;
+		breadIcon = gameObject.transform.Find("BreadIcon").GetComponent<HUDIcon>();
+		breadIcon.artwork.enabled = true;
+		breadIcon.conveyor.enabled = false;
+		breadIcon.bagged.enabled = false;
 
-		child = gameObject.transform.Find("CheeseIcon").gameObject;
-		cheeseSprite = child.GetComponent<SpriteRenderer>();
-		cheeseSprite.enabled = true;
+		cheeseIcon = gameObject.transform.Find("CheeseIcon").GetComponent<HUDIcon>();
+		cheeseIcon.artwork.enabled = true;
+		cheeseIcon.conveyor.enabled = false;
+		cheeseIcon.bagged.enabled = false;
 
-		child = gameObject.transform.Find("MeatIcon").gameObject;
-		meatSprite = child.GetComponent<SpriteRenderer>();
-		meatSprite.enabled = true;
+		meatIcon = gameObject.transform.Find("MeatIcon").GetComponent<HUDIcon>();
+		meatIcon.artwork.enabled = true;
+		meatIcon.conveyor.enabled = false;
+		meatIcon.bagged.enabled = false;
 
-		child = gameObject.transform.Find("CondimentIcon").gameObject;
-		condimentSprite = child.GetComponent<SpriteRenderer>();
-		condimentSprite.enabled = true;
-
-		// Conveyor and Bagged sprites start out disabled
-		child = gameObject.transform.Find("ConveyorIcon").gameObject;
-		conveyorSprite = child.GetComponent<SpriteRenderer>();
-		child = gameObject.transform.Find("BaggedIcon").gameObject;
-		baggedSprite = child.GetComponent<SpriteRenderer>();
+		condimentIcon = gameObject.transform.Find("CondimentIcon").GetComponent<HUDIcon>();
+		condimentIcon.artwork.enabled = true;
+		condimentIcon.conveyor.enabled = false;
+		condimentIcon.bagged.enabled = false;
 	}
 
 	void SetStartColors()
 	{
-		Color tmp = cheeseSprite.color;
+		Color tmp = cheeseIcon.artwork.color;
 		tmp.a = 0.5f;
-		cheeseSprite.color = tmp;
+		cheeseIcon.artwork.color = tmp;
 
-		tmp = breadSprite.color;
+		tmp = breadIcon.artwork.color;
 		tmp.a = 0.5f;
-		breadSprite.color = tmp;
+		breadIcon.artwork.color = tmp;
 
-		tmp = meatSprite.color;
+		tmp = meatIcon.artwork.color;
 		tmp.a = 0.5f;
-		meatSprite.color = tmp;
+		meatIcon.artwork.color = tmp;
 
-		tmp = condimentSprite.color;
+		tmp = condimentIcon.artwork.color;
 		tmp.a = 0.5f;
-		condimentSprite.color = tmp;
+		condimentIcon.artwork.color = tmp;
 	}
 }
