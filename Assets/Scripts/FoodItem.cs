@@ -5,7 +5,8 @@ public enum FoodType { CHEESE, BREAD, MEAT, CONDIMENT, BONUS }
 
 public class FoodItem : MonoBehaviour
 {
-    private FoodType _type;
+    public FoodType _type;
+    private string _name;
     private Sprite _sprite;
 
     public FoodType type
@@ -16,5 +17,20 @@ public class FoodItem : MonoBehaviour
     public Sprite sprite
     {
         get { return _sprite; }
+    }
+
+    public string name
+    {
+        get { return _name; }
+    }
+
+    public static bool operator == (FoodItem a, FoodItem b)
+    {
+        return a._type == b._type;
+    }
+
+    public static bool operator != (FoodItem a, FoodItem b)
+    {
+        return a._type != b._type;
     }
 }

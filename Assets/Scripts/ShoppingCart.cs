@@ -1,26 +1,34 @@
-using UnityEngine;
 using System.Collections.Generic;
 
-public class ShoppingCart : MonoBehaviour
+public class ShoppingCart
 {
     private Queue<FoodItem> cart;
+
+    public ShoppingCart()
+    {
+        this.cart = new Queue<FoodItem>();
+    }
 
     public int Count
     {
         get { return cart.Count; }
     }
 
-    public void Add(FoodItem item)
+    public bool Add(FoodItem item)
     {
+        if (cart.Contains(item))
+        {
+            return false;
+        }
+
         cart.Enqueue(item);
-        // TODO add item to HUD
+        return true;
     }
 
     public FoodItem Remove()
     {
         if (cart.Count > 0)
         {
-            // TODO remove from HUD
             return cart.Dequeue();
         }
 

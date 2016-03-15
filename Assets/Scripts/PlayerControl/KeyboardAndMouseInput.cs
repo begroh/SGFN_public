@@ -7,10 +7,17 @@ namespace PlayerControl
      */
     public class KeyboardAndMouseInput : PlayerInput
     {
+        private static int activePlayer = 1;
+
         public void DetectInput(Player player)
         {
-            Vector2 move = MoveDirection();
-            player.HandleMoveDirection(move);
+            DetectPlayerChange();
+
+            if (activePlayer == player.playerNumber)
+            {
+                Vector2 move = MoveDirection();
+                player.HandleMoveDirection(move);
+            }
         }
 
         /*
@@ -44,6 +51,22 @@ namespace PlayerControl
             }
 
             return direction;
+        }
+
+        /*
+         * If the player presses 1, 2, 3, or 4, change the active player number.
+         */
+        private void DetectPlayerChange()
+        {
+            KeyCode[] codes = { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4 };
+
+            for (int i = 0; i < codes.Length; ++i)
+            {
+                if (Input.GetKeyDown(codes[i]))
+                {
+                    activePlayer = i + 1;
+                }
+            }
         }
     }
 }
