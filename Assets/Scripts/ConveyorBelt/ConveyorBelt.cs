@@ -12,8 +12,8 @@ public class ConveyorBelt : MonoBehaviour
     public Material blueMaterial;
     public Material redMaterial;
 
-    private float speed = 0.5f;     // 50 cm / second
-    private float margin = 0.1f;    // 10 cm spacing
+    private float speed = 1.25f;    // 125 cm / second
+    private float margin = 0.3f;    // 30 cm spacing
     private LinkedList<ConveyorBeltItem> items;
     private Vector2 startPosition;
     private Vector2 endPosition;
