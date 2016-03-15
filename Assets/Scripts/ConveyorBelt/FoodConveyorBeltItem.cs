@@ -19,7 +19,7 @@ public class FoodConveyorBeltItem : MonoBehaviour, ConveyorBeltItem
      */
     public float Size()
     {
-        return 0.5f;
+        return 1.25f;
     }
 
     /*
