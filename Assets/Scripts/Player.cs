@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private ShoppingCart cart;
     private Dictionary<FoodType, FoodState> foodStates;
 
-    private float speed = 4;
+    public float speed = 4;
     private Rigidbody2D body;
     private PlayerControl.PlayerInput input;
 
