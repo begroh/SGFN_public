@@ -18,14 +18,6 @@ public class HUD : MonoBehaviour {
 	{
 		GetSprites();
 		SetStartColors();
-		Invoke("ChangeStuff", 2);
-	}
-
-	void ChangeStuff()
-	{
-		DisplayItemInCart(FoodType.BREAD);
-		DisplayItemInCart(FoodType.CHEESE);
-		DisplayItemAsBagged(FoodType.CHEESE);
 	}
 
 	public void OnItemStateChanged(FoodItem item, HUDState state)
