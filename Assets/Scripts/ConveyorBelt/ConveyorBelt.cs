@@ -25,8 +25,12 @@ public class ConveyorBelt : MonoBehaviour
     {
         items = new LinkedList<ConveyorBeltItem>();
         players = new List<Player>();
-        startPosition = (Vector2) this.transform.position + Vector2.up;
-        endPosition = (Vector2) this.transform.position + Vector2.down;
+
+        // Setup start and end points
+        Bounds bounds = GetComponent<MeshFilter>().mesh.bounds;
+        float extent = (bounds.extents.y * transform.localScale.y) * 0.95f;
+        startPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.up * extent));
+        endPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.down * extent));
     }
 
     void Update()
