@@ -75,6 +75,14 @@ public class Player : MonoBehaviour
         this.body.velocity = direction.normalized * speed;
     }
 
+    /*
+     * Called by a PlayerInput when the user is holding the shoot button
+     */
+    public void HandleShoot()
+    {
+        print("Shoot");
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "ConveyorBelt")
@@ -85,12 +93,18 @@ public class Player : MonoBehaviour
 
     private void OnConveyorBelt(ConveyorBelt belt)
     {
-        if (cart.Count == 0 || !belt.HasRoom())
-            return;
+        if (cart.Count > 0)
+        {
+            FoodItem item = cart.Remove();
 
-        FoodItem item = cart.Remove();
-
-        belt.DepositItem(item);
-        foodStates[item.type] = FoodState.ON_CONVEYER;
+            if (belt.DepositItem(this, item))
+            {
+                foodStates[item.type] = FoodState.ON_CONVEYER;
+            }
+            else
+            {
+                cart.Add(item);
+            }
+        }
     }
 }
