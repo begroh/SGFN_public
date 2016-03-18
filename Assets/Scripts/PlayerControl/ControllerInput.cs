@@ -34,10 +34,27 @@ namespace PlayerControl
         {
             Vector2 move = MoveDirection();
             player.HandleMoveDirection(move);
+            Vector2 aim = AimDirection();
+            player.HandleAimDirection(aim);
 
             if (Shoot())
             {
                 player.HandleShoot();
+            }
+        }
+
+        /*
+         * Detect player aim direction from the right stick
+         */
+        private Vector2 AimDirection()
+        {
+            if  (device != null)
+            {
+                return new Vector2(device.RightStickX, device.RightStickY);
+            }
+            else
+            {
+                return Vector2.zero;
             }
         }
 

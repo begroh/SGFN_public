@@ -8,14 +8,14 @@ public class Player : MonoBehaviour
     public int playerNumber = 1;    // Joystick slot, default to 1
     public bool useKeyboard = true; // Use keyboard instead of controller, defaults to true for development
 
-    public GunBase gun;
-
     private ShoppingCart cart;
     private Dictionary<FoodType, FoodState> foodStates;
 
     public float speed = 4;
     private Rigidbody2D body;
     private PlayerControl.PlayerInput input;
+
+    private Gun gun;
 
     void Awake()
     {
@@ -38,6 +38,12 @@ public class Player : MonoBehaviour
         }
 
         this.cart = new ShoppingCart();
+
+    }
+
+    void Start()
+    {
+        gun = gameObject.GetComponentInChildren<Gun>();
     }
 
     void Update()
@@ -77,12 +83,18 @@ public class Player : MonoBehaviour
         this.body.velocity = direction.normalized * speed;
     }
 
+    public void HandleAimDirection(Vector2 dir)
+    {
+        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+        gun.transform.localEulerAngles = new Vector3(0f, 0f, angle);
+    }
+
     /*
      * Called by a PlayerInput when the user is holding the shoot button
      */
     public void HandleShoot()
     {
-        print("Shoot");
+        gun.Fire();
     }
 
     void OnTriggerStay2D(Collider2D other)

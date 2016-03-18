@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class GunBase : MonoBehaviour {
+public class Gun : MonoBehaviour {
 
     public Bullet bullet;
     public float spread;
     public float numBullets;
     public float reloadTime;
-    public float bulletSpeed;
+    public float launchForce;
 
     private float lastFireTime;
-    private Vector2 launchVec;
+    private float distFromBarrelEnd = 1.4f;
 
     void Start()
     {
         lastFireTime = Time.time;
-        launchVec = new Vector2(bulletSpeed, 0);
     }
 
     public void Fire()
@@ -26,15 +25,16 @@ public abstract class GunBase : MonoBehaviour {
             {
                 SpawnBullet();
             }
+            lastFireTime = Time.time;
         }
     }
 
     private void SpawnBullet()
     {
-        Bullet spawnedBullet = (Bullet) Instantiate(bullet);
-        Rigidbody2D body = spawnedBullet.GetComponent<Rigidbody2D>();
-        body.velocity = launchVec;
-        spawnedBullet.transform.Rotate(Random.Range(spread, spread * -1), 0, 0);
-    }
+        Vector3 spawnLoc = transform.position + transform.forward * distFromBarrelEnd;
+        Bullet spawnedBullet = (Bullet) Instantiate(bullet, spawnLoc, Quaternion.identity);
 
+        Rigidbody2D body = spawnedBullet.GetComponent<Rigidbody2D>();
+        body.AddForce(transform.right * launchForce);
+    }
 }
