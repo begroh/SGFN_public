@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public int playerNumber = 1;    // Joystick slot, default to 1
     public bool useKeyboard = true; // Use keyboard instead of controller, defaults to true for development
 
+    public GunBase gun;
+
     private ShoppingCart cart;
     private Dictionary<FoodType, FoodState> foodStates;
 
