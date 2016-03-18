@@ -20,9 +20,9 @@ public class HUD : MonoBehaviour {
 		SetStartColors();
 	}
 
-	// public void OnItemStateChanged(FoodItem item, HUDState state)
 	public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
 	{
+		// Change display of any items in the HUD that have changed state
 		foreach (KeyValuePair<FoodType, FoodState> state in foodStates)
 		{
 			if (state.Value == FoodState.ON_GROUND)
@@ -97,6 +97,7 @@ public class HUD : MonoBehaviour {
 		{
 			return condimentIcon;
 		}
+		print (null);
 		return null;
 	}
 

@@ -111,4 +111,10 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+	public void MoveItemToBag(FoodItem item)
+	{
+		foodStates[item.type] = FoodState.BAGGED;
+		playerHUD.OnItemStateChanged(foodStates);
+	}
 }

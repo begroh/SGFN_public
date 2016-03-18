@@ -14,7 +14,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private float speed = 1.25f;    // 125 cm / second
     private float margin = 0.3f;    // 30 cm spacing
-    private LinkedList<ConveyorBeltItem> items;
+    private LinkedList<FoodConveyorBeltItem> items;
     private Vector2 startPosition;
     private Vector2 endPosition;
 
@@ -23,7 +23,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void Awake()
     {
-        items = new LinkedList<ConveyorBeltItem>();
+        items = new LinkedList<FoodConveyorBeltItem>();
         players = new List<Player>();
 
         // Setup start and end points
@@ -50,9 +50,9 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
-    public List<ConveyorBeltItem> GetItems()
+    public List<FoodConveyorBeltItem> GetItems()
     {
-        return new List<ConveyorBeltItem>(items);
+        return new List<FoodConveyorBeltItem>(items);
     }
 
     /*
@@ -68,6 +68,7 @@ public class ConveyorBelt : MonoBehaviour
             obj.transform.position = startPosition;
             FoodConveyorBeltItem beltItem = obj.GetComponent<FoodConveyorBeltItem>();
             beltItem.SetItem(item);
+			beltItem.player = player;
 
             items.AddLast(beltItem);
             return true;
@@ -154,7 +155,7 @@ public class ConveyorBelt : MonoBehaviour
         }
 
         // Move all of the items on the belt
-        foreach (ConveyorBeltItem item in items)
+        foreach (FoodConveyorBeltItem item in items)
         {
             Vector2 move = Vector2.MoveTowards(item.Position(), endPosition, maxDistance);
             item.Move(move);
@@ -171,9 +172,9 @@ public class ConveyorBelt : MonoBehaviour
      * Returns the item closest towards the start of the conveyor belt,
      * if it is close enough, otherwise returns null.
      */
-    private ConveyorBeltItem AvailableItem()
+    private FoodConveyorBeltItem AvailableItem()
     {
-        ConveyorBeltItem item = LastItem();
+        FoodConveyorBeltItem item = LastItem();
 
         if (item != null && Vector2.Distance(item.Position(), startPosition) < 0.01)
         {
@@ -190,7 +191,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     public bool HasRoom()
     {
-        ConveyorBeltItem last = LastItem();
+        FoodConveyorBeltItem last = LastItem();
 
         if (last == null)
         {
@@ -208,7 +209,7 @@ public class ConveyorBelt : MonoBehaviour
      * Destroy an item that has fallen off the conveyor belt
      * Changes the team to the enemy team
      */
-    private void FallOff(ConveyorBeltItem item)
+    private void FallOff(FoodConveyorBeltItem item)
     {
         items.Remove(item);
         Destroy(((FoodConveyorBeltItem) item).gameObject);
@@ -219,15 +220,16 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
-    private void MoveItemToBag(ConveyorBeltItem item)
+    private void MoveItemToBag(FoodConveyorBeltItem item)
     {
         items.Remove(item);
+		item.player.MoveItemToBag(item.Item());
         Destroy(((FoodConveyorBeltItem) item).gameObject);
     }
 
-    private ConveyorBeltItem LastItem()
+    private FoodConveyorBeltItem LastItem()
     {
-        ConveyorBeltItem last = null;
+        FoodConveyorBeltItem last = null;
         if (items.Last != null) {
             last = items.Last.Value;
         }

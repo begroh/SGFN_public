@@ -3,6 +3,7 @@ using UnityEngine;
 public class FoodConveyorBeltItem : MonoBehaviour, ConveyorBeltItem
 {
     private FoodItem item;
+	private Player _player;
 
     public void SetItem(FoodItem item)
     {
@@ -13,6 +14,12 @@ public class FoodConveyorBeltItem : MonoBehaviour, ConveyorBeltItem
     {
         return item;
     }
+
+	public Player player
+	{
+		get { return _player; }
+		set { _player = value; }
+	}
 
     /*
      * The size of the item as it is represented on the conveyor belt
