@@ -21,25 +21,25 @@ public class HUD : MonoBehaviour {
 	}
 
 	// public void OnItemStateChanged(FoodItem item, HUDState state)
-	public void OnItemStateChanged(Dictionary<FoodItem, FoodState> foodStates)
+	public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
 	{
-		foreach (KeyValuePair<FoodItem, FoodState> state in foodStates)
+		foreach (KeyValuePair<FoodType, FoodState> state in foodStates)
 		{
 			if (state.Value == FoodState.ON_GROUND)
 			{
-				DisplayItemAsRequired(state.Key.type);
+				DisplayItemAsRequired(state.Key);
 			}
 			else if (state.Value == FoodState.IN_CART)
 			{
-				DisplayItemInCart(state.Key.type);
+				DisplayItemInCart(state.Key);
 			}
 			else if (state.Value == FoodState.ON_CONVEYOR)
 			{
-				DisplayItemOnConveyor(state.Key.type);
+				DisplayItemOnConveyor(state.Key);
 			}
 			else if (state.Value == FoodState.BAGGED)
 			{
-				DisplayItemAsBagged(state.Key.type);
+				DisplayItemAsBagged(state.Key);
 			}
 		}
 	}

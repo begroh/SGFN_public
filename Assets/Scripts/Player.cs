@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public int playerNumber = 1;    // Joystick slot, default to 1
     public bool useKeyboard = true; // Use keyboard instead of controller, defaults to true for development
 
+	public HUD playerHUD;
+
     private ShoppingCart cart;
     private Dictionary<FoodType, FoodState> foodStates;
 
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
         foodStates.Add(FoodType.BREAD, FoodState.ON_GROUND);
         foodStates.Add(FoodType.MEAT, FoodState.ON_GROUND);
         foodStates.Add(FoodType.CONDIMENT, FoodState.ON_GROUND);
-        foodStates.Add(FoodType.BONUS, FoodState.ON_GROUND);
+        // foodStates.Add(FoodType.BONUS, FoodState.ON_GROUND);
 
         this.body = GetComponent<Rigidbody2D>();
 
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour
             }
 
             foodStates[type] = FoodState.IN_CART;
+			playerHUD.OnItemStateChanged(foodStates);
             Destroy(other.gameObject);
         }
     }
@@ -100,6 +103,7 @@ public class Player : MonoBehaviour
             if (belt.DepositItem(this, item))
             {
                 foodStates[item.type] = FoodState.ON_CONVEYOR;
+				playerHUD.OnItemStateChanged(foodStates);
             }
             else
             {
