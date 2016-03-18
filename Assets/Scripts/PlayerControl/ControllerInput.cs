@@ -10,6 +10,7 @@ namespace PlayerControl
     public class ControllerInput : PlayerInput
     {
         private InputDevice device;
+	private Vector2 lastVec;
 
         /*
          * Construct a new ControllerInput to find a joystick for player 'playerNumber'
@@ -50,7 +51,15 @@ namespace PlayerControl
         {
             if  (device != null)
             {
-                return new Vector2(device.RightStickX, device.RightStickY);
+	    	if (device.RightStickX == 0 && device.RightStickY == 0)
+		{
+		    return lastVec;
+		}
+		else
+		{
+                    lastVec = new Vector2(device.RightStickX, device.RightStickY);
+		    return lastVec;
+		}
             }
             else
             {

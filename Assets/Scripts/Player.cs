@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
 
     public void HandleAimDirection(Vector2 dir)
     {
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+        float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
         gun.transform.localEulerAngles = new Vector3(0f, 0f, angle);
     }
 

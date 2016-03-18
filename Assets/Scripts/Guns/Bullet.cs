@@ -3,13 +3,24 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public float range;
+
+    private Vector3 startLoc;
+
+    void Start()
+    {
+        startLoc = transform.position;
+    }
+
+    void Update()
+    {
+        if (Mathf.Abs(Vector3.Distance(startLoc, transform.position)) > range)
+	    Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(gameObject);
+    }
+
 }
