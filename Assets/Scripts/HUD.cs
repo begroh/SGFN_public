@@ -20,6 +20,10 @@ public class HUD : MonoBehaviour {
 		SetStartColors();
 	}
 
+	public void ResetHUD()
+	{
+	}
+
 	public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
 	{
 		// Change display of any items in the HUD that have changed state

@@ -212,6 +212,7 @@ public class ConveyorBelt : MonoBehaviour
     private void FallOff(FoodConveyorBeltItem item)
     {
         items.Remove(item);
+		item.player.LoseItem(item.Item());
         Destroy(((FoodConveyorBeltItem) item).gameObject);
 
         if (items.Count == 0)
