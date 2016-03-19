@@ -24,28 +24,27 @@ public class HUD : MonoBehaviour {
 	{
 	}
 
-	public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
+	// public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
+	public void OnItemStateChanged(FoodType type, FoodState state)
 	{
 		// Change display of any items in the HUD that have changed state
-		foreach (KeyValuePair<FoodType, FoodState> state in foodStates)
+		if (state == FoodState.ON_GROUND)
 		{
-			if (state.Value == FoodState.ON_GROUND)
-			{
-				DisplayItemAsRequired(state.Key);
-			}
-			else if (state.Value == FoodState.IN_CART)
-			{
-				DisplayItemInCart(state.Key);
-			}
-			else if (state.Value == FoodState.ON_CONVEYOR)
-			{
-				DisplayItemOnConveyor(state.Key);
-			}
-			else if (state.Value == FoodState.BAGGED)
-			{
-				DisplayItemAsBagged(state.Key);
-			}
+			DisplayItemAsRequired(type);
 		}
+		else if (state == FoodState.IN_CART)
+		{
+			DisplayItemInCart(type);
+		}
+		else if (state == FoodState.ON_CONVEYOR)
+		{
+			DisplayItemOnConveyor(type);
+		}
+		else if (state == FoodState.BAGGED)
+		{
+			DisplayItemAsBagged(type);
+		}
+		// TODO Bonus
 	}
 
 	void DisplayItemAsRequired(FoodType type)

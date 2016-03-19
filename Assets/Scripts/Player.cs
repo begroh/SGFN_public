@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             }
 
             foodStates[type] = FoodState.IN_CART;
-			playerHUD.OnItemStateChanged(foodStates);
+			playerHUD.OnItemStateChanged(type, foodStates[type]);
             Destroy(other.gameObject);
         }
     }
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             if (belt.DepositItem(this, item))
             {
                 foodStates[item.type] = FoodState.ON_CONVEYOR;
-				playerHUD.OnItemStateChanged(foodStates);
+				playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
             }
             else
             {
@@ -115,12 +115,12 @@ public class Player : MonoBehaviour
 	public void LoseItem(FoodItem item)
 	{
 		foodStates[item.type] = FoodState.ON_GROUND;
-		playerHUD.OnItemStateChanged(foodStates);
+		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
 	}
 
 	public void MoveItemToBag(FoodItem item)
 	{
 		foodStates[item.type] = FoodState.BAGGED;
-		playerHUD.OnItemStateChanged(foodStates);
+		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
 	}
 }
