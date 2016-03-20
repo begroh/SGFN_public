@@ -6,7 +6,6 @@ TagManager:
   tags:
   - FoodPickup
   - ConveyorBelt
-  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,14 +16,10 @@ TagManager:
   - 
   - 
   - Background
-  - Walls
   - 
   - 
   - 
-  - BlueBullet
-  - BluePlayer
-  - RedBullet
-  - RedPlayer
+  - 
   - 
   - 
   - 

@@ -17,14 +17,17 @@ TagManager:
   - 
   - 
   - Background
+<<<<<<< HEAD
   - Walls
   - 
   - 
   - 
+=======
   - BlueBullet
   - BluePlayer
   - RedBullet
   - RedPlayer
+>>>>>>> guns
   - 
   - 
   - 
