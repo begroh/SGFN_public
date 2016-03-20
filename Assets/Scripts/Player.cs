@@ -141,6 +141,7 @@ public class Player : MonoBehaviour
         }
 
         foodStates[type] = FoodState.IN_CART;
+		playerHUD.OnItemStateChanged(type, foodStates[type]);
         return true;
     }
 
