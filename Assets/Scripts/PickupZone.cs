@@ -11,12 +11,12 @@ public class PickupZone : MonoBehaviour
         SpawnItem();
     }
 
-    public void StartRespawn()
-    {
-        Invoke("SpawnItem", respawnTime);
-    }
+	public void StartRespawn()
+	{
+		Invoke("SpawnItem", respawnTime);
+	}
 
-    void SpawnItem()
+    virtual protected void SpawnItem()
     {
         Collectible c = (Collectible) Instantiate(collectible);
         c.transform.position = this.transform.position;
