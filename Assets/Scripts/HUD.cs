@@ -73,7 +73,6 @@ public class HUD : MonoBehaviour {
 	{
 		HUDIcon icon = GetIconByType(type);
 		icon.bagged.enabled = true;
-		// TODO overlay sprite with something to signify bagged
 	}
 
 	// TODO Decide if multiple bonus items can be added
@@ -100,7 +99,6 @@ public class HUD : MonoBehaviour {
 		{
 			return condimentIcon;
 		}
-		print (null);
 		return null;
 	}
 

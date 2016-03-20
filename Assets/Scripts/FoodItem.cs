@@ -26,6 +26,7 @@ public class FoodItem : MonoBehaviour
 
     public static bool operator == (FoodItem a, FoodItem b)
     {
+		print ("comparing");
         return a._type == b._type;
     }
 

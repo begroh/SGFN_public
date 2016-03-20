@@ -1,6 +1,7 @@
+using UnityEngine;
 using System.Collections.Generic;
 
-public class ShoppingCart
+public class ShoppingCart : MonoBehaviour
 {
     private Queue<FoodItem> cart;
 
@@ -34,4 +35,23 @@ public class ShoppingCart
 
         return null;
     }
+
+	// public bool ContainsFullSandwich()
+	// {
+	// 	bool hasCheese = false, hasBread = false,
+	// 		 hasCondiment = false, hasMeat = false;
+	// 	foreach (FoodItem item in cart)
+	// 	{
+	// 		if (item.type == FoodType.CHEESE)
+	// 			hasCheese = true;
+	// 		else if (item.type == FoodType.BREAD)
+	// 			hasBread = true;
+	// 		else if (item.type == FoodType.CONDIMENT)
+	// 			hasCondiment = true;
+	// 		else if (item.type == FoodType.MEAT)
+	// 			hasMeat = true;
+
+	// 		return hasCheese && hasBread && hasCondiment && hasMeat;
+	// 	}
+	// }
 }
