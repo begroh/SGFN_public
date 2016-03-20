@@ -4,7 +4,7 @@ using System.Collections;
 public class Gun : MonoBehaviour {
 
     public Bullet bullet;
-    public float spread;
+    public float spreadForce;
     public float numBullets;
     public float reloadTime;
     public float launchForce;
@@ -33,9 +33,10 @@ public class Gun : MonoBehaviour {
     {
         Vector3 spawnLoc = transform.position + transform.forward * distFromBarrelEnd;
         Bullet spawnedBullet = (Bullet) Instantiate(bullet, spawnLoc, Quaternion.identity);
-	    spawnedBullet.transform.rotation = transform.rotation;
+	spawnedBullet.transform.rotation = transform.rotation;
 
         Rigidbody2D body = spawnedBullet.GetComponent<Rigidbody2D>();
         body.AddForce(transform.right * launchForce);
+        body.AddForce(transform.up * Random.Range(-spreadForce, spreadForce));
     }
 }

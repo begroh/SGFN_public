@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private Renderer rend;
     private Color startColor;
     private bool invincible = false;
+    private int counter;
 
     void Awake()
     {
@@ -73,6 +74,13 @@ public class Player : MonoBehaviour
     {
         if (invincible)
         {
+            counter++;
+            if (counter % 5 != 0)
+            {
+                print(counter);
+                return;
+            }
+
             if (lastTimeHit + invincibleTime < Time.time)
             {
                 invincible = false;
@@ -80,7 +88,7 @@ public class Player : MonoBehaviour
             }
             else if (rend.material.color == startColor)
             {
-                rend.material.color = Color.white;
+                rend.material.color = Color.black;
             }
             else
             {
