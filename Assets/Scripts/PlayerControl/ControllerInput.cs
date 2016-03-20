@@ -87,7 +87,7 @@ namespace PlayerControl
          */
         private bool Shoot()
         {
-            if (device.RightTrigger)
+            if (device.RightTrigger.WasPressed)
             {
                 return true;
             }
