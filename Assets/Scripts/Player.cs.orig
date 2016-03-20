@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     private Renderer rend;
     private Color startColor;
     private bool invincible = false;
-    private int counter;
 
     void Awake()
     {
@@ -74,13 +73,6 @@ public class Player : MonoBehaviour
     {
         if (invincible)
         {
-            counter++;
-            if (counter % 5 != 0)
-            {
-                print(counter);
-                return;
-            }
-
             if (lastTimeHit + invincibleTime < Time.time)
             {
                 invincible = false;
@@ -88,7 +80,7 @@ public class Player : MonoBehaviour
             }
             else if (rend.material.color == startColor)
             {
-                rend.material.color = Color.black;
+                rend.material.color = Color.white;
             }
             else
             {
@@ -183,7 +175,7 @@ public class Player : MonoBehaviour
             if (belt.DepositItem(this, item))
             {
                 foodStates[item.type] = FoodState.ON_CONVEYOR;
-				playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+                                playerHUD.OnItemStateChanged(foodStates);
             }
             else
             {
@@ -191,16 +183,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-	public void LoseItem(FoodItem item)
-	{
-		foodStates[item.type] = FoodState.ON_GROUND;
-		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
-	}
-
-	public void MoveItemToBag(FoodItem item)
-	{
-		foodStates[item.type] = FoodState.BAGGED;
-		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
-	}
 }

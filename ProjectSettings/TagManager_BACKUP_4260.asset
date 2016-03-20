@@ -17,14 +17,17 @@ TagManager:
   - 
   - 
   - Background
+<<<<<<< HEAD
   - Walls
   - 
   - 
   - 
+=======
   - BlueBullet
   - BluePlayer
   - RedBullet
   - RedPlayer
+>>>>>>> guns
   - 
   - 
   - 
@@ -53,7 +56,4 @@ TagManager:
     locked: 0
   - name: Pickups
     uniqueID: 39059361
-    locked: 0
-  - name: Bagged
-    uniqueID: 3568251187
     locked: 0

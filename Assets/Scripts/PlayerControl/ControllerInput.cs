@@ -10,6 +10,7 @@ namespace PlayerControl
     public class ControllerInput : PlayerInput
     {
         private InputDevice device;
+        private Vector2 lastVec;
 
         /*
          * Construct a new ControllerInput to find a joystick for player 'playerNumber'
@@ -34,10 +35,35 @@ namespace PlayerControl
         {
             Vector2 move = MoveDirection();
             player.HandleMoveDirection(move);
+            Vector2 aim = AimDirection();
+            player.HandleAimDirection(aim);
 
             if (Shoot())
             {
                 player.HandleShoot();
+            }
+        }
+
+        /*
+         * Detect player aim direction from the right stick
+         */
+        private Vector2 AimDirection()
+        {
+            if  (device != null)
+            {
+                if (device.RightStickX == 0 && device.RightStickY == 0)
+                {
+                    return lastVec;
+                }
+                else
+                {
+                    lastVec = new Vector2(device.RightStickX, device.RightStickY);
+                    return lastVec;
+                }
+            }
+            else
+            {
+                return Vector2.zero;
             }
         }
 
@@ -61,7 +87,7 @@ namespace PlayerControl
          */
         private bool Shoot()
         {
-            if (device.RightTrigger)
+            if (device.RightTrigger.WasPressed)
             {
                 return true;
             }

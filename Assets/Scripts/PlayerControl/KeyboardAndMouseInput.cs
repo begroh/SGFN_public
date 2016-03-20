@@ -64,7 +64,7 @@ namespace PlayerControl
          */
         private bool Shoot()
         {
-            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
             {
                 return true;
             }

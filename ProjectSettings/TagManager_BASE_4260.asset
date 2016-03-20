@@ -6,7 +6,6 @@ TagManager:
   tags:
   - FoodPickup
   - ConveyorBelt
-  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,14 +16,10 @@ TagManager:
   - 
   - 
   - Background
-  - Walls
   - 
   - 
   - 
-  - BlueBullet
-  - BluePlayer
-  - RedBullet
-  - RedPlayer
+  - 
   - 
   - 
   - 
@@ -53,7 +48,4 @@ TagManager:
     locked: 0
   - name: Pickups
     uniqueID: 39059361
-    locked: 0
-  - name: Bagged
-    uniqueID: 3568251187
     locked: 0
