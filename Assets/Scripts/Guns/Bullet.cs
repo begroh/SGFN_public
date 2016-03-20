@@ -4,6 +4,7 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
     public float range;
+    public int damage = 1;
 
     private Vector3 startLoc;
 

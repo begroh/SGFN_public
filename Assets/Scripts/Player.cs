@@ -15,7 +15,17 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
     private PlayerControl.PlayerInput input;
 
+    public int maxHealth = 5;
+    private int health;
+    private Vector3 respawnLoc;
+
     private Gun gun;
+
+    public float invincibleTime = 0.5f;
+    private float lastTimeHit;
+    private Renderer rend;
+    private Color startColor;
+    private bool invincible = false;
 
     void Awake()
     {
@@ -44,6 +54,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         gun = gameObject.GetComponentInChildren<Gun>();
+        health = maxHealth;
+        respawnLoc = transform.position;
+
+        // This will need to be changed if we switch to sprites
+        rend = GetComponent<Renderer>();
+        startColor = rend.material.color;
     }
 
     void Update()
@@ -51,28 +67,71 @@ public class Player : MonoBehaviour
         input.DetectInput(this);
     }
 
+    void FixedUpdate()
+    {
+        if (invincible)
+        {
+            if (lastTimeHit + invincibleTime < Time.time)
+            {
+                invincible = false;
+                rend.material.color = startColor;
+            }
+            else if (rend.material.color == startColor)
+            {
+                rend.material.color = Color.white;
+            }
+            else
+            {
+                rend.material.color = startColor;
+            }
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "FoodPickup")
         {
-            // TODO: put the code in this if in a function
-            FoodItem item = other.gameObject.GetComponent<FoodItem>();
-            FoodType type = item.type;
-            FoodState state;
-            foodStates.TryGetValue(type, out state);
-
-            if (state != FoodState.ON_GROUND || !cart.Add(item))
+            if (HandleFoodPickup(other.gameObject.GetComponent<FoodItem>()))
             {
-                return;
+                Destroy(other.gameObject);
             }
-
-            foodStates[type] = FoodState.IN_CART;
-            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Bullet")
+        {
+            HandleBullet(other.gameObject.GetComponent<Bullet>());
         }
     }
 
-    private void OnTriggerFoodPickup (FoodItem item)
+    private void HandleBullet (Bullet bullet)
     {
+        if (invincible)
+            return;
+
+        health -= bullet.damage;
+        invincible = true; lastTimeHit = Time.time;
+        if (health <= 0)
+        {
+            health = maxHealth;
+            transform.position = respawnLoc;
+        }
+    }
+
+    /*
+     * Called when picking up food. True if the player can pick it up. False if not
+     */
+    private bool HandleFoodPickup (FoodItem item)
+    {
+        FoodType type = item.type;
+        FoodState state;
+        foodStates.TryGetValue(type, out state);
+
+        if (state != FoodState.ON_GROUND || !cart.Add(item))
+        {
+            return false;
+        }
+
+        foodStates[type] = FoodState.IN_CART;
+        return true;
     }
 
     /*
