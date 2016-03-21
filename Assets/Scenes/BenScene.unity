@@ -241,6 +241,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 128804, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
   m_IsPrefabParent: 0
@@ -455,6 +459,10 @@ Prefab:
     - target: {fileID: 452472, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 128804, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -1057,6 +1065,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1085805732}
+    - target: {fileID: 150216, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_Name
+      value: ToppingIcon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
   m_IsPrefabParent: 0
@@ -1254,7 +1266,11 @@ Prefab:
         type: 2}
     - target: {fileID: 452472, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 128804, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}

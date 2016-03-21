@@ -62,6 +62,8 @@ public class HUD : MonoBehaviour {
 		Color tmp = icon.artwork.color;
 		tmp.a = 0.5f;
 		icon.artwork.color = tmp;
+		icon.conveyor.enabled = false;
+		icon.bagged.enabled = false;
 	}
 
 	void DisplayItemInCart(FoodType type)
@@ -128,7 +130,7 @@ public class HUD : MonoBehaviour {
 		meatIcon.conveyor.enabled = false;
 		meatIcon.bagged.enabled = false;
 
-		condimentIcon = gameObject.transform.Find("CondimentIcon").GetComponent<HUDIcon>();
+		condimentIcon = gameObject.transform.Find("ToppingIcon").GetComponent<HUDIcon>();
 		condimentIcon.artwork.enabled = true;
 		condimentIcon.conveyor.enabled = false;
 		condimentIcon.bagged.enabled = false;
