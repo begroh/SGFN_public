@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 // Bagged means completed, required is things players are searching for
@@ -12,16 +13,17 @@ public class HUD : MonoBehaviour {
 	public HUDIcon meatIcon;
 	public HUDIcon condimentIcon;
 
+	int numSandwiches = 0;
+	public Text sandwichCount;
+
 	List<SpriteRenderer> bonusSprites; // TODO since we might not use them
 
 	void Start()
 	{
 		GetSprites();
 		SetStartColors();
-	}
-
-	public void ResetHUD()
-	{
+		sandwichCount = gameObject.GetComponentInChildren<Text>();
+		sandwichCount.text = "x 0";
 	}
 
 	// public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
@@ -45,6 +47,13 @@ public class HUD : MonoBehaviour {
 			DisplayItemAsBagged(type);
 		}
 		// TODO Bonus
+	}
+
+	public void IncrementSandwiches()
+	{
+		numSandwiches++;
+		sandwichCount.text = "x " + numSandwiches;
+		ResetHUD();
 	}
 
 	void DisplayItemAsRequired(FoodType type)
@@ -142,5 +151,13 @@ public class HUD : MonoBehaviour {
 		tmp = condimentIcon.artwork.color;
 		tmp.a = 0.5f;
 		condimentIcon.artwork.color = tmp;
+	}
+
+	public void ResetHUD()
+	{
+		DisplayItemAsRequired(FoodType.BREAD);
+		DisplayItemAsRequired(FoodType.CHEESE);
+		DisplayItemAsRequired(FoodType.MEAT);
+		DisplayItemAsRequired(FoodType.CONDIMENT);
 	}
 }

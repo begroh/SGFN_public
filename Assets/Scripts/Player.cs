@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
         }
 
         this.cart = new ShoppingCart();
-
     }
 
     void Start()

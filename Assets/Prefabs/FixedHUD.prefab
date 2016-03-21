@@ -75,7 +75,7 @@ GameObject:
   - 222: {fileID: 22279582}
   - 114: {fileID: 11467370}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SandwichText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,6 +588,7 @@ MonoBehaviour:
   breadIcon: {fileID: 0}
   meatIcon: {fileID: 0}
   condimentIcon: {fileID: 0}
+  sandwichCount: {fileID: 0}
 --- !u!114 &11425674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -683,7 +684,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x 0
+  m_Text: 
 --- !u!114 &11496446
 MonoBehaviour:
   m_ObjectHideFlags: 1
