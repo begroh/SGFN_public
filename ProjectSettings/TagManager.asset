@@ -18,7 +18,7 @@ TagManager:
   - 
   - Background
   - Walls
-  - 
+  - Pickups
   - 
   - 
   - Bullet
@@ -41,11 +41,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 3863438341
+    locked: 0
+  - name: Floor
+    uniqueID: 176365527
+    locked: 0
+  - name: Walls
+    uniqueID: 3974770861
+    locked: 0
+  - name: PickupZones
+    uniqueID: 2963142525
     locked: 0
   - name: Pickups
     uniqueID: 39059361
@@ -53,9 +59,15 @@ TagManager:
   - name: Bagged
     uniqueID: 3568251187
     locked: 0
+  - name: Bullets
+    uniqueID: 3636327635
+    locked: 0
   - name: Player
     uniqueID: 925372485
     locked: 0
   - name: Gun
     uniqueID: 2779641365
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
