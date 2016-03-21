@@ -5,12 +5,12 @@ public class ConveyorBelt : MonoBehaviour
 {
     private enum Direction { FORWARD, REVERSE };
 
-    private enum Team { NONE, RED, BLUE };
-
     public GameObject foodConveyorBeltItemPrefab;
     public Material defaultMaterial;
     public Material blueMaterial;
     public Material redMaterial;
+    public Material yellowMaterial;
+    public Material greenMaterial;
 
     private float speed = 1.25f;    // 125 cm / second
     private float margin = 0.3f;    // 30 cm spacing
@@ -40,11 +40,11 @@ public class ConveyorBelt : MonoBehaviour
          * If there is just an enemy player nearby, run the conveyor backward.
          * If the conveyor is contested, don't run it.
          */
-        if (FriendlyPlayer() && !EnemyPlayer())
+        if (FriendlyPlayers())
         {
             Run(Direction.FORWARD);
         }
-        else if (EnemyPlayer() && !FriendlyPlayer())
+        else if (EnemyPlayers())
         {
             Run(Direction.REVERSE);
         }
@@ -61,7 +61,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     public bool DepositItem(Player player, FoodItem item)
     {
-        if (HasRoom() && (PlayerTeam(player) == currentTeam))
+        if (HasRoom() && (player.GetTeam() == currentTeam))
         {
             GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
             obj.transform.parent = this.gameObject.transform;
@@ -82,58 +82,35 @@ public class ConveyorBelt : MonoBehaviour
     /*
      * Returns true if a friendly player is near the conveyor belt.
      */
-    private bool FriendlyPlayer()
+    private bool FriendlyPlayers()
     {
-        return AnyPlayerWithTeam(currentTeam);
+        return PlayersPresent() && AllPlayerWithTeam(currentTeam);
     }
 
     /*
      * Returns true if an enemy player is near the conveyor belt.
      */
-    private bool EnemyPlayer()
+    private bool EnemyPlayers()
     {
-        return AnyPlayerWithTeam(EnemyTeam());
+        return PlayersPresent() && !AllPlayerWithTeam(currentTeam);
     }
 
-    private bool AnyPlayerWithTeam(Team team) {
-        bool present = false;
+    private bool AllPlayerWithTeam(Team team) {
+        bool all = true;
         foreach (Player player in players)
         {
-            if (PlayerTeam(player) == team)
+            if (player.GetTeam() != team)
             {
-                present = true;
+                all = false;
                 break;
             }
         }
-        return present;
+        return all;
     }
 
-    private Team EnemyTeam()
+    private bool PlayersPresent()
     {
-        if (currentTeam == Team.RED)
-        {
-            return Team.BLUE;
-        }
-        else if (currentTeam == Team.BLUE)
-        {
-            return Team.RED;
-        }
-        else
-        {
-            return Team.NONE;
-        }
-    }
-
-    private Team PlayerTeam(Player player)
-    {
-        if (player.playerNumber < 3)
-        {
-            return Team.BLUE;
-        }
-        else
-        {
-            return Team.RED;
-        }
+        return players.Count > 0;
     }
 
     /*
@@ -217,7 +194,7 @@ public class ConveyorBelt : MonoBehaviour
 
         if (items.Count == 0)
         {
-            ChangeTeam(EnemyTeam());
+            ChangeTeam(Team.NONE);
         }
     }
 
@@ -262,7 +239,7 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (currentTeam == Team.NONE)
         {
-            ChangeTeam((player.playerNumber < 3) ? Team.BLUE : Team.RED);
+            ChangeTeam(player.GetTeam());
         }
         players.Add(player);
     }
@@ -284,17 +261,13 @@ public class ConveyorBelt : MonoBehaviour
 
         Renderer renderer = GetComponent<Renderer>();
 
-        if (team == Team.BLUE)
+        switch (team)
         {
-            renderer.material = blueMaterial;
-        }
-        else if (team == Team.RED)
-        {
-            renderer.material = redMaterial;
-        }
-        else
-        {
-            renderer.material = defaultMaterial;
+            case Team.NONE:   renderer.material = defaultMaterial; break;
+            case Team.BLUE:   renderer.material = blueMaterial; break;
+            case Team.RED:    renderer.material = redMaterial; break;
+            case Team.YELLOW: renderer.material = yellowMaterial; break;
+            case Team.GREEN:  renderer.material = greenMaterial; break;
         }
     }
 }
