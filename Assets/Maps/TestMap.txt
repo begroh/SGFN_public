@@ -1,9 +1,9 @@
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W    W   W                     W       W
-W    W   W     W        W      W       W
-W    W   W     W        W      W  W    W
-W        W     W        W      W  W    W
-WWWW                              WWW  W
+W    W    W                   W        W
+W    W    W                   W        W
+W         W    W        W     W   W    W
+W         W    W        W     W   W    W
+WWW                               WWW  W
 W                                      W
 W                WWWWWW                W
 W           W              W           W
@@ -11,12 +11,12 @@ W      W    W              W    W      W
 W      W    W              W    W      W
 W      W    W              W    W      W
 W      W    W              W    W      W
-W           W    WWWWWW    W           W
+W           W              W           W
+W                WWWWWW                W
 W                                      W
-W                                      W
-W  WWW         W        W           WWWW
+W  WWW                               WWW
 W    W         W        W              W
-W    W    W    W        W    W    W    W
+W    W    W    W        W    W         W
 W         W                  W    W    W
 W         W                  W    W    W
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW

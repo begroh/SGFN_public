@@ -21,12 +21,8 @@ TagManager:
   - 
   - 
   - 
-  - BlueBullet
-  - BluePlayer
-  - RedBullet
-  - RedPlayer
-  - 
-  - 
+  - Bullet
+  - Player
   - 
   - 
   - 
@@ -56,4 +52,10 @@ TagManager:
     locked: 0
   - name: Bagged
     uniqueID: 3568251187
+    locked: 0
+  - name: Player
+    uniqueID: 925372485
+    locked: 0
+  - name: Gun
+    uniqueID: 2779641365
     locked: 0
