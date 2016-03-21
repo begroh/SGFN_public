@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         foodStates.Add(FoodType.CHEESE, FoodState.ON_GROUND);
         foodStates.Add(FoodType.BREAD, FoodState.ON_GROUND);
         foodStates.Add(FoodType.MEAT, FoodState.ON_GROUND);
-        foodStates.Add(FoodType.CONDIMENT, FoodState.ON_GROUND);
+        foodStates.Add(FoodType.TOPPING, FoodState.ON_GROUND);
         // foodStates.Add(FoodType.BONUS, FoodState.ON_GROUND);
 
         this.body = GetComponent<Rigidbody2D>();
