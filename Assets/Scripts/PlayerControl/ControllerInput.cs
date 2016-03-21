@@ -11,6 +11,7 @@ namespace PlayerControl
     {
         private InputDevice device;
         private Vector2 lastVec;
+        private bool holdToShoot = false;
 
         /*
          * Construct a new ControllerInput to find a joystick for player 'playerNumber'
@@ -29,6 +30,11 @@ namespace PlayerControl
             {
                 Debug.LogWarning("No InControl InputManager, setup a InControlManager in this scene");
             }
+        }
+
+        public void SetInputOnHold(bool hold)
+        {
+            holdToShoot = hold;
         }
 
         public void DetectInput(Player player)
@@ -87,13 +93,27 @@ namespace PlayerControl
          */
         private bool Shoot()
         {
-            if (device.RightTrigger.WasPressed)
+            if (holdToShoot)
             {
-                return true;
+                if (device.RightTrigger.IsPressed)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (device.RightTrigger.WasPressed)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
     }

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int playerNumber = 1;    // Joystick slot, default to 1
     public bool useKeyboard = true; // Use keyboard instead of controller, defaults to true for development
 
-        public HUD playerHUD;
+    public HUD playerHUD;
 
     private ShoppingCart cart;
     private Dictionary<FoodType, FoodState> foodStates;
@@ -109,17 +109,34 @@ public class Player : MonoBehaviour
         {
             HandleBullet(other.gameObject.GetComponent<Bullet>());
         }
+        else if (other.gameObject.tag == "WeaponPickup")
+        {
+            HandleWeaponPickup(other.gameObject.GetComponent<Gun>());
+            Destroy(other.gameObject);
+        }
     }
+
+    private void HandleWeaponPickup(Gun newGun)
+    {
+        gun.Copy(newGun);
+        input.SetInputOnHold(gun.holdToFire);
+    }
+
+    /*
+     * Called when colliding with a bullet. Player takes damage and resets
+     * position if they died
+     */
 
     private void HandleBullet (Bullet bullet)
     {
-        if (invincible || !bullet.fired)
+        if (/*invincible ||*/ !bullet.fired)
             return;
 
         health -= bullet.damage;
         invincible = true; lastTimeHit = Time.time;
         if (health <= 0)
         {
+            gun.Reset();
             health = maxHealth;
             transform.position = respawnLoc;
         }
@@ -171,6 +188,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "ConveyorBelt")
         {
             OnConveyorBelt(other.gameObject.GetComponent<ConveyorBelt>());
+        }
+        else if (other.gameObject.tag == "Bullet")
+        {
+            HandleBullet(other.gameObject.GetComponent<Bullet>());
         }
     }
 

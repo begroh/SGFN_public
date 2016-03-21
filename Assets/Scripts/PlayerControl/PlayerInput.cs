@@ -9,5 +9,7 @@ namespace PlayerControl
          * Called in the Update() step of the Player object
          */
         void DetectInput(Player player);
+
+        void SetInputOnHold(bool hold);
     }
 }
