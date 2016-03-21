@@ -90,7 +90,7 @@ GameObject:
   - 4: {fileID: 408494}
   - 114: {fileID: 11469260}
   m_Layer: 0
-  m_Name: CondimentIcon
+  m_Name: ToppingIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,6 +554,7 @@ MonoBehaviour:
   breadIcon: {fileID: 0}
   meatIcon: {fileID: 0}
   condimentIcon: {fileID: 0}
+  sandwichCount: {fileID: 0}
 --- !u!114 &11450584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1062,7 +1063,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: ToppingIcon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141734}
