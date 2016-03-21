@@ -1065,9 +1065,40 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1085805732}
-    - target: {fileID: 150216, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
-      propertyPath: m_Name
-      value: ToppingIcon
+    - target: {fileID: 21289444, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300014, guid: d5a860e48b83a493891d1064f6d1497a,
+        type: 3}
+    - target: {fileID: 21284006, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a3bc34ed5eca244e9b72d882afdcf0fe,
+        type: 3}
+    - target: {fileID: 21264816, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95fb3df612947453fb4c61b4cbe1ceb6,
+        type: 3}
+    - target: {fileID: 497014, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 497014, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22406692, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 22406692, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467370, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
+      propertyPath: m_Text
+      value: x 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1c7164b2e7967e4eb34440a85695e59, type: 2}
