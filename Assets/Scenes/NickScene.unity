@@ -195,11 +195,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452472, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485972, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
-      propertyPath: useKeyboard
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -283,7 +279,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452472, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 128804, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Name
@@ -294,6 +290,22 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 97aa173e17e305b41952d84304e0f40d,
         type: 3}
+    - target: {fileID: 11460302, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: spreadForce
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460302, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: numBullets
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460302, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: bulletRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485972, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
   m_IsPrefabParent: 0
@@ -421,7 +433,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452472, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 128804, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Name
@@ -753,6 +765,98 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1234692413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1234692417}
+  - 212: {fileID: 1234692416}
+  - 61: {fileID: 1234692415}
+  - 114: {fileID: 1234692414}
+  m_Layer: 0
+  m_Name: SMGPickup
+  m_TagString: WeaponPickup
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1234692414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234692413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d5b14c673f643ec88471f02839f919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 11474392, guid: 0e4566f0ae1651848914e5d5dd076204, type: 2}
+  spreadForce: 200
+  numBullets: 1
+  reloadTime: 0.1
+  launchForce: 5000
+  bulletRange: 50
+  holdToFire: 1
+--- !u!61 &1234692415
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234692413}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.3}
+--- !u!212 &1234692416
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234692413}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 2facba6bbaf114799be2cbc963273237, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &1234692417
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234692413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.87, y: 6.17, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &1321220318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452472, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 128804, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Name
@@ -1194,3 +1298,95 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &2147390944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2147390947}
+  - 212: {fileID: 2147390946}
+  - 114: {fileID: 2147390945}
+  - 61: {fileID: 2147390948}
+  m_Layer: 0
+  m_Name: ShotgunPickup
+  m_TagString: WeaponPickup
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2147390945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147390944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d5b14c673f643ec88471f02839f919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 11474392, guid: 0e4566f0ae1651848914e5d5dd076204, type: 2}
+  spreadForce: 1500
+  numBullets: 8
+  reloadTime: 0.5
+  launchForce: 4500
+  bulletRange: 15
+  holdToFire: 0
+--- !u!212 &2147390946
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147390944}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 79366db1351c54104b405638ad0a9f55, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &2147390947
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147390944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.120001, y: 6.34, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+--- !u!61 &2147390948
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147390944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.76, y: 0.2}

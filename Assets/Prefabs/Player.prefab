@@ -165,6 +165,7 @@ MonoBehaviour:
   numBullets: 1
   reloadTime: 0.1
   launchForce: 5000
+  bulletRange: 30
 --- !u!114 &11485972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f67642772e5477aaa1df5175651099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 4
   useKeyboard: 1
   playerHUD: {fileID: 0}
   speed: 20
