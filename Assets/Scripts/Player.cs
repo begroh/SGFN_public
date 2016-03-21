@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public enum FoodState {IN_CART, ON_CONVEYOR, BAGGED, ON_GROUND}
+public enum Team { NONE = 0, RED = 1, BLUE = 2, YELLOW = 3, GREEN = 4 };
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
 
     private ShoppingCart cart;
     private Dictionary<FoodType, FoodState> foodStates;
+	private List<FoodItem> bag;
 
     public float speed = 4;
     private Rigidbody2D body;
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
         foodStates.Add(FoodType.CHEESE, FoodState.ON_GROUND);
         foodStates.Add(FoodType.BREAD, FoodState.ON_GROUND);
         foodStates.Add(FoodType.MEAT, FoodState.ON_GROUND);
-        foodStates.Add(FoodType.CONDIMENT, FoodState.ON_GROUND);
+        foodStates.Add(FoodType.TOPPING, FoodState.ON_GROUND);
         // foodStates.Add(FoodType.BONUS, FoodState.ON_GROUND);
 
         this.body = GetComponent<Rigidbody2D>();
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
         }
 
         this.cart = new ShoppingCart();
-
+		bag = new List<FoodItem>();
     }
 
     void Start()
@@ -213,15 +215,58 @@ public class Player : MonoBehaviour
         }
     }
 
-        public void LoseItem(FoodItem item)
-        {
-                foodStates[item.type] = FoodState.ON_GROUND;
-                playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
-        }
+	public void LoseItem(FoodItem item)
+	{
+		foodStates[item.type] = FoodState.ON_GROUND;
+		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+	}
 
-        public void MoveItemToBag(FoodItem item)
-        {
-                foodStates[item.type] = FoodState.BAGGED;
-                playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
-        }
+	public void MoveItemToBag(FoodItem item)
+	{
+		foodStates[item.type] = FoodState.BAGGED;
+		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+		bag.Add(item);
+		if (ContainsFullSandwich())
+		{
+			playerHUD.IncrementSandwiches();
+			ResetFoodStates();
+			bag.Clear();
+		}
+	}
+
+    public Team GetTeam()
+    {
+        return (Team) playerNumber;
+    }
+
+	/*
+	 * On completion of a sandwich, all food states go back to ON_GROUND
+	 * so the player can collect them again
+	 */
+	void ResetFoodStates()
+	{
+		List<FoodType> keys = new List<FoodType>(foodStates.Keys);
+		foreach (FoodType key in keys)
+		{
+			foodStates[key] = FoodState.ON_GROUND;
+		}
+	}
+
+	bool ContainsFullSandwich()
+	{
+		bool hasCheese = false, hasBread = false,
+			 hasTopping = true, hasMeat = false;
+		foreach (FoodItem item in bag)
+		{
+			if (item.type == FoodType.CHEESE)
+				hasCheese = true;
+			else if (item.type == FoodType.BREAD)
+				hasBread = true;
+			else if (item.type == FoodType.TOPPING)
+				hasTopping = true;
+			else if (item.type == FoodType.MEAT)
+				hasMeat = true;
+		}
+		return hasCheese && hasBread && hasTopping && hasMeat;
+	}
 }
