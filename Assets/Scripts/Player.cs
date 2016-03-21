@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public enum FoodState {IN_CART, ON_CONVEYOR, BAGGED, ON_GROUND}
+public enum Team { NONE = 0, RED = 1, BLUE = 2, YELLOW = 3, GREEN = 4 };
 
 public class Player : MonoBehaviour
 {
@@ -202,4 +203,9 @@ public class Player : MonoBehaviour
                 foodStates[item.type] = FoodState.BAGGED;
                 playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
         }
+
+    public Team GetTeam()
+    {
+        return (Team) playerNumber;
+    }
 }
