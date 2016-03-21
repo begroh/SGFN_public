@@ -17,6 +17,8 @@ namespace PlayerControl
             {
                 Vector2 move = MoveDirection();
                 player.HandleMoveDirection(move);
+                Vector2 aim = AimDirection(player.transform.position);
+                player.HandleAimDirection(aim);
 
                 if (Shoot())
                 {
@@ -56,6 +58,19 @@ namespace PlayerControl
             }
 
             return direction;
+        }
+
+        /*
+         * Detect mouse location and notify the player
+         */
+        private Vector2 AimDirection(Vector3 playerPos)
+        {
+            float mouse_x = Input.mousePosition.x;
+            float mouse_y = Input.mousePosition.y;
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mouse_x, mouse_y, 0));
+            mousePos.x -= playerPos.x;
+            mousePos.y -= playerPos.y;
+            return (Vector2) mousePos;
         }
 
         /*

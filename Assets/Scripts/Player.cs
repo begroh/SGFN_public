@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         respawnLoc = transform.position;
 
         // This will need to be changed if we switch to sprites
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
     }
 
@@ -77,7 +77,6 @@ public class Player : MonoBehaviour
             counter++;
             if (counter % 5 != 0)
             {
-                print(counter);
                 return;
             }
 
@@ -114,7 +113,7 @@ public class Player : MonoBehaviour
 
     private void HandleBullet (Bullet bullet)
     {
-        if (invincible)
+        if (invincible || !bullet.fired)
             return;
 
         health -= bullet.damage;
@@ -141,7 +140,7 @@ public class Player : MonoBehaviour
         }
 
         foodStates[type] = FoodState.IN_CART;
-		playerHUD.OnItemStateChanged(type, foodStates[type]);
+        playerHUD.OnItemStateChanged(type, foodStates[type]);
         return true;
     }
 
@@ -184,7 +183,7 @@ public class Player : MonoBehaviour
             if (belt.DepositItem(this, item))
             {
                 foodStates[item.type] = FoodState.ON_CONVEYOR;
-				playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+                                playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
             }
             else
             {
@@ -193,15 +192,15 @@ public class Player : MonoBehaviour
         }
     }
 
-	public void LoseItem(FoodItem item)
-	{
-		foodStates[item.type] = FoodState.ON_GROUND;
-		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
-	}
+        public void LoseItem(FoodItem item)
+        {
+                foodStates[item.type] = FoodState.ON_GROUND;
+                playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+        }
 
-	public void MoveItemToBag(FoodItem item)
-	{
-		foodStates[item.type] = FoodState.BAGGED;
-		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
-	}
+        public void MoveItemToBag(FoodItem item)
+        {
+                foodStates[item.type] = FoodState.BAGGED;
+                playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+        }
 }
