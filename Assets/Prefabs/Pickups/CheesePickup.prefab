@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11448094}
   - 114: {fileID: 11496310}
   - 61: {fileID: 6168018}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CheesePickup
   m_TagString: FoodPickup
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 4}
+  m_Size: {x: 2, y: 2}
 --- !u!114 &11448094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 39059361
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3bc34ed5eca244e9b72d882afdcf0fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,11 +117,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300008, guid: d5a860e48b83a493891d1064f6d1497a,
+      objectReference: {fileID: 21300000, guid: a3bc34ed5eca244e9b72d882afdcf0fe,
         type: 3}
     - target: {fileID: 0}
       propertyPath: _type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

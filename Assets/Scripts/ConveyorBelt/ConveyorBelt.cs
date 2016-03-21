@@ -6,11 +6,8 @@ public class ConveyorBelt : MonoBehaviour
     private enum Direction { FORWARD, REVERSE };
 
     public GameObject foodConveyorBeltItemPrefab;
-    public Material defaultMaterial;
-    public Material blueMaterial;
-    public Material redMaterial;
-    public Material yellowMaterial;
-    public Material greenMaterial;
+
+    private ConveyorZone zone;
 
     private float speed = 1.25f;    // 125 cm / second
     private float margin = 0.3f;    // 30 cm spacing
@@ -27,10 +24,12 @@ public class ConveyorBelt : MonoBehaviour
         players = new List<Player>();
 
         // Setup start and end points
-        Bounds bounds = GetComponent<MeshFilter>().mesh.bounds;
+        Bounds bounds = GetComponent<SpriteRenderer>().sprite.bounds;
         float extent = (bounds.extents.y * transform.localScale.y) * 0.95f;
         startPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.up * extent));
         endPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.down * extent));
+
+        zone = transform.Find("Zone").gameObject.GetComponent<ConveyorZone>();
     }
 
     void Update()
@@ -257,17 +256,6 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void ChangeTeam(Team team)
     {
-        currentTeam = team;
-
-        Renderer renderer = GetComponent<Renderer>();
-
-        switch (team)
-        {
-            case Team.NONE:   renderer.material = defaultMaterial; break;
-            case Team.BLUE:   renderer.material = blueMaterial; break;
-            case Team.RED:    renderer.material = redMaterial; break;
-            case Team.YELLOW: renderer.material = yellowMaterial; break;
-            case Team.GREEN:  renderer.material = greenMaterial; break;
-        }
+        zone.ChangeTeam(team);
     }
 }
