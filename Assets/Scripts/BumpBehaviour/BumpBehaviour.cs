@@ -1,7 +1,7 @@
 public interface BumpBehaviour
 {
     /*
-     * Called when the player's bump button is held down
+     * Called every frame, bumping is true if the player is holding the bump button
      */
-    void Bump(Player player);
+    void Update(Player player, bool bumping);
 }

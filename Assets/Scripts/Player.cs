@@ -168,6 +168,11 @@ public class Player : MonoBehaviour
         gun.Fire();
     }
 
+    public void HandleBump(bool bumping)
+    {
+        bumpBehaviour.Update(this, bumping);
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "ConveyorBelt")

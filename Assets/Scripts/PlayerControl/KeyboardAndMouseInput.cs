@@ -24,6 +24,8 @@ namespace PlayerControl
                 {
                     player.HandleShoot();
                 }
+
+                player.HandleBump(Bump());
             }
         }
 
@@ -87,6 +89,11 @@ namespace PlayerControl
             {
                 return false;
             }
+        }
+
+        private bool Bump()
+        {
+            return Input.GetKey(KeyCode.LeftShift);
         }
 
         /*

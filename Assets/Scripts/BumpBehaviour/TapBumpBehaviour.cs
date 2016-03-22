@@ -6,8 +6,13 @@ public class TapBumpBehaviour : BumpBehaviour
     private float bumpWait = 2f;
     private float strength = 75;
 
-    public void Bump(Player player)
+    public void Update(Player player, bool bumping)
     {
+        if (!bumping)
+        {
+            return;
+        }
+
         if (Time.time - lastBump > bumpWait || lastBump == 0)
         {
             Rigidbody2D body = player.gameObject.GetComponent<Rigidbody2D>();
