@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     private bool invincible = false;
     private int counter;
 
+    private BumpBehaviour bumpBehaviour;
+
     void Awake()
     {
         foodStates = new Dictionary<FoodType, FoodState>();
@@ -54,6 +56,9 @@ public class Player : MonoBehaviour
 
         this.cart = new ShoppingCart();
 		bag = new List<FoodItem>();
+
+        //this.bumpBehaviour = new TapBumpBehaviour();
+        this.bumpBehaviour = new ChargeBumpBehaviour();
     }
 
     void Start()
