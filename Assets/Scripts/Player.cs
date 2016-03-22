@@ -180,11 +180,11 @@ public class Player : MonoBehaviour
     {
         if (cart.Count > 0)
         {
-            FoodItem item = cart.Remove();
+			FoodItem item = cart.Remove();
 
             if (belt.DepositItem(this, item))
             {
-                foodStates[item.type] = FoodState.ON_CONVEYOR;
+				foodStates[item.type] = FoodState.ON_CONVEYOR;
                                 playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
             }
             else

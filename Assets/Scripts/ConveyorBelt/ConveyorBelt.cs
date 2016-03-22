@@ -60,9 +60,9 @@ public class ConveyorBelt : MonoBehaviour
      */
     public bool DepositItem(Player player, FoodItem item)
     {
-        if (HasRoom() && (player.GetTeam() == currentTeam))
+		if (HasRoom() && (player.GetTeam() == currentTeam))
         {
-            GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
+			GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
             obj.transform.parent = this.gameObject.transform;
             obj.transform.position = startPosition;
             FoodConveyorBeltItem beltItem = obj.GetComponent<FoodConveyorBeltItem>();
@@ -236,9 +236,9 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void PlayerEnter(Player player)
     {
-        if (currentTeam == Team.NONE)
+		if (currentTeam == Team.NONE)
         {
-            ChangeTeam(player.GetTeam());
+			ChangeTeam(player.GetTeam());
         }
         players.Add(player);
     }
@@ -249,6 +249,9 @@ public class ConveyorBelt : MonoBehaviour
     private void PlayerExit(Player player)
     {
         players.Remove(player);
+		if (items.Count == 0) {
+			ChangeTeam (Team.NONE);
+		}
     }
 
     /*
@@ -256,6 +259,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void ChangeTeam(Team team)
     {
-        zone.ChangeTeam(team);
+		currentTeam = team;
+		zone.ChangeTeam(team);
     }
 }
