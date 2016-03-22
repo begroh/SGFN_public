@@ -42,6 +42,9 @@ namespace PlayerControl
             {
                 player.HandleShoot();
             }
+
+            player.HandleLeftBump(LeftBump());
+            player.HandleRightBump(RightBump());
         }
 
         /*
@@ -95,6 +98,16 @@ namespace PlayerControl
             {
                 return false;
             }
+        }
+
+        private bool LeftBump()
+        {
+            return device.LeftBumper.IsPressed;
+        }
+
+        private bool RightBump()
+        {
+            return device.RightBumper.IsPressed;
         }
     }
 }

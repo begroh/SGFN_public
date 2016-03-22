@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
     private bool invincible = false;
     private int counter;
 
-    private BumpBehaviour bumpBehaviour;
+    private TapBumpBehaviour leftBumpBehaviour;
+    private ChargeBumpBehaviour rightBumpBehaviour;
 
     void Awake()
     {
@@ -56,9 +57,6 @@ public class Player : MonoBehaviour
 
         this.cart = new ShoppingCart();
 		bag = new List<FoodItem>();
-
-        //this.bumpBehaviour = new TapBumpBehaviour();
-        this.bumpBehaviour = new ChargeBumpBehaviour();
     }
 
     void Start()
@@ -70,6 +68,9 @@ public class Player : MonoBehaviour
         // This will need to be changed if we switch to sprites
         rend = GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
+
+        this.leftBumpBehaviour = new TapBumpBehaviour();
+        this.rightBumpBehaviour = new ChargeBumpBehaviour(gun);
     }
 
     void Update()
@@ -173,9 +174,14 @@ public class Player : MonoBehaviour
         gun.Fire();
     }
 
-    public void HandleBump(bool bumping)
+    public void HandleLeftBump(bool bumping)
     {
-        bumpBehaviour.Update(this, bumping);
+        leftBumpBehaviour.Update(this, bumping);
+    }
+
+    public void HandleRightBump(bool bumping)
+    {
+        rightBumpBehaviour.Update(this, bumping);
     }
 
     void OnTriggerStay2D(Collider2D other)
