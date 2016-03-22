@@ -60,14 +60,14 @@ public class ConveyorBelt : MonoBehaviour
      */
     public bool DepositItem(Player player, FoodItem item)
     {
-		if (HasRoom() && (player.GetTeam() == currentTeam))
+                if (HasRoom() && (player.GetTeam() == currentTeam))
         {
-			GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
+                        GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
             obj.transform.parent = this.gameObject.transform;
             obj.transform.position = startPosition;
             FoodConveyorBeltItem beltItem = obj.GetComponent<FoodConveyorBeltItem>();
             beltItem.SetItem(item);
-			beltItem.player = player;
+                        beltItem.player = player;
 
             items.AddLast(beltItem);
             return true;
@@ -91,7 +91,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private bool EnemyPlayers()
     {
-        return PlayersPresent() && !AllPlayerWithTeam(currentTeam);
+        return PlayersPresent() && NoPlayersWithTeam(currentTeam);
     }
 
     private bool AllPlayerWithTeam(Team team) {
@@ -105,6 +105,18 @@ public class ConveyorBelt : MonoBehaviour
             }
         }
         return all;
+    }
+
+    private bool NoPlayersWithTeam(Team team)
+    {
+        foreach (Player player in players)
+        {
+            if (player.GetTeam() == team)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private bool PlayersPresent()
@@ -188,7 +200,7 @@ public class ConveyorBelt : MonoBehaviour
     private void FallOff(FoodConveyorBeltItem item)
     {
         items.Remove(item);
-		item.player.LoseItem(item.Item());
+                item.player.LoseItem(item.Item());
         Destroy(((FoodConveyorBeltItem) item).gameObject);
 
         if (items.Count == 0)
@@ -200,7 +212,7 @@ public class ConveyorBelt : MonoBehaviour
     private void MoveItemToBag(FoodConveyorBeltItem item)
     {
         items.Remove(item);
-		item.player.MoveItemToBag(item.Item());
+                item.player.MoveItemToBag(item.Item());
         Destroy(((FoodConveyorBeltItem) item).gameObject);
     }
 
@@ -236,9 +248,9 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void PlayerEnter(Player player)
     {
-		if (currentTeam == Team.NONE)
+                if (currentTeam == Team.NONE)
         {
-			ChangeTeam(player.GetTeam());
+                        ChangeTeam(player.GetTeam());
         }
         players.Add(player);
     }
@@ -249,9 +261,9 @@ public class ConveyorBelt : MonoBehaviour
     private void PlayerExit(Player player)
     {
         players.Remove(player);
-		if (items.Count == 0) {
-			ChangeTeam (Team.NONE);
-		}
+                if (items.Count == 0) {
+                        ChangeTeam (Team.NONE);
+                }
     }
 
     /*
@@ -259,7 +271,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void ChangeTeam(Team team)
     {
-		currentTeam = team;
-		zone.ChangeTeam(team);
+                currentTeam = team;
+                zone.ChangeTeam(team);
     }
 }
