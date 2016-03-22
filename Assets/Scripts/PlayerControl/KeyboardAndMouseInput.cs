@@ -8,6 +8,7 @@ namespace PlayerControl
     public class KeyboardAndMouseInput : PlayerInput
     {
         private static int activePlayer = 1;
+        private bool holdToShoot = false;
 
         public void DetectInput(Player player)
         {
@@ -25,6 +26,11 @@ namespace PlayerControl
                     player.HandleShoot();
                 }
             }
+        }
+
+        public void SetInputOnHold(bool hold)
+        {
+            holdToShoot = hold;
         }
 
         /*
@@ -79,13 +85,27 @@ namespace PlayerControl
          */
         private bool Shoot()
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
+            if (holdToShoot)
             {
-                return true;
+                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 

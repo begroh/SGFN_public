@@ -31,7 +31,8 @@ public class Bullet : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        fired = true;
+        if (col.gameObject.tag == "Player")
+            fired = true;
     }
 
 }
