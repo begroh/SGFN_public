@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
      */
     public void HandleMoveDirection(Vector2 direction)
     {
-        this.body.velocity = direction.normalized * speed;
+        this.body.velocity = Vector2.Lerp(this.body.velocity, direction.normalized * speed, 0.20f);
     }
 
     public void HandleAimDirection(Vector2 dir)
