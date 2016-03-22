@@ -30,7 +30,7 @@ public class ChargeBumpBehaviour : BumpBehaviour
                     charge += rate;
                 }
 
-                body.velocity = body.velocity * (1 - charge);
+                body.velocity = body.velocity * (1 - (charge * 0.75f));
             }
             else
             {
