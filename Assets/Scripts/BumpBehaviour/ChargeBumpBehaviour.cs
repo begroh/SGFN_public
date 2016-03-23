@@ -10,13 +10,6 @@ public class ChargeBumpBehaviour : BumpBehaviour
     private float lastBump = 0;
     private float bumpWait = 2f;
 
-    private Gun gun;
-
-    public ChargeBumpBehaviour(Gun gun)
-    {
-        this.gun = gun;
-    }
-
     public void Update(Player player, bool bumping)
     {
         if (lastBump == 0 || Time.time - lastBump > bumpWait)
@@ -36,7 +29,7 @@ public class ChargeBumpBehaviour : BumpBehaviour
             {
                 if (charge > 0)
                 {
-                    Vector2 direction = gun.transform.rotation * Vector2.right;
+                    Vector2 direction = player.transform.rotation * Vector2.right;
                     body.AddForce(charge * strength * direction, ForceMode2D.Impulse);
                     charge = 0;
                 }

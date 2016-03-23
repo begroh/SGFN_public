@@ -55,13 +55,14 @@ public class Player : MonoBehaviour
             this.input = new PlayerControl.ControllerInput(this.playerNumber);
         }
 
-        this.cart = new ShoppingCart();
+        //this.cart = new ShoppingCart();
 		bag = new List<FoodItem>();
     }
 
     void Start()
     {
         gun = gameObject.GetComponentInChildren<Gun>();
+		cart = gameObject.GetComponentInChildren<ShoppingCart> ();
         health = maxHealth;
         respawnLoc = transform.position;
 
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
         startColor = rend.material.color;
 
         this.leftBumpBehaviour = new TapBumpBehaviour();
-        this.rightBumpBehaviour = new ChargeBumpBehaviour(gun);
+        this.rightBumpBehaviour = new ChargeBumpBehaviour();
     }
 
     void Update()
@@ -110,7 +111,7 @@ public class Player : MonoBehaviour
         {
             if (HandleFoodPickup(other.gameObject.GetComponent<FoodItem>()))
             {
-                Destroy(other.gameObject);
+                //Destroy(other.gameObject);
             }
         }
         else if (other.gameObject.tag == "Bullet")
@@ -123,6 +124,16 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+		
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "FoodPickup")
+		{
+			if (HandleFoodPickup(coll.gameObject.GetComponent<FoodItem>()))
+			{
+				//Destroy(other.gameObject);
+			}
+		}
+	}
 
     private void HandleWeaponPickup(Gun newGun)
     {
@@ -165,7 +176,7 @@ public class Player : MonoBehaviour
         }
 
         foodStates[type] = FoodState.IN_CART;
-        playerHUD.OnItemStateChanged(type, foodStates[type]);
+        //playerHUD.OnItemStateChanged(type, foodStates[type]);
         return true;
     }
 
@@ -180,7 +191,7 @@ public class Player : MonoBehaviour
     public void HandleAimDirection(Vector2 dir)
     {
         float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        gun.transform.localEulerAngles = new Vector3(0f, 0f, angle);
+		gameObject.transform.localEulerAngles = new Vector3(0f, 0f, angle);
     }
 
     /*
@@ -188,7 +199,7 @@ public class Player : MonoBehaviour
      */
     public void HandleShoot()
     {
-        gun.Fire();
+        cart.Fire();
     }
 
     public void HandleLeftBump(bool bumping)

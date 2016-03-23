@@ -3,7 +3,11 @@ using System.Collections.Generic;
 
 public class ShoppingCart : MonoBehaviour
 {
-    private Queue<FoodItem> cart;
+	public float reloadTime;
+	public float launchForce;
+
+	private Queue<FoodItem> cart;
+	private float lastFireTime;
 
     public ShoppingCart()
     {
@@ -23,6 +27,13 @@ public class ShoppingCart : MonoBehaviour
         }
 
         cart.Enqueue(item);
+
+		// Move the fooditem to the player's possession
+		item.GetComponent<Rigidbody2D>().isKinematic = true;
+		item.transform.parent = gameObject.transform;
+		item.transform.position = gameObject.transform.position;
+		UpdateFoodPositions ();
+
         return true;
     }
 
@@ -35,4 +46,33 @@ public class ShoppingCart : MonoBehaviour
 
         return null;
     }
+
+	public void Fire() {
+		if (lastFireTime + reloadTime < Time.time)
+		{
+			FireFoodItem();
+			lastFireTime = Time.time;
+		}
+	}
+
+	private void FireFoodItem()
+	{
+		FoodItem item = Remove ();
+
+		if (item) {
+			item.transform.position = item.transform.parent.position;
+			item.transform.parent = null;
+			Rigidbody2D body = item.GetComponent<Rigidbody2D>();
+			body.isKinematic = false;
+			body.AddForce(transform.right * launchForce);
+			UpdateFoodPositions ();
+		}
+			
+	}
+
+	// TODO write this function
+	private void UpdateFoodPositions() {
+
+	}
+
 }
