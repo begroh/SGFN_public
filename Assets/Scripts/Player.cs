@@ -55,7 +55,6 @@ public class Player : MonoBehaviour
             this.input = new PlayerControl.ControllerInput(this.playerNumber);
         }
 
-        //this.cart = new ShoppingCart();
 		bag = new List<FoodItem>();
     }
 
@@ -107,14 +106,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "FoodPickup")
-        {
-            if (HandleFoodPickup(other.gameObject.GetComponent<FoodItem>()))
-            {
-                //Destroy(other.gameObject);
-            }
-        }
-        else if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "Bullet")
         {
             HandleBullet(other.gameObject.GetComponent<Bullet>());
         }
@@ -128,9 +120,8 @@ public class Player : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "FoodPickup")
 		{
-			if (HandleFoodPickup(coll.gameObject.GetComponent<FoodItem>()))
-			{
-				//Destroy(other.gameObject);
+			if (HandleFoodPickup (coll.gameObject.GetComponent<FoodItem> ())) {
+				
 			}
 		}
 	}
@@ -174,7 +165,7 @@ public class Player : MonoBehaviour
         {
             return false;
         }
-
+			
         foodStates[type] = FoodState.IN_CART;
         //playerHUD.OnItemStateChanged(type, foodStates[type]);
         return true;
@@ -199,7 +190,10 @@ public class Player : MonoBehaviour
      */
     public void HandleShoot()
     {
-        cart.Fire();
+        FoodItem item = cart.Fire();
+		if (item) {
+			foodStates [item.type] = FoodState.ON_GROUND;
+		}
     }
 
     public void HandleLeftBump(bool bumping)

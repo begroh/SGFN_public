@@ -7,11 +7,13 @@ public class ShoppingCart : MonoBehaviour
 	public float launchForce;
 
 	private Queue<FoodItem> cart;
+	private Player player;
 	private float lastFireTime;
 
-    public ShoppingCart()
+	void Start()
     {
         this.cart = new Queue<FoodItem>();
+		this.player = (Player)gameObject.transform.parent.gameObject.GetComponent<Player>();
     }
 
     public int Count
@@ -29,9 +31,12 @@ public class ShoppingCart : MonoBehaviour
         cart.Enqueue(item);
 
 		// Move the fooditem to the player's possession
-		item.GetComponent<Rigidbody2D>().isKinematic = true;
-		item.transform.parent = gameObject.transform;
+		print ("YEAH");
+		Physics2D.IgnoreCollision (gameObject.GetComponent<Collider2D>(), player.gameObject.GetComponent<Collider2D> (), true);
 		item.transform.position = gameObject.transform.position;
+		item.transform.parent = gameObject.transform;
+		item.GetComponent<Rigidbody2D>().isKinematic = true;
+
 		UpdateFoodPositions ();
 
         return true;
@@ -47,15 +52,21 @@ public class ShoppingCart : MonoBehaviour
         return null;
     }
 
-	public void Fire() {
+	public FoodItem Fire() {
+		FoodItem item = null;
+
 		if (lastFireTime + reloadTime < Time.time)
 		{
-			FireFoodItem();
-			lastFireTime = Time.time;
+			item = FireFoodItem ();
+			if (item) {
+				lastFireTime = Time.time;
+			}
 		}
+
+		return item;
 	}
 
-	private void FireFoodItem()
+	private FoodItem FireFoodItem()
 	{
 		FoodItem item = Remove ();
 
@@ -65,9 +76,11 @@ public class ShoppingCart : MonoBehaviour
 			Rigidbody2D body = item.GetComponent<Rigidbody2D>();
 			body.isKinematic = false;
 			body.AddForce(transform.right * launchForce);
+			Physics2D.IgnoreCollision (item.GetComponent<Collider2D>(), player.gameObject.GetComponent<Collider2D> (), false);
 			UpdateFoodPositions ();
 		}
-			
+
+		return item;
 	}
 
 	// TODO write this function
