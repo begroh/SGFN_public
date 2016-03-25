@@ -8,11 +8,8 @@ public class ChargeBumpBehaviour : BumpBehaviour
 
     private Cooldown cooldown;
 
-    private Gun gun;
-
-    public ChargeBumpBehaviour(Gun gun)
+    public ChargeBumpBehaviour()
     {
-        this.gun = gun;
         this.cooldown = new Cooldown(2f);
     }
 
@@ -35,7 +32,7 @@ public class ChargeBumpBehaviour : BumpBehaviour
         else if (charge > 0)
         {
             cooldown.Reset();
-            Vector2 direction = gun.transform.rotation * Vector2.right;
+            Vector2 direction = player.transform.rotation * Vector2.right;
             body.AddForce(charge * strength * direction, ForceMode2D.Impulse);
             charge = 0;
         }
