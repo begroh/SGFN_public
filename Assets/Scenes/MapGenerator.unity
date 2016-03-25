@@ -22288,7 +22288,7 @@ Prefab:
         type: 3}
     - target: {fileID: 11485972, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: useKeyboard
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11485972, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: playerHUD
