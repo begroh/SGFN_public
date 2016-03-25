@@ -26,6 +26,7 @@ public class HUD : MonoBehaviour {
 		sandwichCount.text = "x 0";
 	}
 
+
 	// public void OnItemStateChanged(Dictionary<FoodType, FoodState> foodStates)
 	public void OnItemStateChanged(FoodType type, FoodState state)
 	{
@@ -48,6 +49,7 @@ public class HUD : MonoBehaviour {
 		}
 		// TODO Bonus
 	}
+
 
 	public void IncrementSandwiches()
 	{

@@ -12,12 +12,12 @@ public class Player : MonoBehaviour
     public HUD playerHUD;
 
     private ShoppingCart cart;
-    private Dictionary<FoodType, FoodState> foodStates;
 	private List<FoodItem> bag;
 
     public float speed = 4;
     private Rigidbody2D body;
     private PlayerControl.PlayerInput input;
+	public float hardHitVelocity = 5;
 
     public int maxHealth = 5;
     private int health;
@@ -35,15 +35,9 @@ public class Player : MonoBehaviour
     private TapBumpBehaviour leftBumpBehaviour;
     private ChargeBumpBehaviour rightBumpBehaviour;
 
+
     void Awake()
     {
-        foodStates = new Dictionary<FoodType, FoodState>();
-        foodStates.Add(FoodType.CHEESE, FoodState.ON_GROUND);
-        foodStates.Add(FoodType.BREAD, FoodState.ON_GROUND);
-        foodStates.Add(FoodType.MEAT, FoodState.ON_GROUND);
-        foodStates.Add(FoodType.TOPPING, FoodState.ON_GROUND);
-        // foodStates.Add(FoodType.BONUS, FoodState.ON_GROUND);
-
         this.body = GetComponent<Rigidbody2D>();
 
         if (useKeyboard)
@@ -55,13 +49,13 @@ public class Player : MonoBehaviour
             this.input = new PlayerControl.ControllerInput(this.playerNumber);
         }
 
-        this.cart = new ShoppingCart();
 		bag = new List<FoodItem>();
     }
 
     void Start()
     {
         gun = gameObject.GetComponentInChildren<Gun>();
+		cart = gameObject.GetComponentInChildren<ShoppingCart> ();
         health = maxHealth;
         respawnLoc = transform.position;
 
@@ -70,7 +64,7 @@ public class Player : MonoBehaviour
         startColor = rend.material.color;
 
         this.leftBumpBehaviour = new TapBumpBehaviour();
-        this.rightBumpBehaviour = new ChargeBumpBehaviour(gun);
+        this.rightBumpBehaviour = new ChargeBumpBehaviour();
     }
 
     void Update()
@@ -106,14 +100,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "FoodPickup")
-        {
-            if (HandleFoodPickup(other.gameObject.GetComponent<FoodItem>()))
-            {
-                Destroy(other.gameObject);
-            }
-        }
-        else if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "Bullet")
         {
             HandleBullet(other.gameObject.GetComponent<Bullet>());
         }
@@ -123,6 +110,34 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+		
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "FoodPickup" || coll.gameObject.tag == "Player") {
+			if (HardCollision (coll.gameObject, gameObject)) {
+				cart.dropAllItems ();
+				return;
+			}
+		}
+
+		if (coll.gameObject.tag == "FoodPickup")
+		{
+				if (HandleFoodPickup (coll.gameObject.GetComponent<FoodItem> ())) {
+
+				}
+		}
+	}
+
+	/*
+	 * Pass in two colliding gameObjects and compare their velocities to determine
+	 * if they're colliding "hard"
+	 */
+	private bool HardCollision(GameObject go1, GameObject go2) {
+		Vector2 vec1 = go1.GetComponent<Rigidbody2D> ().velocity;
+		Vector2 vec2 = go2.GetComponent<Rigidbody2D> ().velocity;
+
+		float mag = Mathf.Sqrt (Mathf.Pow (vec1.x - vec2.x, 2f) + Mathf.Pow (vec1.y - vec2.y, 2f));
+		return (mag >= hardHitVelocity);
+	}
 
     private void HandleWeaponPickup(Gun newGun)
     {
@@ -156,17 +171,8 @@ public class Player : MonoBehaviour
     private bool HandleFoodPickup (FoodItem item)
     {
         FoodType type = item.type;
-        FoodState state;
-        foodStates.TryGetValue(type, out state);
 
-        if (state != FoodState.ON_GROUND || !cart.Add(item))
-        {
-            return false;
-        }
-
-        foodStates[type] = FoodState.IN_CART;
-        playerHUD.OnItemStateChanged(type, foodStates[type]);
-        return true;
+		return cart.Add (item);
     }
 
     /*
@@ -180,7 +186,7 @@ public class Player : MonoBehaviour
     public void HandleAimDirection(Vector2 dir)
     {
         float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        gun.transform.localEulerAngles = new Vector3(0f, 0f, angle);
+		gameObject.transform.localEulerAngles = new Vector3(0f, 0f, angle);
     }
 
     /*
@@ -188,7 +194,7 @@ public class Player : MonoBehaviour
      */
     public void HandleShoot()
     {
-        gun.Fire();
+        FoodItem item = cart.Fire();
     }
 
     public void HandleLeftBump(bool bumping)
@@ -221,8 +227,7 @@ public class Player : MonoBehaviour
 
             if (belt.DepositItem(this, item))
             {
-				foodStates[item.type] = FoodState.ON_CONVEYOR;
-                                playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
+				
             }
             else
             {
@@ -233,19 +238,14 @@ public class Player : MonoBehaviour
 
 	public void LoseItem(FoodItem item)
 	{
-		foodStates[item.type] = FoodState.ON_GROUND;
-		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
 	}
 
 	public void MoveItemToBag(FoodItem item)
 	{
-		foodStates[item.type] = FoodState.BAGGED;
-		playerHUD.OnItemStateChanged(item.type, foodStates[item.type]);
 		bag.Add(item);
 		if (ContainsFullSandwich())
 		{
 			playerHUD.IncrementSandwiches();
-			ResetFoodStates();
 			bag.Clear();
 		}
 	}
@@ -259,6 +259,7 @@ public class Player : MonoBehaviour
 	 * On completion of a sandwich, all food states go back to ON_GROUND
 	 * so the player can collect them again
 	 */
+	/*
 	void ResetFoodStates()
 	{
 		List<FoodType> keys = new List<FoodType>(foodStates.Keys);
@@ -267,6 +268,7 @@ public class Player : MonoBehaviour
 			foodStates[key] = FoodState.ON_GROUND;
 		}
 	}
+	*/
 
 	bool ContainsFullSandwich()
 	{

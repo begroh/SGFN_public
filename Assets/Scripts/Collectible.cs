@@ -7,6 +7,6 @@ public class Collectible : MonoBehaviour
 
     void OnDestroy()
     {
-        pickup.StartRespawn();
+        //pickup.StartRespawn();
     }
 }
