@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public enum FoodType { CHEESE, BREAD, MEAT, TOPPING, BONUS }
+public enum FoodType { CHEESE, BREAD, MEAT, TOPPING, SPREAD, PICKLE }
 
 public class FoodItem : MonoBehaviour
 {
