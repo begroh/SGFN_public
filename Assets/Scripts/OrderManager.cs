@@ -4,8 +4,29 @@ using UnityEngine;
 public class OrderManager {
 
     private static int[] numbers = {0, 1, 2, 3, 4, 5};
+
+    private static Dictionary<Team, Order> orders;
+
+    public static Order OrderForTeam(Team team)
+    {
+        if (orders == null)
+        {
+            orders = new Dictionary<Team, Order>();
+        }
+
+        Order order;
+        if (orders.TryGetValue(team, out order))
+        {
+            return order;
+        }
+        else
+        {
+            order = GenerateOrder(team);
+            return order;
+        }
+    }
     
-    public static Order GenerateOrder(int length = 4)
+    public static Order GenerateOrder(Team team, int length = 4)
     {
         if (length > 6)
         {
@@ -16,6 +37,11 @@ public class OrderManager {
             length = 1;
         }
 
+        if (orders == null)
+        {
+            orders = new Dictionary<Team, Order>();
+        }
+
         Shuffle(numbers);
         List<FoodType> foods = new List<FoodType>();
 
@@ -24,7 +50,10 @@ public class OrderManager {
             foods.Add((FoodType) numbers[i]);
         }
 
-        return new Order(foods, (float) 4 * 10f, "I like turtles");
+        Order order = new Order(foods, (float) 4 * 10f, "I like turtles");
+
+        orders[team] = order;
+        return order;
     }
 
     private static void Shuffle(int[] numbers)
