@@ -28,4 +28,9 @@ public class HUDIcon : MonoBehaviour
 		artwork.sprite = art;
 		artwork.enabled = true;
 	}
+
+	public void SetBagged()
+	{
+		bagged.enabled = true;
+	}
 }
