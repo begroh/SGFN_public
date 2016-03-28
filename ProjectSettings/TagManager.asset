@@ -8,6 +8,7 @@ TagManager:
   - ConveyorBelt
   - Bullet
   - WeaponPickup
+  - Portal
   layers:
   - Default
   - TransparentFX

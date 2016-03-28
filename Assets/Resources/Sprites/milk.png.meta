@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 0cf52630bc64946139fad8f669f88e57
+timeCreated: 1459198033
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: milk_0
+    21300002: milk_1
+    21300004: milk_2
+    21300006: milk_3
+    21300008: milk_4
+    21300010: milk_5
+    21300012: milk_6
+    21300014: milk_7
+    21300016: milk_8
+    21300018: milk_9
+    21300020: milk_10
+    21300022: milk_11
+    21300024: milk_12
+    21300026: milk_13
+    21300028: milk_14
+    21300030: milk_15
+    21300032: milk_16
+    21300034: milk_17
+    21300036: milk_18
+    21300038: milk_19
+    21300040: milk_20
+    21300042: milk_21
+    21300044: milk_22
+    21300046: milk_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 30
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: milk_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 222
+        width: 52
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 228
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 227
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 227
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_4
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 227
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_5
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 227
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_6
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 227
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_7
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 227
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_8
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 227
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_9
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 227
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_10
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 227
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: milk_11
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 156
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 28}
+        - {x: -17.5, y: 25}
+        - {x: -26.5, y: 13}
+        - {x: -26.5, y: -24}
+        - {x: -13.5, y: -28}
+        - {x: 9.5, y: -28}
+        - {x: 26.5, y: -17}
+        - {x: 26.5, y: 13}
+        - {x: 17.5, y: 28}
+    - name: milk_12
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 156
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 30}
+        - {x: -18.5, y: 28}
+        - {x: -26.5, y: 13}
+        - {x: -26.5, y: -28}
+        - {x: -15.5, y: -30}
+        - {x: 11.5, y: -30}
+        - {x: 26.5, y: -23}
+        - {x: 26.5, y: 18}
+        - {x: 17.5, y: 30}
+    - name: milk_13
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 156
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 28}
+        - {x: -21.5, y: 23}
+        - {x: -26.5, y: 14}
+        - {x: -26.5, y: -24}
+        - {x: -19.5, y: -28}
+        - {x: 17.5, y: -28}
+        - {x: 25.5, y: -26}
+        - {x: 26.5, y: -21}
+        - {x: 26.5, y: 20}
+        - {x: 20.5, y: 28}
+    - name: milk_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 156
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 28}
+        - {x: -19.5, y: 20}
+        - {x: -26.5, y: 9}
+        - {x: -26.5, y: -22}
+        - {x: -19.5, y: -28}
+        - {x: 12.5, y: -28}
+        - {x: 26.5, y: -22}
+        - {x: 26.5, y: 23}
+        - {x: 17.5, y: 28}
+    - name: milk_15
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 156
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 28}
+        - {x: -25, y: 26}
+        - {x: -26, y: 19}
+        - {x: -26, y: -26}
+        - {x: -18, y: -28}
+        - {x: 13, y: -28}
+        - {x: 26, y: -18}
+        - {x: 26, y: 16}
+        - {x: 20, y: 28}
+    - name: milk_16
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 156
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 28}
+        - {x: -18, y: 26}
+        - {x: -26, y: 11}
+        - {x: -26, y: -23}
+        - {x: -18, y: -28}
+        - {x: 12, y: -28}
+        - {x: 26, y: -23}
+        - {x: 26, y: 18}
+        - {x: 19, y: 28}
+    - name: milk_17
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 123
+        width: 32
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 43}
+        - {x: -16, y: -4}
+        - {x: -8, y: -43}
+        - {x: 11, y: -43}
+        - {x: 16, y: -3}
+        - {x: 16, y: 41}
+        - {x: 14, y: 43}
+    - name: milk_18
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 6
+        width: 53
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 66.5}
+        - {x: -26.5, y: 55.5}
+        - {x: -26.5, y: -60.5}
+        - {x: -17.5, y: -66.5}
+        - {x: 9.5, y: -66.5}
+        - {x: 26.5, y: -60.5}
+        - {x: 26.5, y: 54.5}
+        - {x: 14.5, y: 66.5}
+    - name: milk_19
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 6
+        width: 53
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 68.5}
+        - {x: -26.5, y: -68.5}
+        - {x: 11.5, y: -68.5}
+        - {x: 26.5, y: -57.5}
+        - {x: 26.5, y: 50.5}
+        - {x: 18.5, y: 68.5}
+    - name: milk_20
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 6
+        width: 53
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 66}
+        - {x: -21.5, y: 63}
+        - {x: -26.5, y: 54}
+        - {x: -26.5, y: -63}
+        - {x: -20.5, y: -66}
+        - {x: 21.5, y: -66}
+        - {x: 26.5, y: -65}
+        - {x: 26.5, y: 60}
+        - {x: 21.5, y: 66}
+    - name: milk_21
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 6
+        width: 53
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 66.5}
+        - {x: -9.5, y: 66.5}
+        - {x: -26.5, y: 57.5}
+        - {x: -26.5, y: -63.5}
+        - {x: -11.5, y: -66.5}
+        - {x: 6.5, y: -66.5}
+        - {x: 21.5, y: -58.5}
+        - {x: 26.5, y: -53.5}
+        - {x: 26.5, y: 51.5}
+    - name: milk_22
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 6
+        width: 52
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 66}
+        - {x: -23, y: 62}
+        - {x: -26, y: 50}
+        - {x: -26, y: -61}
+        - {x: -24, y: -66}
+        - {x: 17, y: -66}
+        - {x: 26, y: -63}
+        - {x: 26, y: 53}
+        - {x: 20, y: 66}
+    - name: milk_23
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 6
+        width: 52
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 66}
+        - {x: -22, y: 61}
+        - {x: -26, y: 49}
+        - {x: -26, y: -63}
+        - {x: -17, y: -66}
+        - {x: 14, y: -66}
+        - {x: 26, y: -56}
+        - {x: 26, y: 54}
+        - {x: 19, y: 66}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

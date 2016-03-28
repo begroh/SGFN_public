@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     private TapBumpBehaviour leftBumpBehaviour;
     private ChargeBumpBehaviour rightBumpBehaviour;
 
+	public PortalManager portals;
 
     void Awake()
     {
@@ -109,6 +110,17 @@ public class Player : MonoBehaviour
             HandleWeaponPickup(other.gameObject.GetComponent<Gun>());
             Destroy(other.gameObject);
         }
+		else if (other.gameObject.tag == "Portal") {
+			Vector3 newPos = gameObject.transform.position;
+			Quaternion newRot = gameObject.transform.rotation;
+
+			bool canPortal = portals.portalMove(other.gameObject.GetComponent<Portal>().portalID, ref newPos, ref newRot);
+
+			if (canPortal) {
+				gameObject.transform.position = newPos;
+				gameObject.transform.rotation = newRot;
+			}
+		}
     }
 		
 	void OnCollisionEnter2D(Collision2D coll) {
@@ -255,20 +267,6 @@ public class Player : MonoBehaviour
         return (Team) playerNumber;
     }
 
-	/*
-	 * On completion of a sandwich, all food states go back to ON_GROUND
-	 * so the player can collect them again
-	 */
-	/*
-	void ResetFoodStates()
-	{
-		List<FoodType> keys = new List<FoodType>(foodStates.Keys);
-		foreach (FoodType key in keys)
-		{
-			foodStates[key] = FoodState.ON_GROUND;
-		}
-	}
-	*/
 
 	bool ContainsFullSandwich()
 	{
