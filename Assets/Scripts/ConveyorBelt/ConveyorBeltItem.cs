@@ -17,4 +17,10 @@ public interface ConveyorBeltItem
      */
     void Move(Vector2 move);
 
+    /*
+     * Return the FoodItem represented by this ConveyorBeltItem
+     */
+    FoodItem AsFoodItem();
+
+    Player player { get; set; }
 }

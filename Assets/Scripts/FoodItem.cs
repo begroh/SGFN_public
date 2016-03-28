@@ -3,11 +3,21 @@ using System.Collections;
 
 public enum FoodType { CHEESE, BREAD, MEAT, TOPPING, SPREAD, PICKLE }
 
-public class FoodItem : MonoBehaviour
+public class FoodItem : MonoBehaviour, ConveyorBeltItem
 {
     public FoodType _type;
     private string _name;
     private Sprite _sprite;
+    private float size;
+    private Player _player;
+
+    void Awake()
+    {
+        // Set the size to be the size of the convex box of the sprite
+        Sprite sprite = GetComponent<SpriteRenderer>().sprite;
+        Vector3 size = sprite.bounds.size;
+        this.size = Mathf.Max(size.x, size.y);
+    }
 
     public FoodType type
     {
@@ -26,12 +36,36 @@ public class FoodItem : MonoBehaviour
 
     public static bool operator == (FoodItem a, FoodItem b)
     {
-		print ("comparing");
         return a._type == b._type;
     }
 
     public static bool operator != (FoodItem a, FoodItem b)
     {
         return a._type != b._type;
+    }
+
+    public float Size()
+    {
+        return size;
+    }
+
+    public Vector2 Position()
+    {
+        return transform.position;
+    }
+
+    public void Move(Vector2 move)
+    {
+        this.transform.position = (Vector3) move;
+    }
+
+    public FoodItem AsFoodItem()
+    {
+        return this;
+    }
+
+    public Player player {
+        get { return _player; }
+        set { _player = value; }
     }
 }

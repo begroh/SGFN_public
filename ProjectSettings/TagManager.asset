@@ -21,7 +21,7 @@ TagManager:
   - Background
   - Walls
   - Pickups
-  - 
+  - ConveyorBelt
   - 
   - Bullet
   - Player
@@ -54,6 +54,9 @@ TagManager:
     locked: 0
   - name: PickupZones
     uniqueID: 2963142525
+    locked: 0
+  - name: ConveyorBelt
+    uniqueID: 912869425
     locked: 0
   - name: Pickups
     uniqueID: 39059361
