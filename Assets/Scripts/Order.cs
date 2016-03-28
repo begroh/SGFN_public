@@ -13,6 +13,18 @@ public class Order {
         this.name = name;
     }
 
+    public bool IsOrderComplete(ShoppingList list)
+    {
+        foreach (FoodType type in items)
+        {
+            if (list.GetState(type) != FoodState.BAGGED)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public List<FoodType> Items
     {
         get { return items; }
