@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 419146}
   - 212: {fileID: 21202124}
   - 114: {fileID: 11428706}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 61: {fileID: 6163420}
   - 61: {fileID: 6198140}
   - 212: {fileID: 21227488}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ConveyorBelt
   m_TagString: ConveyorBelt
   m_Icon: {fileID: 0}
@@ -111,8 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a636eaa0a88042c39c2f8ce69d25836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodConveyorBeltItemPrefab: {fileID: 198760, guid: 1f70ea97e6cc74ad393262dddd7afe4b,
-    type: 2}
 --- !u!212 &21202124
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -179,7 +177,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146378}
