@@ -1,25 +1,26 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 /**
  * ShoppingList list = ShoppingList.ForTeam(Team.RED);
  *
- * list.GetState(FoodItem.BREAD);
+ * list.GetState(FoodType.BREAD);
  *      => FoodState.ON_GROUND
  *
- * list.SetState(FoodItem.BREAD, FoodState.BAGGED);
+ * list.SetState(FoodType.BREAD, FoodState.BAGGED);
  *
- * list.GetState(FoodItem.BREAD);
+ * list.GetState(FoodType.BREAD);
  *      => FoodState.BAGGED
  */
 public class ShoppingList {
 
-    private Dictionary<FoodItem, FoodState> items;
+    private Dictionary<FoodType, FoodState> types;
 
     private static Dictionary<Team, ShoppingList> lists;
 
     private ShoppingList()
     {
-        items = new Dictionary<FoodItem, FoodState>();
+        types = new Dictionary<FoodType, FoodState>();
     }
 
     public static ShoppingList ForTeam(Team team)
@@ -42,10 +43,10 @@ public class ShoppingList {
         }
     }
 
-    public FoodState GetState(FoodItem item)
+    public FoodState GetState(FoodType type)
     {
         FoodState state;
-        if (items.TryGetValue(item, out state))
+        if (types.TryGetValue(type, out state))
         {
             return state;
         }
@@ -55,8 +56,17 @@ public class ShoppingList {
         }
     }
 
-    public void SetState(FoodItem item, FoodState state)
+    public void SetState(FoodType type, FoodState state)
     {
-        items[item] = state;
+        types[type] = state;
+    }
+
+    public void Reset()
+    {
+        foreach (FoodType type in FoodType.GetValues(typeof(FoodType)))
+        {
+            types[type] = FoodState.ON_GROUND;
+            Debug.Log(types[type]);
+        }
     }
 }
