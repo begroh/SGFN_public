@@ -5,13 +5,11 @@ public class ConveyorBelt : MonoBehaviour
 {
     private enum Direction { FORWARD, REVERSE };
 
-    public GameObject foodConveyorBeltItemPrefab;
-
     private ConveyorZone zone;
 
     private float speed = 1.25f;    // 125 cm / second
     private float margin = 0.3f;    // 30 cm spacing
-    private LinkedList<FoodConveyorBeltItem> items;
+    private LinkedList<ConveyorBeltItem> items;
     private Vector2 startPosition;
     private Vector2 endPosition;
 
@@ -20,7 +18,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void Awake()
     {
-        items = new LinkedList<FoodConveyorBeltItem>();
+        items = new LinkedList<ConveyorBeltItem>();
         players = new List<Player>();
 
         // Setup start and end points
@@ -49,9 +47,9 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
-    public List<FoodConveyorBeltItem> GetItems()
+    public List<ConveyorBeltItem> GetItems()
     {
-        return new List<FoodConveyorBeltItem>(items);
+        return new List<ConveyorBeltItem>(items);
     }
 
     /*
@@ -60,16 +58,15 @@ public class ConveyorBelt : MonoBehaviour
      */
     public bool DepositItem(Player player, FoodItem item)
     {
-                if (HasRoom() && (player.GetTeam() == currentTeam))
+        if (HasRoom() && (player.GetTeam() == currentTeam))
         {
-                        GameObject obj = Instantiate(foodConveyorBeltItemPrefab);
+            GameObject obj = item.gameObject;
             obj.transform.parent = this.gameObject.transform;
             obj.transform.position = startPosition;
-            FoodConveyorBeltItem beltItem = obj.GetComponent<FoodConveyorBeltItem>();
-            beltItem.SetItem(item);
-                        beltItem.player = player;
 
-            items.AddLast(beltItem);
+            item.player = player;
+
+            items.AddLast(item);
             return true;
         }
         else
@@ -143,7 +140,7 @@ public class ConveyorBelt : MonoBehaviour
         }
 
         // Move all of the items on the belt
-        foreach (FoodConveyorBeltItem item in items)
+        foreach (ConveyorBeltItem item in items)
         {
             Vector2 move = Vector2.MoveTowards(item.Position(), endPosition, maxDistance);
             item.Move(move);
@@ -160,9 +157,9 @@ public class ConveyorBelt : MonoBehaviour
      * Returns the item closest towards the start of the conveyor belt,
      * if it is close enough, otherwise returns null.
      */
-    private FoodConveyorBeltItem AvailableItem()
+    private ConveyorBeltItem AvailableItem()
     {
-        FoodConveyorBeltItem item = LastItem();
+        ConveyorBeltItem item = LastItem();
 
         if (item != null && Vector2.Distance(item.Position(), startPosition) < 0.01)
         {
@@ -179,7 +176,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     public bool HasRoom()
     {
-        FoodConveyorBeltItem last = LastItem();
+        ConveyorBeltItem last = LastItem();
 
         if (last == null)
         {
@@ -197,11 +194,11 @@ public class ConveyorBelt : MonoBehaviour
      * Destroy an item that has fallen off the conveyor belt
      * Changes the team to the enemy team
      */
-    private void FallOff(FoodConveyorBeltItem item)
+    private void FallOff(ConveyorBeltItem item)
     {
         items.Remove(item);
-                item.player.LoseItem(item.Item());
-        Destroy(((FoodConveyorBeltItem) item).gameObject);
+        item.player.LoseItem(item.AsFoodItem());
+        Destroy(item.AsFoodItem().gameObject);
 
         if (items.Count == 0)
         {
@@ -209,18 +206,18 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
-    private void MoveItemToBag(FoodConveyorBeltItem item)
+    private void MoveItemToBag(ConveyorBeltItem item)
     {
         items.Remove(item);
-        item.player.MoveItemToBag(item.Item());
-        Destroy(((FoodConveyorBeltItem) item).gameObject);
+        item.player.MoveItemToBag(item.AsFoodItem());
+        Destroy(item.AsFoodItem().gameObject);
 
         OrderManager.CompleteOrderForTeam(currentTeam);
     }
 
-    private FoodConveyorBeltItem LastItem()
+    private ConveyorBeltItem LastItem()
     {
-        FoodConveyorBeltItem last = null;
+        ConveyorBeltItem last = null;
         if (items.Last != null) {
             last = items.Last.Value;
         }
@@ -250,9 +247,9 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void PlayerEnter(Player player)
     {
-                if (currentTeam == Team.NONE)
+        if (currentTeam == Team.NONE)
         {
-                        ChangeTeam(player.GetTeam());
+            ChangeTeam(player.GetTeam());
         }
         players.Add(player);
     }
