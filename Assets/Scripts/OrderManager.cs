@@ -56,6 +56,23 @@ public class OrderManager {
         return order;
     }
 
+    public static bool CompleteOrderForTeam(Team team)
+    {
+        ShoppingList list = ShoppingList.ForTeam(team);
+        Order order = OrderManager.OrderForTeam(team);
+
+        if (!order.IsOrderComplete(list))
+        {
+            return false;
+        }
+
+        list.Reset();
+        GenerateOrder(team, 4); // pick a length for the new order
+        // Notify the HUD
+
+        return true;
+    }
+
     private static void Shuffle(int[] numbers)
     {
         for (int i = 0; i < numbers.Length; i++)
