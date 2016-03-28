@@ -64,7 +64,7 @@ public class HUD : MonoBehaviour {
 		Color tmp = icon.artwork.color;
 		tmp.a = 0.5f;
 		icon.artwork.color = tmp;
-		icon.conveyor.enabled = false;
+		//icon.conveyor.enabled = false;
 		icon.bagged.enabled = false;
 	}
 
@@ -78,7 +78,7 @@ public class HUD : MonoBehaviour {
 
 	void DisplayItemOnConveyor(FoodType type)
 	{
-		HUDIcon icon = GetIconByType(type);
+		// HUDIcon icon = GetIconByType(type);
 		// TODO overlay sprite with something to signify conveyor
 	}
 
@@ -119,22 +119,18 @@ public class HUD : MonoBehaviour {
 	{
 		breadIcon = gameObject.transform.Find("BreadIcon").GetComponent<HUDIcon>();
 		breadIcon.artwork.enabled = true;
-		breadIcon.conveyor.enabled = false;
 		breadIcon.bagged.enabled = false;
 
 		cheeseIcon = gameObject.transform.Find("CheeseIcon").GetComponent<HUDIcon>();
 		cheeseIcon.artwork.enabled = true;
-		cheeseIcon.conveyor.enabled = false;
 		cheeseIcon.bagged.enabled = false;
 
 		meatIcon = gameObject.transform.Find("MeatIcon").GetComponent<HUDIcon>();
 		meatIcon.artwork.enabled = true;
-		meatIcon.conveyor.enabled = false;
 		meatIcon.bagged.enabled = false;
 
 		condimentIcon = gameObject.transform.Find("ToppingIcon").GetComponent<HUDIcon>();
 		condimentIcon.artwork.enabled = true;
-		condimentIcon.conveyor.enabled = false;
 		condimentIcon.bagged.enabled = false;
 	}
 
