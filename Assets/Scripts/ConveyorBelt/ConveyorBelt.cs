@@ -213,6 +213,8 @@ public class ConveyorBelt : MonoBehaviour
 		ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
         Destroy(item.AsFoodItem().gameObject);
 
+
+
         OrderManager.CompleteOrderForTeam(currentTeam);
 		foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
 		{

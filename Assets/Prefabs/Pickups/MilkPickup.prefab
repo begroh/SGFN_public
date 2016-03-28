@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 0}
+  shouldRespawn: 1
 --- !u!114 &11495390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +138,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300028, guid: 0cf52630bc64946139fad8f669f88e57,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: shouldRespawn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 125758}

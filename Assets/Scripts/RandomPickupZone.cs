@@ -5,6 +5,8 @@ public class RandomPickupZone : PickupZone {
 
 	public float checkRadius = 1;
 	public LayerMask walls = -1;
+	public LayerMask pickups = -1;
+	public LayerMask players = -1;
 
 	override protected void SpawnItem()
 	{
@@ -25,7 +27,7 @@ public class RandomPickupZone : PickupZone {
 			newY = Random.Range (minY, maxY);
 			newPos = new Vector2(newX, newY);
 
-			coll = Physics2D.OverlapCircle(newPos, checkRadius, walls);
+			coll = Physics2D.OverlapCircle(newPos, checkRadius, walls | pickups | players);
 
 		} while(coll != null);
 			
