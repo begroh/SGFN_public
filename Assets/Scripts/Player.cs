@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int playerNumber = 1;    // Joystick slot, default to 1
     public bool useKeyboard = true; // Use keyboard instead of controller, defaults to true for development
 
+    public Team team;
     public HUD playerHUD;
 
     private ShoppingCart cart;
@@ -264,7 +265,7 @@ public class Player : MonoBehaviour
 
     public Team GetTeam()
     {
-        return (Team) playerNumber;
+        return team;
     }
 
 
