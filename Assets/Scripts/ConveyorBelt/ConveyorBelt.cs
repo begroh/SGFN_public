@@ -209,10 +209,15 @@ public class ConveyorBelt : MonoBehaviour
     private void MoveItemToBag(ConveyorBeltItem item)
     {
         items.Remove(item);
-        item.player.MoveItemToBag(item.AsFoodItem());
+        // item.player.MoveItemToBag(item.AsFoodItem());
+		ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
         Destroy(item.AsFoodItem().gameObject);
 
         OrderManager.CompleteOrderForTeam(currentTeam);
+		foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
+		{
+			hud.Refresh();
+		}
     }
 
     private ConveyorBeltItem LastItem()

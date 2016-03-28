@@ -66,7 +66,6 @@ public class ShoppingList {
         foreach (FoodType type in FoodType.GetValues(typeof(FoodType)))
         {
             types[type] = FoodState.ON_GROUND;
-            Debug.Log(types[type]);
         }
     }
 }

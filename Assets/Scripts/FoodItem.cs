@@ -24,15 +24,15 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         get { return _type; }
     }
 
-    public Sprite sprite
-    {
-        get { return _sprite; }
-    }
+    // public Sprite sprite
+    // {
+    //     get { return _sprite; }
+    // }
 
-    public string name
-    {
-        get { return _name; }
-    }
+    // public string name
+    // {
+    //     get { return _name; }
+    // }
 
     public static bool operator == (FoodItem a, FoodItem b)
     {
