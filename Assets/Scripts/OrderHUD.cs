@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -18,6 +19,8 @@ public class OrderHUD : MonoBehaviour {
 
 	List<HUDIcon> iconObjects;
 
+	Text scoreText;
+
 	void Start()
 	{
 		icons = new Dictionary<FoodType, Sprite>();
@@ -29,6 +32,8 @@ public class OrderHUD : MonoBehaviour {
 		icons[FoodType.MILK] = milkSprite;
 		icons[FoodType.FRUIT] = fruitSprite;
 		icons[FoodType.DESSERT] = dessertSprite;
+
+		scoreText = gameObject.transform.Find("Text").GetComponent<Text>();
 
 		Refresh();
 	}
@@ -76,5 +81,6 @@ public class OrderHUD : MonoBehaviour {
 	{
 		Order order = OrderManager.OrderForTeam(team);
 		ReceiveOrder(order);
+		scoreText.text = Score.ForTeam(team).ToString();
 	}
 }
