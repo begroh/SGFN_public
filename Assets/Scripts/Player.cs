@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        cart.UpdateFoodPositions();
         if (invincible)
         {
             counter++;
