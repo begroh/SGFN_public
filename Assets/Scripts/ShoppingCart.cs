@@ -93,13 +93,18 @@ public class ShoppingCart : MonoBehaviour
 
 	// TODO write this function
 	public void UpdateFoodPositions() {
-        if (cart.Count < 2)
+        if (cart.Count < 1)
         {
             return;
         }
 
-        float radius = 1;
-        float angle = 360.0f / cart.Count;
+		if (cart.Count == 1) {
+			cart.Peek ().transform.position = transform.position;
+			return;
+		}
+
+		float radius = 1f;
+        float angle = 270.0f / cart.Count;
 
         float i = 0;
         //for (int i = 0; i < cart.Count; ++i)
@@ -107,13 +112,13 @@ public class ShoppingCart : MonoBehaviour
         {
             ++i;
             Vector3 offset = Vector3.right * radius;
-            Quaternion rotation = Quaternion.Euler(0, 0, angle * i);
+            Quaternion rotation = Quaternion.Euler(0, 0, angle * i + 200f);
             rotation = rotation * transform.rotation;
 
             Vector3 target = transform.position + (rotation * offset);
             Vector3 current = item.transform.position;
 
-            Debug.Log("rotating item " + i + " by " + angle);
+            //Debug.Log("rotating item " + i + " by " + angle);
 
             item.transform.position = Vector3.MoveTowards(current, target, 0.1f);
         }
