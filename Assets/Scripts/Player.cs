@@ -252,37 +252,8 @@ public class Player : MonoBehaviour
 	{
 	}
 
-	public void MoveItemToBag(FoodItem item)
-	{
-		bag.Add(item);
-		if (ContainsFullSandwich())
-		{
-			playerHUD.IncrementSandwiches();
-			bag.Clear();
-		}
-	}
-
     public Team GetTeam()
     {
         return (Team) playerNumber;
     }
-
-
-	bool ContainsFullSandwich()
-	{
-		bool hasCheese = false, hasBread = false,
-			 hasTopping = true, hasMeat = false;
-		foreach (FoodItem item in bag)
-		{
-			if (item.type == FoodType.CHEESE)
-				hasCheese = true;
-			else if (item.type == FoodType.BREAD)
-				hasBread = true;
-			else if (item.type == FoodType.TOPPING)
-				hasTopping = true;
-			else if (item.type == FoodType.MEAT)
-				hasMeat = true;
-		}
-		return hasCheese && hasBread && hasTopping && hasMeat;
-	}
 }

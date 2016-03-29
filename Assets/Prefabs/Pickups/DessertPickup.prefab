@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8232c80cff70a430fb41deba343181c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 4
+  _type: 5
 --- !u!114 &11477986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,7 +126,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _type
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Sprite

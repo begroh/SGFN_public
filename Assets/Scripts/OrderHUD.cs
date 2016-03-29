@@ -12,9 +12,9 @@ public class OrderHUD : MonoBehaviour {
 	Sprite cheeseSprite;
 	Sprite breadSprite;
 	Sprite meatSprite;
-	Sprite toppingSprite;
-	Sprite spreadSprite;
-	Sprite pickleSprite;
+	Sprite milkSprite;
+	Sprite fruitSprite;
+	Sprite dessertSprite;
 
 	List<HUDIcon> iconObjects;
 
@@ -26,9 +26,9 @@ public class OrderHUD : MonoBehaviour {
 		icons[FoodType.CHEESE] = cheeseSprite;
 		icons[FoodType.BREAD] = breadSprite;
 		icons[FoodType.MEAT] = meatSprite;
-		icons[FoodType.TOPPING] = toppingSprite;
-		icons[FoodType.SPREAD] = spreadSprite;
-		icons[FoodType.PICKLE] = pickleSprite;
+		icons[FoodType.MILK] = milkSprite;
+		icons[FoodType.FRUIT] = fruitSprite;
+		icons[FoodType.DESSERT] = dessertSprite;
 
 		Refresh();
 	}
@@ -38,9 +38,9 @@ public class OrderHUD : MonoBehaviour {
 		cheeseSprite = gameObject.transform.Find("CheeseSprite").GetComponent<SpriteRenderer>().sprite;
 		breadSprite = gameObject.transform.Find("BreadSprite").GetComponent<SpriteRenderer>().sprite;
 		meatSprite = gameObject.transform.Find("MeatSprite").GetComponent<SpriteRenderer>().sprite;
-		toppingSprite = gameObject.transform.Find("ToppingSprite").GetComponent<SpriteRenderer>().sprite;
-		spreadSprite = gameObject.transform.Find("SpreadSprite").GetComponent<SpriteRenderer>().sprite;
-		pickleSprite = gameObject.transform.Find("PickleSprite").GetComponent<SpriteRenderer>().sprite;
+		milkSprite = gameObject.transform.Find("MilkSprite").GetComponent<SpriteRenderer>().sprite;
+		fruitSprite = gameObject.transform.Find("FruitSprite").GetComponent<SpriteRenderer>().sprite;
+		dessertSprite = gameObject.transform.Find("DessertSprite").GetComponent<SpriteRenderer>().sprite;
 	}
 
 	public void ReceiveOrder(Order order)

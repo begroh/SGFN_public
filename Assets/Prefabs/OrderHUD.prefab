@@ -58,7 +58,7 @@ GameObject:
   - 4: {fileID: 461512}
   - 212: {fileID: 21203568}
   m_Layer: 0
-  m_Name: ToppingSprite
+  m_Name: MilkSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ GameObject:
   - 4: {fileID: 474832}
   - 212: {fileID: 21276196}
   m_Layer: 0
-  m_Name: SpreadSprite
+  m_Name: FruitSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ GameObject:
   - 4: {fileID: 464904}
   - 212: {fileID: 21242180}
   m_Layer: 0
-  m_Name: PickleSprite
+  m_Name: DessertSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,7 +407,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.72, y: 4.203691, z: -10}
+  m_LocalPosition: {x: -2.06, y: 16.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 472712}
@@ -840,7 +840,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 39059361
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300014, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
+  m_Sprite: {fileID: 21300028, guid: 0cf52630bc64946139fad8f669f88e57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1050,7 +1050,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 39059361
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300010, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4addb67c7d37247cdb1f60c2b8c269d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1170,7 +1170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 39059361
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89918bba263aa45c5b61855624fff26c, type: 3}
+  m_Sprite: {fileID: 21300014, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1360,7 +1360,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300028, guid: 0cf52630bc64946139fad8f669f88e57,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167420}

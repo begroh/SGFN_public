@@ -108,10 +108,10 @@ public class HUD : MonoBehaviour {
 		{
 			return meatIcon;
 		}
-		else if (type == FoodType.TOPPING)
-		{
-			return condimentIcon;
-		}
+		// else if (type == FoodType.TOPPING)
+		// {
+		// 	return condimentIcon;
+		// }
 		return null;
 	}
 
@@ -158,6 +158,6 @@ public class HUD : MonoBehaviour {
 		DisplayItemAsRequired(FoodType.BREAD);
 		DisplayItemAsRequired(FoodType.CHEESE);
 		DisplayItemAsRequired(FoodType.MEAT);
-		DisplayItemAsRequired(FoodType.TOPPING);
+		// DisplayItemAsRequired(FoodType.TOPPING);
 	}
 }
