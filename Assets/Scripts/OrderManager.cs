@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class OrderManager {
 
-    private static int[] numbers = {0, 1, 2, 3, 4, 5};
+    private static int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7};
 
     private static Dictionary<Team, Order> orders;
 
@@ -28,9 +28,9 @@ public class OrderManager {
     
     public static Order GenerateOrder(Team team, int length = 4)
     {
-        if (length > 6)
+        if (length > 8)
         {
-            length = 6;
+            length = 8;
         }
         else if (length < 1)
         {

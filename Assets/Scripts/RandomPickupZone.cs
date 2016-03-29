@@ -27,7 +27,7 @@ public class RandomPickupZone : PickupZone {
 			newY = Random.Range (minY, maxY);
 			newPos = new Vector2(newX, newY);
 
-			coll = Physics2D.OverlapCircle(newPos, checkRadius, walls | pickups | players);
+			coll = Physics2D.OverlapCircle(newPos, checkRadius, walls | players);
 
 		} while(coll != null);
 			
