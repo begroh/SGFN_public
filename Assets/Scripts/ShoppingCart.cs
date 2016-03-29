@@ -79,7 +79,7 @@ public class ShoppingCart : MonoBehaviour
 		FoodItem item = Remove ();
 
 		if (item) {
-			item.transform.position = item.transform.parent.position;
+			item.transform.position = item.transform.parent.position + item.transform.parent.transform.right;
 			item.transform.parent = null;
 			Rigidbody2D body = item.GetComponent<Rigidbody2D>();
 			body.isKinematic = false;

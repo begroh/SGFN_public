@@ -59,12 +59,14 @@ public class PortalManager : MonoBehaviour {
 		}
 
 		// Otherwise you'll just bounce back and forth between the portals
-		canPortal = false;
-		Invoke ("turnOnPortal", .5f);
+		canPortal = true;
+		//Invoke ("turnOnPortal", .5f);
 
 		rot = portalList [nextPortal].transform.rotation; // - portalList [portalNum].transform.rotation;
 
-		Vector3 offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
+		//Vector3 offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
+		Vector3 offset = portalList[nextPortal].transform.right * 2;
+
 		pos = portalList[nextPortal].transform.position + offset;
 
 		return true;
