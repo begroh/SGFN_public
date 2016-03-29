@@ -4,9 +4,12 @@ using System.Collections;
 public class Collectible : MonoBehaviour
 {
     public PickupZone pickup;
+	public bool shouldRespawn = true;
 
     void OnDestroy()
     {
-        //pickup.StartRespawn();
+		if (shouldRespawn) {
+			pickup.StartRespawn ();
+		}
     }
 }

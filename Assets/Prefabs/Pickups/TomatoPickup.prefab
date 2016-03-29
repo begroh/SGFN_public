@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 0}
+  shouldRespawn: 1
 --- !u!114 &11495390
 MonoBehaviour:
   m_ObjectHideFlags: 1

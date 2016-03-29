@@ -5377,6 +5377,18 @@ Prefab:
       propertyPath: m_Name
       value: RandomPickupZone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -11741,6 +11753,18 @@ Prefab:
       value: 
       objectReference: {fileID: 11477986, guid: ffbf3d2456ded4730a8f40754942f7fc,
         type: 2}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -11974,6 +11998,18 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 5c1dc8a2533be4cd7b6f88c9ba5054e9,
         type: 3}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -25723,6 +25759,18 @@ Prefab:
       propertyPath: m_Name
       value: RandomPickupZone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -36000,6 +36048,69 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &572941239
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: portals
+      value: 
+      objectReference: {fileID: 281230812}
+    - target: {fileID: 163198, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_Name
+      value: PlayerBlue (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: playerNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231660, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2611bd0f8afbdcd45b3cab23c018eec0,
+        type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &576013301
 GameObject:
   m_ObjectHideFlags: 0
@@ -37991,6 +38102,64 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &597531332
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: portals
+      value: 
+      objectReference: {fileID: 281230812}
+    - target: {fileID: 163198, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_Name
+      value: PlayerRed (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &598041402
 GameObject:
   m_ObjectHideFlags: 0
@@ -38932,6 +39101,18 @@ Prefab:
       value: 
       objectReference: {fileID: 11447704, guid: 4b2e1b439f527480c8b5cc089843c74e,
         type: 2}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -48113,6 +48294,18 @@ Prefab:
       propertyPath: m_Name
       value: RandomPickupZone (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -49936,6 +50129,18 @@ Prefab:
     - target: {fileID: 118558, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
       propertyPath: m_Name
       value: RandomPickupZone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
@@ -91933,6 +92138,18 @@ Prefab:
       propertyPath: checkRadius
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -94040,6 +94257,18 @@ Prefab:
     - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
       propertyPath: checkRadius
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
@@ -116805,11 +117034,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -116839,6 +117068,14 @@ Prefab:
       propertyPath: portals
       value: 
       objectReference: {fileID: 281230812}
+    - target: {fileID: 163198, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_Name
+      value: PlayerRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
   m_IsPrefabParent: 0
@@ -124858,6 +125095,18 @@ Prefab:
       propertyPath: checkRadius
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
   m_IsPrefabParent: 0
@@ -127558,6 +127807,18 @@ Prefab:
     - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
       propertyPath: checkRadius
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
@@ -131277,6 +131538,69 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &1959167369
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: portals
+      value: 
+      objectReference: {fileID: 281230812}
+    - target: {fileID: 163198, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_Name
+      value: PlayerBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: playerNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231660, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2611bd0f8afbdcd45b3cab23c018eec0,
+        type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1960057366
 GameObject:
   m_ObjectHideFlags: 0
@@ -139982,6 +140306,18 @@ Prefab:
     - target: {fileID: 118558, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
       propertyPath: m_Name
       value: RandomPickupZone (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: respawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463264, guid: 005696c25fdcd49d8838e870d1008005, type: 2}
+      propertyPath: players.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005696c25fdcd49d8838e870d1008005, type: 2}

@@ -61,6 +61,12 @@ MonoBehaviour:
   walls:
     serializedVersion: 2
     m_Bits: 512
+  pickups:
+    serializedVersion: 2
+    m_Bits: 1024
+  players:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!212 &21223996
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -97,7 +103,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: pickups.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: players.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118558}
