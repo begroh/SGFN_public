@@ -27,7 +27,7 @@ public class ShoppingCart : MonoBehaviour
         }
 
         cart.Push(item);
-		gameObject.GetComponent<Collider2D> ().enabled = true;
+		//gameObject.GetComponent<Collider2D> ().enabled = true;
 
 		// Move the fooditem to the player's possession
 		item.transform.position = gameObject.transform.position;
@@ -56,7 +56,8 @@ public class ShoppingCart : MonoBehaviour
 	public void dropAllItems() {
 		int numItems = cart.Count;
 		for (int i = 0; i < numItems; ++i) {
-			FireFoodItem (Quaternion.AngleAxis (360f/numItems * i + 45f, Vector3.forward) * Vector3.right);
+			FoodItem item = FireFoodItem (Quaternion.AngleAxis (360f/numItems * i + 45f, Vector3.forward) * Vector3.right, launchForce/2);
+			item.Explode ();
 		}
 	}
 
@@ -65,7 +66,7 @@ public class ShoppingCart : MonoBehaviour
 
 		if (lastFireTime + reloadTime < Time.time)
 		{
-			item = FireFoodItem (transform.right);
+			item = FireFoodItem (transform.right, launchForce);
 			if (item) {
 				lastFireTime = Time.time;
 			}
@@ -74,7 +75,7 @@ public class ShoppingCart : MonoBehaviour
 		return item;
 	}
 
-	private FoodItem FireFoodItem(Vector2 forceDirection)
+	private FoodItem FireFoodItem(Vector2 forceDirection, float force)
 	{
 		FoodItem item = Remove ();
 
@@ -83,7 +84,7 @@ public class ShoppingCart : MonoBehaviour
 			item.transform.parent = null;
 			Rigidbody2D body = item.GetComponent<Rigidbody2D>();
 			body.isKinematic = false;
-			body.AddForce(forceDirection * launchForce);
+			body.AddForce(forceDirection * force);
 			item.GetComponent<Collider2D> ().enabled = true;
 			UpdateFoodPositions ();
 		}

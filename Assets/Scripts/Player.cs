@@ -29,13 +29,14 @@ public class Player : MonoBehaviour
     private Color startColor;
     private bool invincible = false;
     private int counter;
+	private bool hardHit = false;
 
     public float deathTime, respawnDelay, invincibleDuration;
     private float invincibleTime;
     private bool canMove = true;
 
-    private TapBumpBehaviour leftBumpBehaviour;
-    private ChargeBumpBehaviour rightBumpBehaviour;
+    private ChargeBumpBehaviour leftBumpBehaviour;
+    private TapBumpBehaviour rightBumpBehaviour;
 
     public PortalManager portals;
 
@@ -66,8 +67,8 @@ public class Player : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
 
-        this.leftBumpBehaviour = new TapBumpBehaviour();
-        this.rightBumpBehaviour = new ChargeBumpBehaviour();
+        this.leftBumpBehaviour = new ChargeBumpBehaviour();
+        this.rightBumpBehaviour = new TapBumpBehaviour();
     }
 
     void Update()
@@ -124,6 +125,13 @@ public class Player : MonoBehaviour
     }
         
     void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "FoodPickup") {
+			FoodItem item = (FoodItem)coll.gameObject.GetComponent<FoodItem>();
+			if (item.isExploding) {
+				return;
+			}
+		}
+
 
         if (coll.gameObject.tag == "FoodPickup" || coll.gameObject.tag == "Player" && !invincible) {
             if (HardCollision (coll.gameObject, gameObject)) {
@@ -135,11 +143,13 @@ public class Player : MonoBehaviour
                 {
                     cart.dropAllItems();
                 }
+				hardHit = true;
+				Invoke ("HardHitStop", deathTime);
                 return;
             }
         }
 
-        if (coll.gameObject.tag == "FoodPickup")
+		if (coll.gameObject.tag == "FoodPickup" && !hardHit && coll.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude < 15)
         {
             HandleFoodPickup (coll.gameObject.GetComponent<FoodItem> ());
         }
@@ -177,6 +187,11 @@ public class Player : MonoBehaviour
     {
         canMove = true;
     }
+
+	private void HardHitStop()
+	{
+		hardHit = false;
+	}
 
     /*
      * Called when picking up food. True if the player can pick it up. False if not

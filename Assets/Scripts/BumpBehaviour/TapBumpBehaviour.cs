@@ -8,7 +8,7 @@ public class TapBumpBehaviour : BumpBehaviour
 
     public TapBumpBehaviour()
     {
-        this.cooldown = new Cooldown(2f);
+        this.cooldown = new Cooldown(1f);
     }
 
     public void Update(Player player, bool bumping)

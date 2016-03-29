@@ -11,6 +11,8 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private float size;
     private Player _player;
 
+	public bool isExploding = false;
+
     void Awake()
     {
         // Set the size to be the size of the convex box of the sprite
@@ -68,4 +70,13 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         get { return _player; }
         set { _player = value; }
     }
+
+	public void Explode() {
+		isExploding = true;
+		Invoke ("StopExploding", .5f);
+	}
+
+	private void StopExploding() {
+		isExploding = false;
+	}
 }
