@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
     private TapBumpBehaviour leftBumpBehaviour;
     private ChargeBumpBehaviour rightBumpBehaviour;
 
-	public PortalManager portals;
 
     void Awake()
     {
@@ -111,17 +110,6 @@ public class Player : MonoBehaviour
             HandleWeaponPickup(other.gameObject.GetComponent<Gun>());
             Destroy(other.gameObject);
         }
-		else if (other.gameObject.tag == "Portal") {
-			Vector3 newPos = gameObject.transform.position;
-			Quaternion newRot = gameObject.transform.rotation;
-
-			bool canPortal = portals.portalMove(other.gameObject.GetComponent<Portal>().portalID, ref newPos, ref newRot);
-
-			if (canPortal) {
-				gameObject.transform.position = newPos;
-				gameObject.transform.rotation = newRot;
-			}
-		}
     }
 		
 	void OnCollisionEnter2D(Collision2D coll) {
