@@ -6,12 +6,12 @@ public class ShoppingCart : MonoBehaviour
 	public float reloadTime;
 	public float launchForce;
 
-	private Queue<FoodItem> cart;
+	private Stack<FoodItem> cart;
 	private float lastFireTime;
 
 	void Start()
     {
-        this.cart = new Queue<FoodItem>();
+        this.cart = new Stack<FoodItem>();
     }
 
     public int Count
@@ -26,7 +26,7 @@ public class ShoppingCart : MonoBehaviour
             return false;
         }
 
-        cart.Enqueue(item);
+        cart.Push(item);
 		gameObject.GetComponent<Collider2D> ().enabled = true;
 
 		// Move the fooditem to the player's possession
@@ -47,7 +47,7 @@ public class ShoppingCart : MonoBehaviour
 			if (cart.Count == 1) {
 				gameObject.GetComponent<Collider2D> ().enabled = false;
 			}
-			return cart.Dequeue();
+			return cart.Pop();
         }
 
         return null;
