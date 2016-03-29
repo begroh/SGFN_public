@@ -50247,6 +50247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalID: 0
+  portals: {fileID: 0}
 --- !u!4 &730873090
 Transform:
   m_ObjectHideFlags: 0
@@ -72460,6 +72461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalID: 1
+  portals: {fileID: 0}
 --- !u!4 &1081264202
 Transform:
   m_ObjectHideFlags: 0
@@ -121025,6 +121027,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1085805732}
+    - target: {fileID: 451616, guid: 5536f1e62a9fb8648bec5714a46df459, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -442
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5536f1e62a9fb8648bec5714a46df459, type: 2}
   m_IsPrefabParent: 0

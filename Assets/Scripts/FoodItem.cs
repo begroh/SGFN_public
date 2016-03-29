@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public enum FoodType { CHEESE, BREAD, MEAT, MILK, FRUIT, DESSERT, EXTRA }
+public enum FoodType { CHEESE, BREAD, MEAT, MILK, FRUIT, DESSERT, POTATO, MAYO, EXTRA }
 
 public class FoodItem : MonoBehaviour, ConveyorBeltItem
 {
