@@ -66,6 +66,7 @@ public class OrderManager {
             return false;
         }
 
+        Score.AddForTeam(team, order.Points);
         list.Reset();
         GenerateOrder(team, 4); // pick a length for the new order
         // Notify the HUD
