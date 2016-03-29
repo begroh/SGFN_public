@@ -145,7 +145,8 @@ public class Player : MonoBehaviour
 	 * if they're colliding "hard"
 	 */
 	private bool HardCollision(GameObject go1, GameObject go2) {
-		Vector2 vec1 = go1.GetComponent<Rigidbody2D> ().velocity;
+		//Vector2 vec1 = go1.GetComponent<Rigidbody2D> ().velocity;
+		Vector2 vec1 = Vector2.zero;
 		Vector2 vec2 = go2.GetComponent<Rigidbody2D> ().velocity;
 
 		float mag = Mathf.Sqrt (Mathf.Pow (vec1.x - vec2.x, 2f) + Mathf.Pow (vec1.y - vec2.y, 2f));
