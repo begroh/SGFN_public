@@ -9,7 +9,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private float speed = 1.25f;    // 125 cm / second
     private float margin = 0.3f;    // 30 cm spacing
-    private LinkedList<ConveyorBeltItem> items;
+    private List<ConveyorBeltItem> items;
     private Vector2 startPosition;
     private Vector2 endPosition;
 
@@ -18,7 +18,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void Awake()
     {
-        items = new LinkedList<ConveyorBeltItem>();
+        items = new List<ConveyorBeltItem>();
         players = new List<Player>();
 
         // Setup start and end points
@@ -66,7 +66,7 @@ public class ConveyorBelt : MonoBehaviour
 
             item.player = player;
 
-            items.AddLast(item);
+            items.Add(item);
             return true;
         }
         else
@@ -140,15 +140,16 @@ public class ConveyorBelt : MonoBehaviour
         }
 
         // Move all of the items on the belt
-        foreach (ConveyorBeltItem item in items)
+        // foreach (ConveyorBeltItem item in items)
+		for (int i = items.Count - 1; i >= 0; i--)
         {
-            Vector2 move = Vector2.MoveTowards(item.Position(), endPosition, maxDistance);
-            item.Move(move);
+            Vector2 move = Vector2.MoveTowards(items[i].Position(), endPosition, maxDistance);
+            items[i].Move(move);
 
-            if (Vector2.Distance(item.Position(), endPosition) < 0.01)
+            if (Vector2.Distance(items[i].Position(), endPosition) < 0.01)
             {
                 // An item has reached the end of the belt, move it to the bag.
-                MoveItemToBag(item);
+                MoveItemToBag(items[i]);
             }
         }
     }
@@ -225,8 +226,8 @@ public class ConveyorBelt : MonoBehaviour
     private ConveyorBeltItem LastItem()
     {
         ConveyorBeltItem last = null;
-        if (items.Last != null) {
-            last = items.Last.Value;
+        if (items.Count > 0) {
+            last = items[items.Count - 1];
         }
 
         return last;
