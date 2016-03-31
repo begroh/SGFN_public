@@ -12,6 +12,7 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private Player _player;
 
 	public SpriteRenderer redIndicator, blueIndicator;
+	public bool isExploding = false;
 
     void Awake()
     {
@@ -107,5 +108,14 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(false);
 			blueIndicator.gameObject.SetActive(false);
 		}
+	}
+
+	public void Explode() {
+		isExploding = true;
+		Invoke ("StopExploding", .5f);
+	}
+
+	private void StopExploding() {
+		isExploding = false;
 	}
 }
