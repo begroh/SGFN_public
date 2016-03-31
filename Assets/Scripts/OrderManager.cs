@@ -86,4 +86,20 @@ public class OrderManager {
         }
     }
 
+	/*
+	 * Called by FoodItems to place an indicator that a team needs
+	 * an item
+	 */
+	public static bool FoodItemInTeamOrder(Team team, FoodType type)
+	{
+		Order order = orders[team];
+		foreach(FoodType itemType in order.Items)
+		{
+			if (itemType == type)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }
