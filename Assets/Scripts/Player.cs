@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     private ChargeBumpBehaviour leftBumpBehaviour;
     private TapBumpBehaviour rightBumpBehaviour;
 
+    public bool canKill = false;
+    private float chargeVelocity = 5.0f;
+
     public PortalManager portals;
 
     void Awake()
@@ -73,6 +76,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (body.velocity.magnitude < chargeVelocity)
+        {
+            canKill = false;
+        }
+        else
+        {
+            canKill = true;
+        }
+
         if (!canMove)
         {
             this.body.velocity = Vector2.zero;
@@ -133,8 +145,23 @@ public class Player : MonoBehaviour
 		}
 
 
-        if (coll.gameObject.tag == "FoodPickup" || coll.gameObject.tag == "Player" && !invincible) {
-            if (HardCollision (coll.gameObject, gameObject)) {
+        if (coll.gameObject.tag == "FoodPickup" && !invincible) {
+            if (!canKill && coll.gameObject.GetComponent<FoodItem>().canKill) {
+                if (cart.Count == 0)
+                {
+                    Die();
+                }
+                else
+                {
+                    cart.dropAllItems();
+                }
+				hardHit = true;
+				Invoke ("HardHitStop", deathTime);
+                return;
+            }
+        }
+        else if (coll.gameObject.tag == "Player" && !invincible) {
+            if (!canKill && coll.gameObject.GetComponent<Player>().canKill) {
                 if (cart.Count == 0)
                 {
                     Die();

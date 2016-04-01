@@ -10,7 +10,10 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private Sprite _sprite;
     private float size;
     private Player _player;
+    private Rigidbody2D body;
+    private float chargeVelocity = 5.0f;
 
+    public bool canKill = false;
 	public bool isExploding = false;
 
     void Awake()
@@ -19,6 +22,23 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
         Vector3 size = sprite.bounds.size;
         this.size = Mathf.Max(size.x, size.y);
+    }
+
+    void Start()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if (body.velocity.magnitude < chargeVelocity)
+        {
+            canKill = false;
+        }
+        else
+        {
+            canKill = true;
+        }
     }
 
     public FoodType type
