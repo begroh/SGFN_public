@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     private TapBumpBehaviour rightBumpBehaviour;
 
     public bool canKill = false;
-    private float chargeVelocity = 5.0f;
+    private float chargeVelocity = 10.0f;
 
     public PortalManager portals;
 
@@ -80,11 +80,11 @@ public class Player : MonoBehaviour
         {
             canKill = false;
         }
-        else
-        {
-            canKill = true;
-        }
-
+//        else
+//        {
+//            canKill = true;
+//        }
+//
         if (!canMove)
         {
             this.body.velocity = Vector2.zero;
@@ -253,11 +253,15 @@ public class Player : MonoBehaviour
     public void HandleLeftBump(bool bumping)
     {
         leftBumpBehaviour.Update(this, bumping);
+        if (bumping)
+            canKill = true;
     }
 
     public void HandleRightBump(bool bumping)
     {
         rightBumpBehaviour.Update(this, bumping);
+        if (bumping)
+            canKill = true;
     }
 
     void OnTriggerStay2D(Collider2D other)

@@ -11,7 +11,7 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private float size;
     private Player _player;
     private Rigidbody2D body;
-    private float chargeVelocity = 5.0f;
+    private float chargeVelocity = 10.0f;
 
     public bool canKill = false;
 	public bool isExploding = false;
