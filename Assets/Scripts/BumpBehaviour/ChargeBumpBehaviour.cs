@@ -8,6 +8,8 @@ public class ChargeBumpBehaviour : BumpBehaviour
 
     private Cooldown cooldown;
 
+    public bool launchedLastUpdate = false;
+
     public ChargeBumpBehaviour()
     {
         this.cooldown = new Cooldown(2f);
@@ -16,6 +18,7 @@ public class ChargeBumpBehaviour : BumpBehaviour
     public void Update(Player player, bool bumping)
     {
         Rigidbody2D body = player.gameObject.GetComponent<Rigidbody2D>();
+	launchedLastUpdate = false;
 
         if (bumping)
         {
@@ -35,6 +38,7 @@ public class ChargeBumpBehaviour : BumpBehaviour
             Vector2 direction = player.transform.rotation * Vector2.right;
             body.AddForce(charge * strength * direction, ForceMode2D.Impulse);
             charge = 0;
+	    launchedLastUpdate = true;
         }
     }
 }

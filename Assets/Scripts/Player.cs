@@ -253,7 +253,7 @@ public class Player : MonoBehaviour
     public void HandleLeftBump(bool bumping)
     {
         leftBumpBehaviour.Update(this, bumping);
-        if (bumping)
+        if (leftBumpBehaviour.launchedLastUpdate)
             canKill = true;
     }
 
