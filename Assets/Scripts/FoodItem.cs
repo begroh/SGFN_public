@@ -20,7 +20,15 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
         Vector3 size = sprite.bounds.size;
         this.size = Mathf.Max(size.x, size.y);
+
+		redIndicator = transform.Find("RedIndicator").GetComponent<SpriteRenderer>();
+		blueIndicator = transform.Find("BlueIndicator").GetComponent<SpriteRenderer>();
     }
+
+	void Update()
+	{
+		SetIndicators();
+	}
 
     public FoodType type
     {
@@ -85,8 +93,8 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(true);
 			blueIndicator.gameObject.SetActive(true);
 			redIndicator.transform.rotation = leftRot;
-			redIndicator.transform.position = new Vector3(-1, 2, 0);
-			blueIndicator.transform.position = new Vector3(1, 2, 0);
+			redIndicator.transform.localPosition = new Vector3(-1.5f, 2, 0);
+			blueIndicator.transform.localPosition = new Vector3(1.5f, 2, 0);
 			blueIndicator.transform.rotation = rightRot;
 		}
 		else if (inRedOrder)
