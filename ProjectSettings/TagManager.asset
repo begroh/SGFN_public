@@ -58,6 +58,9 @@ TagManager:
   - name: ConveyorBelt
     uniqueID: 912869425
     locked: 0
+  - name: Player
+    uniqueID: 925372485
+    locked: 0
   - name: Pickups
     uniqueID: 39059361
     locked: 0
@@ -66,9 +69,6 @@ TagManager:
     locked: 0
   - name: Bullets
     uniqueID: 3636327635
-    locked: 0
-  - name: Player
-    uniqueID: 925372485
     locked: 0
   - name: Gun
     uniqueID: 2779641365
