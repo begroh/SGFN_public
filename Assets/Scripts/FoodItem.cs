@@ -10,8 +10,11 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private Sprite _sprite;
     private float size;
     private Player _player;
+    private Rigidbody2D body;
+    private float chargeVelocity = 5.0f;
 
 	public SpriteRenderer redIndicator, blueIndicator;
+    public bool canKill = false;
 	public bool isExploding = false;
 
     void Awake()
@@ -25,10 +28,19 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 		blueIndicator = transform.Find("BlueIndicator").GetComponent<SpriteRenderer>();
     }
 
-	void Update()
-	{
+    void Start()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if (body.velocity.magnitude < chargeVelocity)
+        {
+            canKill = false;
+        }
 		SetIndicators();
-	}
+    }
 
     public FoodType type
     {
