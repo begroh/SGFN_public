@@ -126,8 +126,25 @@ public class ShoppingCart : MonoBehaviour
         }
 	}
 
-	static bool FoodItemInCart()
+	public bool HasFoodType(FoodType type)
 	{
+		foreach(FoodItem item in cart)
+		{
+			if (item.type == type)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static bool FoodItemInCart(FoodType type)
+	{
+		foreach(ShoppingCart c in Object.FindObjectsOfType(typeof(ShoppingCart)))
+		{
+			if (c.HasFoodType(type))
+				return true;
+		}
 		return false;
 	}
 }

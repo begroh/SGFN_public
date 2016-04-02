@@ -94,19 +94,26 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
 	void SetIndicators()
 	{
+		if (ShoppingCart.FoodItemInCart(_type))
+		{
+			redIndicator.gameObject.SetActive(false);
+			blueIndicator.gameObject.SetActive(false);
+			return;
+		}
+
 		bool inRedOrder = OrderManager.FoodItemInTeamOrder(Team.RED, _type);
 		bool inBlueOrder = OrderManager.FoodItemInTeamOrder(Team.BLUE, _type);
 
-		Quaternion leftRot = Quaternion.Euler(0, 0, 90);
+		Quaternion leftRot = Quaternion.Euler(0, 0, 70);
 		Quaternion topRot = Quaternion.Euler(0, 0, 180);
-		Quaternion rightRot = Quaternion.Euler(0, 0, 270);
+		Quaternion rightRot = Quaternion.Euler(0, 0, 290);
 		if (inRedOrder && inBlueOrder)
 		{
 			redIndicator.gameObject.SetActive(true);
 			blueIndicator.gameObject.SetActive(true);
 			redIndicator.transform.rotation = leftRot;
-			redIndicator.transform.position = transform.position + 2*Vector3.up - Vector3.right;
-			blueIndicator.transform.position = transform.position + 2*Vector3.up + Vector3.right;
+			redIndicator.transform.position = transform.position + 2*Vector3.up - 0.75f*Vector3.right;
+			blueIndicator.transform.position = transform.position + 2*Vector3.up + 0.75f*Vector3.right;
 			blueIndicator.transform.rotation = rightRot;
 		}
 		else if (inRedOrder)
