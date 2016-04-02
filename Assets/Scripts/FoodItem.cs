@@ -101,8 +101,10 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			return;
 		}
 
-		bool inRedOrder = OrderManager.FoodItemInTeamOrder(Team.RED, _type);
-		bool inBlueOrder = OrderManager.FoodItemInTeamOrder(Team.BLUE, _type);
+		bool inRedOrder = OrderManager.FoodItemInTeamOrder(Team.RED, _type)
+			&& FoodItemNotBagged(Team.RED);
+		bool inBlueOrder = OrderManager.FoodItemInTeamOrder(Team.BLUE, _type)
+			&& FoodItemNotBagged(Team.BLUE);
 
 		Quaternion leftRot = Quaternion.Euler(0, 0, 70);
 		Quaternion topRot = Quaternion.Euler(0, 0, 180);
@@ -135,6 +137,11 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(false);
 			blueIndicator.gameObject.SetActive(false);
 		}
+	}
+
+	bool FoodItemNotBagged(Team team)
+	{
+		return ShoppingList.ForTeam(team).GetState(_type) != FoodState.BAGGED;
 	}
 
 	public void Explode() {
