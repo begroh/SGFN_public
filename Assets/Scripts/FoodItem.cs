@@ -105,22 +105,22 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(true);
 			blueIndicator.gameObject.SetActive(true);
 			redIndicator.transform.rotation = leftRot;
-			redIndicator.transform.localPosition = new Vector3(-1.5f, 2, 0);
-			blueIndicator.transform.localPosition = new Vector3(1.5f, 2, 0);
+			redIndicator.transform.position = transform.position + 2*Vector3.up - Vector3.right;
+			blueIndicator.transform.position = transform.position + 2*Vector3.up + Vector3.right;
 			blueIndicator.transform.rotation = rightRot;
 		}
 		else if (inRedOrder)
 		{
 			blueIndicator.gameObject.SetActive(false);
 			redIndicator.gameObject.SetActive(true);
-			redIndicator.transform.localPosition = new Vector3(0, 2, 0);
+			redIndicator.transform.position = transform.position + 2*Vector3.up;
 			redIndicator.transform.rotation = topRot;
 		}
 		else if (inBlueOrder)
 		{
 			redIndicator.gameObject.SetActive(false);
 			blueIndicator.gameObject.SetActive(true);
-			blueIndicator.transform.localPosition = new Vector3(0, 2, 0);
+			blueIndicator.transform.position = transform.position + 2*Vector3.up;
 			blueIndicator.transform.rotation = topRot;
 		}
 		else

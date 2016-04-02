@@ -126,4 +126,8 @@ public class ShoppingCart : MonoBehaviour
         }
 	}
 
+	static bool FoodItemInCart()
+	{
+		return false;
+	}
 }
