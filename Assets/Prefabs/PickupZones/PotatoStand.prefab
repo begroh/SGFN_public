@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7cf149f9b8642e3874cd34e1a89bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11423356, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
+  collectible: {fileID: 11435012, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
   walls:
     serializedVersion: 2
     m_Bits: 512
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7cf149f9b8642e3874cd34e1a89bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11423356, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
+  collectible: {fileID: 11435012, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
   walls:
     serializedVersion: 2
     m_Bits: 512
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7cf149f9b8642e3874cd34e1a89bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11423356, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
+  collectible: {fileID: 11435012, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
   walls:
     serializedVersion: 2
     m_Bits: 512
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7cf149f9b8642e3874cd34e1a89bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11423356, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
+  collectible: {fileID: 11435012, guid: 4b2e1b439f527480c8b5cc089843c74e, type: 2}
   walls:
     serializedVersion: 2
     m_Bits: 512

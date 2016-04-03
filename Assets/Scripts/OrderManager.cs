@@ -92,8 +92,8 @@ public class OrderManager {
 	 */
 	public static bool FoodItemInTeamOrder(Team team, FoodType type)
 	{
-		Order order = orders[team];
-		foreach(FoodType itemType in order.Items)
+		// Order order = orders[team];
+		foreach(FoodType itemType in OrderManager.OrderForTeam(team).Items)
 		{
 			if (itemType == type)
 			{
