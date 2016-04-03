@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PickupZone : MonoBehaviour
 {
-    public float respawnTime = 3.0f;
     public Collectible collectible;
 
     void Start()
@@ -11,7 +10,7 @@ public class PickupZone : MonoBehaviour
         SpawnItem();
     }
 
-	public void StartRespawn()
+	public void StartRespawn(float respawnTime)
 	{
 		Invoke("SpawnItem", respawnTime);
 	}
@@ -22,4 +21,5 @@ public class PickupZone : MonoBehaviour
         c.transform.position = this.transform.position;
         c.pickup = this;
     }
+
 }

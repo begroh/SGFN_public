@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &168298
+--- !u!1 &126302
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 446368}
-  - 114: {fileID: 11471154}
+  - 4: {fileID: 408098}
+  - 114: {fileID: 11406298}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -16,30 +16,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &446368
+--- !u!4 &408098
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168298}
+  m_GameObject: {fileID: 126302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11471154
+--- !u!114 &11406298
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168298}
+  m_GameObject: {fileID: 126302}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b699331ab6ba43668e0efa228a1eb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 4900000, guid: 595da6eba693841d19de05ae2f3affb2, type: 3}
+  map: {fileID: 4900000, guid: 194f7d2a8a898448384c250b691a0151, type: 3}
   tileList:
   - character: 32
     go: {fileID: 118466, guid: ce79eb01a2e64468ea313cc04a1aa0ff, type: 2}
@@ -59,5 +59,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 168298}
+  m_RootGameObject: {fileID: 126302}
   m_IsPrefabParent: 1

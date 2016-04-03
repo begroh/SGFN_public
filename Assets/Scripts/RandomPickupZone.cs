@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RandomPickupZone : PickupZone {
 
-	public float checkRadius = 1;
+	private float checkRadius = 1;
 	public LayerMask walls = -1;
 	public LayerMask pickups = -1;
 	public LayerMask players = -1;

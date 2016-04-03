@@ -3,31 +3,35 @@ using System.Collections.Generic;
 
 public class ShoppingCart : MonoBehaviour
 {
-	public float reloadTime;
-	public float launchForce;
+	private float reloadTime = 0f;
+	private float launchForce = 9000f;
 
 	private Stack<FoodItem> cart;
+	private Stack<FoodItem> extras;
 	private float lastFireTime;
 
 	void Start()
     {
         this.cart = new Stack<FoodItem>();
+		this.extras = new Stack<FoodItem> ();
     }
 
     public int Count
     {
-        get { return cart.Count; }
+		get { return cart.Count + extras.Count; }
     }
 
     public bool Add(FoodItem item)
     {
-        if (cart.Contains(item))
-        {
-            return false;
-        }
+		if (item.type == FoodType.EXTRA) {
+			extras.Push (item);
+		} else {
+			if (cart.Contains(item)) {
+				return false;
+			}
 
-        cart.Push(item);
-		//gameObject.GetComponent<Collider2D> ().enabled = true;
+			cart.Push(item);
+		}
 
 		// Move the fooditem to the player's possession
 		item.transform.position = gameObject.transform.position;
@@ -40,13 +44,16 @@ public class ShoppingCart : MonoBehaviour
         return true;
     }
 
-    public FoodItem Remove()
+	public FoodItem Remove(bool extraFirst)
     {
-        if (cart.Count > 0)
-        {
-			if (cart.Count == 1) {
-				gameObject.GetComponent<Collider2D> ().enabled = false;
+		if (extraFirst) {
+			if (extras.Count > 0) {
+				return extras.Pop ();
 			}
+		}
+
+		if (cart.Count > 0)
+        {
 			return cart.Pop();
         }
 
@@ -57,7 +64,6 @@ public class ShoppingCart : MonoBehaviour
 		int numItems = cart.Count;
 		for (int i = 0; i < numItems; ++i) {
 			FoodItem item = FireFoodItem (Quaternion.AngleAxis (360f/numItems * i + 45f, Vector3.forward) * Vector3.right, launchForce/2);
-			item.Explode ();
 		}
 	}
 
@@ -77,53 +83,85 @@ public class ShoppingCart : MonoBehaviour
 
 	private FoodItem FireFoodItem(Vector2 forceDirection, float force)
 	{
-		FoodItem item = Remove ();
+		FoodItem item = Remove (true);
 
 		if (item) {
-                        item.canKill = true;
-			item.transform.position = item.transform.parent.position + item.transform.parent.transform.right;
+			item.transform.position = item.transform.parent.position + item.transform.parent.transform.right * 1.5f;
 			item.transform.parent = null;
+
 			Rigidbody2D body = item.GetComponent<Rigidbody2D>();
 			body.isKinematic = false;
 			body.AddForce(forceDirection * force);
+
 			item.GetComponent<Collider2D> ().enabled = true;
 			UpdateFoodPositions ();
+
+			/*
+			 * TODO Need to figure this part out 
+			 */
+			item.canKill = true;
+			item.StopCanKill ();
+
+			// Check to see if it's a potato and set it to be destroyed
+			DegradingCollectible collectible = item.gameObject.GetComponent<DegradingCollectible> ();
+			if (collectible != null) {
+				collectible.destroy = true;
+			}
 		}
 
 		return item;
 	}
 
-	// TODO write this function
 	public void UpdateFoodPositions() {
-        if (cart.Count < 1)
+		if (cart.Count < 1 && extras.Count < 1)
         {
             return;
         }
 
-		if (cart.Count == 1) {
+		// If only cart
+		if (cart.Count == 1 && extras.Count == 0) {
 			cart.Peek ().transform.position = transform.position;
 			return;
 		}
 
+		// If only extras
+		if (extras.Count > 0 && cart.Count == 0) {
+			foreach (FoodItem item in extras) {
+				item.transform.position = transform.position;
+			}
+			return;
+		}
+
+		float extrasBool = extras.Count > 0 ? 1 : 0;
 		float radius = 1f;
-        float angle = 270.0f / cart.Count;
+		float angle = 270.0f / (cart.Count + extrasBool);
 
         float i = 0;
-        //for (int i = 0; i < cart.Count; ++i)
         foreach (FoodItem item in cart)
         {
-            ++i;
+            
             Vector3 offset = Vector3.right * radius;
-            Quaternion rotation = Quaternion.Euler(0, 0, angle * i + 200f);
+            Quaternion rotation = Quaternion.Euler(0, 0, angle * i + 270f);
             rotation = rotation * transform.rotation;
 
             Vector3 target = transform.position + (rotation * offset);
             Vector3 current = item.transform.position;
 
-            //Debug.Log("rotating item " + i + " by " + angle);
-
             item.transform.position = Vector3.MoveTowards(current, target, 0.1f);
+			++i;
         }
+
+		// Position all of the extras in the same place
+		foreach (FoodItem item in extras) {
+			Vector3 offset = Vector3.right * radius;
+			Quaternion rotation = Quaternion.Euler(0, 0, angle * i + 270f);
+			rotation = rotation * transform.rotation;
+
+			Vector3 target = transform.position + (rotation * offset);
+			Vector3 current = item.transform.position;
+
+			item.transform.position = Vector3.MoveTowards(current, target, 0.1f);
+		}
 	}
 
 	public bool HasFoodType(FoodType type)

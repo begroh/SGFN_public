@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public enum FoodType { CHEESE, BREAD, MEAT, MILK, FRUIT, DESSERT, POTATO, MAYO, EXTRA }
+public enum FoodType { CHEESE, BREAD, MEAT, MILK, FRUIT, DESSERT, VEGETABLE, MAYO, EXTRA }
 
 public class FoodItem : MonoBehaviour, ConveyorBeltItem
 {
@@ -11,11 +11,10 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private float size;
     private Player _player;
     private Rigidbody2D body;
-    private float chargeVelocity = 5.0f;
 
 	public SpriteRenderer redIndicator, blueIndicator;
     public bool canKill = false;
-	public bool isExploding = false;
+	public float canKillTime = 1.0f;
 
     void Awake()
     {
@@ -35,6 +34,7 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
     void Update()
     {
+		float chargeVelocity = 0.0f;
         if (body.velocity.magnitude < chargeVelocity)
         {
             canKill = false;
@@ -145,11 +145,17 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 	}
 
 	public void Explode() {
-		isExploding = true;
+		// isExploding = true;
 		Invoke ("StopExploding", .5f);
 	}
 
-	private void StopExploding() {
-		isExploding = false;
+	public void StopCanKill() {
+		Invoke ("StopCanKillHelper", canKillTime);
 	}
+
+	private void StopCanKillHelper() {
+		canKill = false;
+	}
+
+
 }

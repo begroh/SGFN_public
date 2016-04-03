@@ -6,10 +6,10 @@ public class Collectible : MonoBehaviour
     public PickupZone pickup;
 	public bool shouldRespawn = true;
 
-    void OnDestroy()
+	virtual protected void OnDestroy()
     {
 		if (shouldRespawn) {
-			pickup.StartRespawn ();
+			pickup.StartRespawn (0f);
 		}
     }
 		

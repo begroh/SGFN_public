@@ -57,6 +57,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  canKill: 0
+  canKillTime: 1
 --- !u!114 &11468036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 0}
+  shouldRespawn: 1
 --- !u!212 &21292592
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -16,8 +16,7 @@ public class OrderHUD : MonoBehaviour {
 	Sprite milkSprite;
 	Sprite fruitSprite;
 	Sprite dessertSprite;
-
-	Sprite potatoSprite;
+	Sprite vegetableSprite;
 	Sprite mayoSprite;
 
 	List<HUDIcon> iconObjects;
@@ -36,10 +35,10 @@ public class OrderHUD : MonoBehaviour {
 		icons[FoodType.FRUIT] = fruitSprite;
 		icons[FoodType.DESSERT] = dessertSprite;
 
-		icons[FoodType.POTATO] = potatoSprite;
+		icons[FoodType.VEGETABLE] = vegetableSprite;
 		icons[FoodType.MAYO] = mayoSprite;
 
-		scoreText = gameObject.transform.Find("Text").GetComponent<Text>();
+		scoreText = gameObject.transform.Find("Score").GetComponent<Text>();
 
 		Refresh();
 	}
@@ -52,7 +51,7 @@ public class OrderHUD : MonoBehaviour {
 		milkSprite = gameObject.transform.Find("MilkSprite").GetComponent<SpriteRenderer>().sprite;
 		fruitSprite = gameObject.transform.Find("FruitSprite").GetComponent<SpriteRenderer>().sprite;
 		dessertSprite = gameObject.transform.Find("DessertSprite").GetComponent<SpriteRenderer>().sprite;
-		potatoSprite = gameObject.transform.Find("PotatoSprite").GetComponent<SpriteRenderer>().sprite;
+		vegetableSprite = gameObject.transform.Find("VegetableSprite").GetComponent<SpriteRenderer>().sprite;
 		mayoSprite = gameObject.transform.Find("MayoSprite").GetComponent<SpriteRenderer>().sprite;
 	}
 
