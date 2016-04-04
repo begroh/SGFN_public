@@ -11,6 +11,7 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private float size;
     private Player _player;
     private Rigidbody2D body;
+    public FoodHitBehaviour hitBehaviour = new FoodHitBehaviour();
 
 	public SpriteRenderer redIndicator, blueIndicator;
     public bool canKill = false;
@@ -22,9 +23,9 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
         Vector3 size = sprite.bounds.size;
         this.size = Mathf.Max(size.x, size.y);
-
 		redIndicator = transform.Find("RedIndicator").GetComponent<SpriteRenderer>();
 		blueIndicator = transform.Find("BlueIndicator").GetComponent<SpriteRenderer>();
+
     }
 
     void Start()
@@ -34,12 +35,8 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
     void Update()
     {
-		float chargeVelocity = 0.0f;
-        if (body.velocity.magnitude < chargeVelocity)
-        {
-            canKill = false;
-        }
 		SetIndicators();
+        hitBehaviour.Update(body.velocity.magnitude);
     }
 
     public FoodType type
