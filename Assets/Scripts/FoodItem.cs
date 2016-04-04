@@ -24,11 +24,14 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         Vector3 size = sprite.bounds.size;
         this.size = Mathf.Max(size.x, size.y);
 
-		redIndicator = transform.Find("RedIndicator").GetComponent<SpriteRenderer>();
-		redIndicator.color = Color.red;
-		blueIndicator = transform.Find("BlueIndicator").GetComponent<SpriteRenderer>();
-		blueIndicator.color = Color.blue;
-    }
+		if (_type != FoodType.EXTRA)
+		{
+			redIndicator = transform.Find("RedIndicator").GetComponent<SpriteRenderer>();
+			redIndicator.color = Color.red;
+			blueIndicator = transform.Find("BlueIndicator").GetComponent<SpriteRenderer>();
+			blueIndicator.color = Color.blue;
+		}
+	}
 
     void Start()
     {
@@ -41,7 +44,8 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         {
             canKill = false;
         }
-		SetIndicators();
+		if (_type != FoodType.EXTRA)
+			SetIndicators();
     }
 
     public FoodType type
