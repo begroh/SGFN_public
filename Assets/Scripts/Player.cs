@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
 
     public PortalManager portals;
 
+	private SpriteRenderer indicator;
+
     void Awake()
     {
         this.body = GetComponent<Rigidbody2D>();
@@ -53,6 +55,9 @@ public class Player : MonoBehaviour
         }
 
         bag = new List<FoodItem>();
+
+		indicator = transform.Find("Indicator").GetComponent<SpriteRenderer>();
+		SetIndicatorValues();
     }
 
     void Start()
@@ -84,6 +89,17 @@ public class Player : MonoBehaviour
         }
 
         input.DetectInput(this);
+
+		if (HoldingOtherTeamItem())
+		{
+			indicator.gameObject.SetActive(true);
+			indicator.transform.position = transform.position + 2*Vector3.up;
+			indicator.transform.rotation = Quaternion.Euler(0,0,180);
+		}
+		else
+		{
+			indicator.gameObject.SetActive(false);
+		}
     }
 
     void FixedUpdate()
@@ -255,4 +271,26 @@ public class Player : MonoBehaviour
     {
         return team;
     }
+
+	void SetIndicatorValues()
+	{
+		if (team == Team.RED)
+			indicator.color = Color.blue;
+		else if (team == Team.BLUE)
+			indicator.color = Color.red;
+	}
+
+	bool HoldingOtherTeamItem()
+	{
+		Team otherTeam = team == Team.BLUE ? Team.RED : Team.BLUE;
+		Order o = OrderManager.OrderForTeam(otherTeam);
+		foreach(FoodType itemType in o.Items)
+		{
+			if (cart.HasFoodType(itemType))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

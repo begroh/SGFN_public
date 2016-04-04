@@ -11,10 +11,11 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     private float size;
     private Player _player;
     private Rigidbody2D body;
+    private float chargeVelocity = 5.0f;
 
 	public SpriteRenderer redIndicator, blueIndicator;
     public bool canKill = false;
-	public float canKillTime = 1.0f;
+	public bool isExploding = false;
 
     void Awake()
     {
@@ -24,7 +25,9 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
         this.size = Mathf.Max(size.x, size.y);
 
 		redIndicator = transform.Find("RedIndicator").GetComponent<SpriteRenderer>();
+		redIndicator.color = Color.red;
 		blueIndicator = transform.Find("BlueIndicator").GetComponent<SpriteRenderer>();
+		blueIndicator.color = Color.blue;
     }
 
     void Start()
@@ -34,7 +37,6 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
     void Update()
     {
-		float chargeVelocity = 0.0f;
         if (body.velocity.magnitude < chargeVelocity)
         {
             canKill = false;
@@ -94,17 +96,17 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
 	void SetIndicators()
 	{
+		bool inRedOrder = OrderManager.FoodItemInTeamOrder(Team.RED, _type)
+			&& FoodItemNotBagged(Team.RED);
+		bool inBlueOrder = OrderManager.FoodItemInTeamOrder(Team.BLUE, _type)
+			&& FoodItemNotBagged(Team.BLUE);
+
 		if (ShoppingCart.FoodItemInCart(_type))
 		{
 			redIndicator.gameObject.SetActive(false);
 			blueIndicator.gameObject.SetActive(false);
 			return;
 		}
-
-		bool inRedOrder = OrderManager.FoodItemInTeamOrder(Team.RED, _type)
-			&& FoodItemNotBagged(Team.RED);
-		bool inBlueOrder = OrderManager.FoodItemInTeamOrder(Team.BLUE, _type)
-			&& FoodItemNotBagged(Team.BLUE);
 
 		Quaternion leftRot = Quaternion.Euler(0, 0, 70);
 		Quaternion topRot = Quaternion.Euler(0, 0, 180);
@@ -145,17 +147,16 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 	}
 
 	public void Explode() {
-		// isExploding = true;
+		isExploding = true;
 		Invoke ("StopExploding", .5f);
 	}
 
-	public void StopCanKill() {
-		Invoke ("StopCanKillHelper", canKillTime);
+	private void StopExploding() {
+		isExploding = false;
 	}
 
-	private void StopCanKillHelper() {
-		canKill = false;
+	public bool StopCanKill()
+	{
+		return false;
 	}
-
-
 }
