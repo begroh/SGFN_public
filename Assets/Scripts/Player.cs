@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     public bool canKill = false;
     private float chargeVelocity = 10.0f;
+    public HitBehaviour hitBehaviour = new HitBehaviour();
 
     public PortalManager portals;
 
@@ -43,6 +44,8 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+    	hitBehaviour.team = team;
+
         this.body = GetComponent<Rigidbody2D>();
 
         if (useKeyboard)
@@ -77,10 +80,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (body.velocity.magnitude < chargeVelocity)
-        {
-            canKill = false;
-        }
 
         if (!canMove)
         {
@@ -104,6 +103,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+    	hitBehaviour.Update(body.velocity.magnitude);
+
         cart.UpdateFoodPositions();
         if (invincible)
         {
@@ -131,7 +132,8 @@ public class Player : MonoBehaviour
         
 	void OnCollisionEnter2D(Collision2D coll) {
         if (coll.gameObject.tag == "FoodPickup" && !invincible) {
-            if (!canKill && coll.gameObject.GetComponent<FoodItem>().canKill) {
+            if (coll.gameObject.GetComponent<FoodItem>().hitBehaviour.CanHit(hitBehaviour)) {
+                coll.gameObject.GetComponent<FoodItem>().hitBehaviour.NotifyHit();
                 if (cart.Count == 0)
                 {
                     Die();
@@ -144,7 +146,7 @@ public class Player : MonoBehaviour
             }
         }
         else if (coll.gameObject.tag == "Player" && !invincible) {
-            if (!canKill && coll.gameObject.GetComponent<Player>().canKill) {
+            if (coll.gameObject.GetComponent<Player>().hitBehaviour.CanHit(hitBehaviour)) {
                 if (cart.Count == 0)
                 {
                     Die();
@@ -188,6 +190,9 @@ public class Player : MonoBehaviour
      */
     private bool HandleFoodPickup (FoodItem item)
     {
+        if (!item.hitBehaviour.CanPickup(hitBehaviour) || !canMove)
+            return false;
+
 		// Check to see if it's a potato and set it to not be destroyed
 		DegradingCollectible collectible = item.gameObject.GetComponent<DegradingCollectible> ();
 		if (collectible != null) {
@@ -219,20 +224,22 @@ public class Player : MonoBehaviour
     public void HandleShoot()
     {
         FoodItem item = cart.Fire();
+        if (item)
+            item.hitBehaviour.NotifyCharge(team);
     }
 
     public void HandleLeftBump(bool bumping)
     {
         leftBumpBehaviour.Update(this, bumping);
         if (leftBumpBehaviour.launchedLastUpdate)
-            canKill = true;
+           hitBehaviour.NotifyCharge(); 
     }
 
     public void HandleRightBump(bool bumping)
     {
         rightBumpBehaviour.Update(this, bumping);
         if (bumping)
-            canKill = true;
+           hitBehaviour.NotifyCharge(); 
     }
 
     void OnTriggerStay2D(Collider2D other)

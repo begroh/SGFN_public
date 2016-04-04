@@ -61,7 +61,7 @@ public class ShoppingCart : MonoBehaviour
     }
 
 	public void dropAllItems() {
-		int numItems = cart.Count;
+		int numItems = cart.Count + extras.Count;
 		for (int i = 0; i < numItems; ++i) {
 			FoodItem item = FireFoodItem (Quaternion.AngleAxis (360f/numItems * i + 45f, Vector3.forward) * Vector3.right, launchForce/2);
 		}
@@ -86,7 +86,8 @@ public class ShoppingCart : MonoBehaviour
 		FoodItem item = Remove (true);
 
 		if (item) {
-			item.transform.position = item.transform.parent.position + item.transform.parent.transform.right * 1.5f;
+            item.hitBehaviour.NotifyDropped();
+			item.transform.position = item.transform.parent.position + item.transform.parent.transform.right;
 			item.transform.parent = null;
 
 			Rigidbody2D body = item.GetComponent<Rigidbody2D>();
