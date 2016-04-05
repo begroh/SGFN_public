@@ -6,10 +6,13 @@ public class DegradingCollectible : Collectible {
 	public float destroyTime = 3f;
 	public bool destroy = false;
 	private float destroyTimer = 0f;
-	private SpriteRenderer spRend;
+	private SpriteRenderer rend;
+	private Color startColor;
+	private int counter;
 
 	void Start () {
-		spRend = gameObject.GetComponent<SpriteRenderer> ();
+		rend = gameObject.GetComponent<SpriteRenderer> ();
+		startColor = rend.material.color;
 	}
 
 	// Update is called once per frame
@@ -21,6 +24,28 @@ public class DegradingCollectible : Collectible {
 			}
 		} else {
 			destroyTimer = 0f;
+		}
+
+		if (destroyTimer + 2f > destroyTime) {
+			counter++;
+			if (counter % 3 != 0) {
+				return;
+			}
+
+			if (rend.material.color == startColor) {
+				rend.material.color = Color.black;
+			} else {
+				rend.material.color = startColor;
+			}
+		} else {
+			rend.material.color = startColor;
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "FoodPickup")
+		{
+			//destroy = true;
 		}
 	}
 
