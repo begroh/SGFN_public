@@ -16,6 +16,8 @@ public class ConveyorBelt : MonoBehaviour
     public List<Player> players;
     public Team currentTeam = Team.NONE;
 
+    private bool sandboxMode = false;
+
     void Awake()
     {
         items = new List<ConveyorBeltItem>();
@@ -243,19 +245,25 @@ public class ConveyorBelt : MonoBehaviour
 
     private void MoveItemToBag(ConveyorBeltItem item)
     {
+        if (sandboxMode)
+        {
+            PlayerSandbox sandbox = transform.parent.GetComponent<PlayerSandbox>();
+            sandbox.Ready();
+        }
+        else
+        {
+            Score.AddForTeam(currentTeam, 5);
+            ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
+
+            OrderManager.CompleteOrderForTeam(currentTeam);
+            foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
+            {
+                hud.Refresh();
+            }
+        }
+
         items.Remove(item);
-        Score.AddForTeam(currentTeam, 5);
-        // item.player.MoveItemToBag(item.AsFoodItem());
-		ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
         Destroy(item.AsFoodItem().gameObject);
-
-
-
-        OrderManager.CompleteOrderForTeam(currentTeam);
-		foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
-		{
-			hud.Refresh();
-		}
     }
 
     private ConveyorBeltItem LastItem()
@@ -326,5 +334,10 @@ public class ConveyorBelt : MonoBehaviour
     {
 		currentTeam = team;
 		zone.ChangeTeam(team);
+    }
+
+    public void EnableSandbox()
+    {
+        sandboxMode = true;
     }
 }
