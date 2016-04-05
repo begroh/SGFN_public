@@ -14,15 +14,13 @@ public class PlayerSprite : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
 
         body = transform.parent.GetComponent<Rigidbody2D>();
+    }
 
-        int playerNumber = transform.parent.gameObject.GetComponent<Player>().playerNumber;
-        switch (playerNumber)
-        {
-            case 1: character = "Robot"; break;
-            case 2: character = "Steroids"; break;
-            case 3: character = "Fish"; break;
-            case 4: character = "Yv"; break;
-        }
+    void Start()
+    {
+        Player player = transform.parent.gameObject.GetComponent<Player>();
+        int playerNumber = player.playerNumber;
+        character = CharacterSelection.Get(playerNumber);
     }
 
     void FixedUpdate()
