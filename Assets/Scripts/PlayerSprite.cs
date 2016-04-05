@@ -8,6 +8,9 @@ public class PlayerSprite : MonoBehaviour
     private float speed = 0;
     private string character;
 
+    private static Color blue = new Color(0f, 0.71f, 1f, 1f);
+    private static Color red = new Color(1f, 0.15f, 0f, 1f);
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -21,6 +24,14 @@ public class PlayerSprite : MonoBehaviour
         Player player = transform.parent.gameObject.GetComponent<Player>();
         int playerNumber = player.playerNumber;
         character = CharacterSelection.Get(playerNumber);
+        if (playerNumber < 3)
+        {
+            renderer.color = red;
+        }
+        else
+        {
+            renderer.color = blue;
+        }
     }
 
     void FixedUpdate()
