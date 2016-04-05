@@ -50,7 +50,7 @@ public class OrderManager {
             foods.Add((FoodType) numbers[i]);
         }
 
-        Order order = new Order(foods, (float) 4 * 10f, "I like turtles");
+        Order order = new Order(foods, (float) 20f, "I like turtles");
 
         orders[team] = order;
         return order;

@@ -229,6 +229,7 @@ public class ConveyorBelt : MonoBehaviour
     private void MoveItemToBag(ConveyorBeltItem item)
     {
         items.Remove(item);
+        Score.AddForTeam(currentTeam, 5);
         // item.player.MoveItemToBag(item.AsFoodItem());
 		ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
         Destroy(item.AsFoodItem().gameObject);
