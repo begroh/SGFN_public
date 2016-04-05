@@ -33,7 +33,7 @@ public class PlayerSandbox : MonoBehaviour
     {
         Collectible c = (Collectible) Instantiate(collectible);
         c.transform.parent = transform;
-        c.transform.position = transform.position + Vector3.up * 10;
+        c.transform.position = transform.position + Vector3.up * 7;
     }
 
     private void SpawnConveyor()
@@ -41,7 +41,7 @@ public class PlayerSandbox : MonoBehaviour
         GameObject go = Instantiate(conveyorPrefab);
         ConveyorBelt belt = go.GetComponent<ConveyorBelt>();
         belt.transform.parent = transform;
-        belt.transform.position = transform.position - Vector3.up * 10;
+        belt.transform.position = transform.position - Vector3.up * 7;
         belt.EnableSandbox();
     }
 
