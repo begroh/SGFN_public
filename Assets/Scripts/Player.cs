@@ -47,15 +47,6 @@ public class Player : MonoBehaviour
 
         this.body = GetComponent<Rigidbody2D>();
 
-        if (useKeyboard)
-        {
-            this.input = new PlayerControl.KeyboardAndMouseInput();
-        }
-        else
-        {
-            this.input = new PlayerControl.ControllerInput(this.playerNumber);
-        }
-
         bag = new List<FoodItem>();
 
 		indicator = transform.Find("Indicator").GetComponent<SpriteRenderer>();
@@ -74,6 +65,15 @@ public class Player : MonoBehaviour
         startColor = rend.material.color;
 
         this.tapBumpBehaviour = new TapBumpBehaviour();
+
+        if (useKeyboard)
+        {
+            this.input = new PlayerControl.KeyboardAndMouseInput();
+        }
+        else
+        {
+            this.input = new PlayerControl.ControllerInput(this.playerNumber);
+        }
     }
 
     void Update()
