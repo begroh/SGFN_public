@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
      */
     private bool HandleFoodPickup (FoodItem item)
     {
-        if (!item.hitBehaviour.CanPickup(hitBehaviour) || !canMove)
+        if (!item.hitBehaviour.CanPickup(team) || !canMove)
             return false;
 
 		// Check to see if it's a potato and set it to not be destroyed

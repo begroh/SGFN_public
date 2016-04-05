@@ -65,6 +65,7 @@ public class ConveyorBelt : MonoBehaviour
             obj.transform.position = startPosition;
 
             item.player = player;
+	    item.hitBehaviour.NotifyOnConveyor(player.GetTeam());
 
             items.Add(item);
             return true;

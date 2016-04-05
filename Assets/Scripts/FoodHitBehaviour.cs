@@ -11,6 +11,7 @@ public class FoodHitBehaviour
     private float waitTime = 0.05f;
     private float dropWaitTime = 0.5f;
     private float dropTime;
+    private bool onConveyor = false;
 
     public void Update(float velocity)
     {
@@ -20,7 +21,7 @@ public class FoodHitBehaviour
         if (lastChargeTime + waitTime > Time.time)
             return;
 
-        if (velocity < chargeVelocity)
+        if (velocity < chargeVelocity && !onConveyor)
         {
             canHit = false;
             team = Team.NONE;
@@ -42,8 +43,13 @@ public class FoodHitBehaviour
         dropTime = Time.time;
     }
 
-    public bool CanPickup(HitBehaviour hitBehaviour)
+    public bool CanPickup(Team otherTeam)
     {
+        if (onConveyor)
+	{
+            return team != otherTeam;
+	}
+
         return !(recentlyDropped || canHit);
     }
 
@@ -58,5 +64,18 @@ public class FoodHitBehaviour
     {
         recentlyDropped = true;
         dropTime = Time.time;
+    }
+
+    public void NotifyOnConveyor(Team _team)
+    {
+    	team = _team;
+	Debug.Log(team);
+	onConveyor = true;
+    }
+
+    public void NotifyOffConveyor()
+    {
+        this.team = Team.NONE;
+	onConveyor = false;
     }
 }
