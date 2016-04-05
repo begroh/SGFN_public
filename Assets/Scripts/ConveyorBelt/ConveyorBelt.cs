@@ -41,10 +41,10 @@ public class ConveyorBelt : MonoBehaviour
         {
             Run(Direction.FORWARD);
         }
-        else if (EnemyPlayers())
-        {
-            Run(Direction.REVERSE);
-        }
+        // else if (EnemyPlayers())
+        // {
+        //     Run(Direction.REVERSE);
+        // }
     }
 
     public List<ConveyorBeltItem> GetItems()
@@ -65,9 +65,11 @@ public class ConveyorBelt : MonoBehaviour
             obj.transform.position = startPosition;
 
             item.player = player;
-	    item.hitBehaviour.NotifyOnConveyor(player.GetTeam());
+			item.hitBehaviour.NotifyOnConveyor(player.GetTeam());
+			item.conveyor = this;
 
             items.Add(item);
+			item.GetComponent<Collider2D>().enabled = true;
             return true;
         }
         else
@@ -208,6 +210,22 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
+	/*
+	 * Don't use this if you're not supposed to
+	 * Or else
+	 */
+	public void RemoveItem(FoodItem item)
+	{
+		foreach (ConveyorBeltItem beltItem in items)
+		{
+			if (beltItem.AsFoodItem() == item)
+			{
+				items.Remove(item);
+				return;
+			}
+		}
+	}
+
     private void MoveItemToBag(ConveyorBeltItem item)
     {
         items.Remove(item);
@@ -269,9 +287,9 @@ public class ConveyorBelt : MonoBehaviour
     private void PlayerExit(Player player)
     {
         players.Remove(player);
-                if (items.Count == 0) {
-                        ChangeTeam (Team.NONE);
-                }
+		if (items.Count == 0) {
+			ChangeTeam (Team.NONE);
+		}
     }
 
     /*
@@ -279,7 +297,7 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void ChangeTeam(Team team)
     {
-                currentTeam = team;
-                zone.ChangeTeam(team);
+		currentTeam = team;
+		zone.ChangeTeam(team);
     }
 }

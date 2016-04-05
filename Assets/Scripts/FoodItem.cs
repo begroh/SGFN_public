@@ -17,6 +17,8 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
     public bool canKill = false;
 	public bool isExploding = false;
 
+	public ConveyorBelt conveyor;
+
     void Awake()
     {
         // Set the size to be the size of the convex box of the sprite

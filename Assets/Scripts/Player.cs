@@ -200,6 +200,12 @@ public class Player : MonoBehaviour
 			collectible.pickup.StartRespawn (5f);
 		}
 
+		if (item.conveyor != null)
+		{
+			item.conveyor.RemoveItem(item);
+			item.conveyor = null;
+		}
+
 		return cart.Add (item);
     }
 
