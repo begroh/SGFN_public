@@ -10,6 +10,12 @@ public class RandomPickupZone : PickupZone {
 
 	override protected void SpawnItem()
 	{
+        if (collectible == null)
+        {
+            Debug.LogWarning("RandomPickupZone collectible was null");
+            return;
+        }
+
 		Collectible c = (Collectible) Instantiate(collectible);
 
 		float newX = 0, newY = 0;
