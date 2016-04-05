@@ -7,7 +7,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private ConveyorZone zone;
 
-    public float speed = 1.25f;    // 125 cm / second
+    public float speed = 2.25f;    // 125 cm / second
     public float margin = 0.3f;    // 30 cm spacing
     public List<ConveyorBeltItem> items;
     public Vector2 startPosition;
@@ -159,7 +159,7 @@ public class ConveyorBelt : MonoBehaviour
         float maxDistance = Time.deltaTime * speed;
         if (sandboxMode)
         {
-            maxDistance *= 3;
+            maxDistance *= 1.5f;
         }
 
         if (direction == Direction.REVERSE)
