@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSandbox : MonoBehaviour
 {
@@ -7,6 +8,13 @@ public class PlayerSandbox : MonoBehaviour
     public GameObject conveyorPrefab;
 
     private int playerNumber;
+    private Text readyText;
+
+    void Awake()
+    {
+        readyText = transform.Find("ReadyText").GetComponent<Text>();
+        readyText.enabled = false;
+    }
 
     public void SetPlayerNumber(int playerNumber)
     {
@@ -48,5 +56,6 @@ public class PlayerSandbox : MonoBehaviour
     public void Ready()
     {
         transform.parent.GetComponent<PlayerBox>().Ready();
+        readyText.enabled = true;
     }
 }
