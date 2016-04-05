@@ -87,7 +87,7 @@ public class ShoppingCart : MonoBehaviour
 
 		if (item) {
             item.hitBehaviour.NotifyDropped();
-			item.transform.position = item.transform.parent.position + item.transform.parent.transform.right;
+			item.transform.position = item.transform.parent.position;
 			item.transform.parent = null;
 
 			Rigidbody2D body = item.GetComponent<Rigidbody2D>();

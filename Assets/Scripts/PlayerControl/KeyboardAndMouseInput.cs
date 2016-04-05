@@ -84,17 +84,17 @@ namespace PlayerControl
 			
 		private bool Space()
 		{
-			return Input.GetKey(KeyCode.Space);
+			return Input.GetKeyDown(KeyCode.Space);
 		}
 
         private bool LeftBump()
         {
-            return Input.GetKey(KeyCode.LeftShift);
+            return Input.GetKeyDown(KeyCode.LeftShift);
         }
 
         private bool RightBump()
         {
-            return Input.GetKey(KeyCode.RightShift);
+            return Input.GetKeyDown(KeyCode.RightShift);
         }
 
         /*
