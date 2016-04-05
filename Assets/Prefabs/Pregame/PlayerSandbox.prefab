@@ -134,9 +134,11 @@ MonoBehaviour:
 
     Right stick to aim
 
+
     Right trigger to shoot
 
-    Right bumber to dash
+    Left bumber to dash
+
 
     Checkout food orders to win'
 --- !u!222 &22257050
@@ -238,6 +240,20 @@ Prefab:
       propertyPath: conveyorPrefab
       value: 
       objectReference: {fileID: 146378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Text
+      value: 'Left stick to move
+
+        Right stick to aim
+
+
+        Right trigger to shoot
+
+        Left bumber to dash
+
+
+        Checkout food orders to win'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119796}
