@@ -157,6 +157,11 @@ public class ConveyorBelt : MonoBehaviour
         }
 
         float maxDistance = Time.deltaTime * speed;
+        if (sandboxMode)
+        {
+            maxDistance *= 3;
+        }
+
         if (direction == Direction.REVERSE)
         {
             maxDistance *= -1;
