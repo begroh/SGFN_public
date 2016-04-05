@@ -1,6 +1,7 @@
+using UnityEngine;
 using System.Collections.Generic;
 
-public class Score
+public class Score : MonoBehaviour
 {
     private static Dictionary<Team, int> scores = new Dictionary<Team, int>();
 
@@ -19,6 +20,13 @@ public class Score
 
     public static void AddForTeam(Team team, float score)
     {
-        scores[team] = ForTeam(team) + (int)score;
+        int newScore = ForTeam(team) + (int)score;
+        scores[team] = newScore;
+
+        if (newScore >= 150)
+        {
+            scores[team] = 0;
+            Application.LoadLevel("Pregame");
+        }
     }
 }
