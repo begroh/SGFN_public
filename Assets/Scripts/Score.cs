@@ -25,7 +25,8 @@ public class Score : MonoBehaviour
 
         if (newScore >= 150)
         {
-            scores[team] = 0;
+            scores[Team.RED] = 0;
+            scores[Team.BLUE] = 0;
             Application.LoadLevel("Pregame");
         }
     }
