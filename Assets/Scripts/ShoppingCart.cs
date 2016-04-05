@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ShoppingCart : MonoBehaviour
 {
-	private float reloadTime = 0f;
+	private float reloadTime = .1f;
 	private float launchForce = 9000f;
 
 	private Stack<FoodItem> cart;

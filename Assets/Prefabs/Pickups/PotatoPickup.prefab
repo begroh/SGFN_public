@@ -14,7 +14,7 @@ GameObject:
   - 58: {fileID: 5823856}
   - 114: {fileID: 11459166}
   m_Layer: 10
-  m_Name: PotatoPickup 1
+  m_Name: PotatoPickup
   m_TagString: FoodPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   blueIndicator: {fileID: 0}
   canKill: 0
   isExploding: 0
+  conveyor: {fileID: 0}
 --- !u!212 &21279672
 SpriteRenderer:
   m_ObjectHideFlags: 1

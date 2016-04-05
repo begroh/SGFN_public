@@ -31,8 +31,7 @@ public class Player : MonoBehaviour
     private float invincibleTime;
     private bool canMove = true;
 
-    private ChargeBumpBehaviour leftBumpBehaviour;
-    private TapBumpBehaviour rightBumpBehaviour;
+    private TapBumpBehaviour tapBumpBehaviour;
 
     public bool canKill = false;
     private float chargeVelocity = 10.0f;
@@ -74,8 +73,7 @@ public class Player : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
 
-        this.leftBumpBehaviour = new ChargeBumpBehaviour();
-        this.rightBumpBehaviour = new TapBumpBehaviour();
+        this.tapBumpBehaviour = new TapBumpBehaviour();
     }
 
     void Update()
@@ -235,16 +233,9 @@ public class Player : MonoBehaviour
             item.hitBehaviour.NotifyCharge(team);
     }
 
-    public void HandleLeftBump(bool bumping)
+    public void HandleTapBump(bool bumping)
     {
-        leftBumpBehaviour.Update(this, bumping);
-        if (leftBumpBehaviour.launchedLastUpdate)
-           hitBehaviour.NotifyCharge(); 
-    }
-
-    public void HandleRightBump(bool bumping)
-    {
-        rightBumpBehaviour.Update(this, bumping);
+        tapBumpBehaviour.Update(this, bumping);
         if (bumping)
            hitBehaviour.NotifyCharge(); 
     }
@@ -265,6 +256,9 @@ public class Player : MonoBehaviour
         if (cart.Count > 0)
         {
             FoodItem item = cart.Remove(false);
+
+			if (!item)
+				return;
 
             if (belt.DepositItem(this, item))
             {

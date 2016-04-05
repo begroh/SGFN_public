@@ -21,13 +21,13 @@ namespace PlayerControl
                 Vector2 aim = AimDirection(player.transform.position);
                 player.HandleAimDirection(aim);
 
-                if (Shoot())
+				if (Space())
                 {
                     player.HandleShoot();
                 }
 
-                player.HandleLeftBump(LeftBump());
-                player.HandleRightBump(RightBump());
+                player.HandleTapBump(LeftBump());
+                player.HandleTapBump(RightBump());
             }
         }
 
@@ -81,36 +81,11 @@ namespace PlayerControl
             mousePos.y -= playerPos.y;
             return (Vector2) mousePos;
         }
-
-        /*
-         * Detects that a player wishes to shoot.
-         * Returns true when spacebar or left mouse is held down.
-         */
-        private bool Shoot()
-        {
-            if (holdToShoot)
-            {
-                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+			
+		private bool Space()
+		{
+			return Input.GetKey(KeyCode.Space);
+		}
 
         private bool LeftBump()
         {

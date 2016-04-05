@@ -44,13 +44,13 @@ namespace PlayerControl
             Vector2 aim = AimDirection();
             player.HandleAimDirection(aim);
 
-            if (Shoot())
+			if (RightBump() || RightTrigger())
             {
                 player.HandleShoot();
             }
 
-            player.HandleLeftBump(LeftBump());
-            player.HandleRightBump(RightBump());
+			player.HandleTapBump(LeftBump() || LeftTrigger());
+            //player.HandleRightBump(RightBump());
         }
 
         /*
@@ -94,40 +94,24 @@ namespace PlayerControl
         /*
          * Detect player shooting from right trigger
          */
-        private bool Shoot()
+        private bool LeftTrigger()
         {
-            if (holdToShoot)
-            {
-                if (device.RightTrigger.IsPressed)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (device.RightTrigger.WasPressed)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+			return device.LeftTrigger.WasPressed;
         }
+
+		private bool RightTrigger()
+		{
+			return device.RightTrigger.WasPressed;
+		}
 
         private bool LeftBump()
         {
-            return device.LeftBumper.IsPressed;
+            return device.LeftBumper.WasPressed;
         }
 
         private bool RightBump()
         {
-            return device.RightBumper.IsPressed;
+            return device.RightBumper.WasPressed;
         }
     }
 }
