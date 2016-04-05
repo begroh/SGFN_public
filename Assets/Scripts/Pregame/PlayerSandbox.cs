@@ -9,11 +9,14 @@ public class PlayerSandbox : MonoBehaviour
 
     private int playerNumber;
     private Text readyText;
+    private Text instructionsText;
 
     void Awake()
     {
         readyText = transform.Find("ReadyText").GetComponent<Text>();
         readyText.enabled = false;
+
+        instructionsText = transform.Find("InstructionsText").GetComponent<Text>();
     }
 
     public void SetPlayerNumber(int playerNumber)
@@ -65,5 +68,6 @@ public class PlayerSandbox : MonoBehaviour
     {
         transform.parent.GetComponent<PlayerBox>().Ready();
         readyText.enabled = true;
+        instructionsText.enabled = false;
     }
 }
