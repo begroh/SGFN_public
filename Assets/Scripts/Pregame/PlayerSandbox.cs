@@ -35,6 +35,14 @@ public class PlayerSandbox : MonoBehaviour
 
         player.playerNumber = playerNumber;
         player.useKeyboard = false;
+        if (playerNumber < 3)
+        {
+            player.team = Team.RED;
+        }
+        else
+        {
+            player.team = Team.BLUE;
+        }
     }
 
     private void SpawnItem()
