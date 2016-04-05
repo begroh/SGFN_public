@@ -203,6 +203,7 @@ public class Player : MonoBehaviour
 		if (item.conveyor != null)
 		{
 			item.conveyor.RemoveItem(item);
+			item.hitBehaviour.NotifyOffConveyor();
 			item.conveyor = null;
 		}
 

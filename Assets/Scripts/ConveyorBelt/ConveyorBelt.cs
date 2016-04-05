@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 public class ConveyorBelt : MonoBehaviour
 {
-    private enum Direction { FORWARD, REVERSE };
+    public enum Direction { FORWARD, REVERSE };
 
     private ConveyorZone zone;
 
-    private float speed = 1.25f;    // 125 cm / second
-    private float margin = 0.3f;    // 30 cm spacing
-    private List<ConveyorBeltItem> items;
-    private Vector2 startPosition;
-    private Vector2 endPosition;
+    public float speed = 1.25f;    // 125 cm / second
+    public float margin = 0.3f;    // 30 cm spacing
+    public List<ConveyorBeltItem> items;
+    public Vector2 startPosition;
+    public Vector2 endPosition;
 
-    private List<Player> players;
-    private Team currentTeam = Team.NONE;
+    public List<Player> players;
+    public Team currentTeam = Team.NONE;
 
     void Awake()
     {
@@ -254,6 +254,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        print("enter");
         if (other.tag == "Player")
         {
             PlayerEnter(other.GetComponent<Player>());
@@ -262,6 +263,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        print("exit");
         if (other.tag == "Player")
         {
             PlayerExit(other.GetComponent<Player>());
@@ -286,7 +288,8 @@ public class ConveyorBelt : MonoBehaviour
      */
     private void PlayerExit(Player player)
     {
-        players.Remove(player);
+        while(players.Remove(player)) {}
+
 		if (items.Count == 0) {
 			ChangeTeam (Team.NONE);
 		}
