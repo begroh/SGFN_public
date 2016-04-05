@@ -55142,6 +55142,10 @@ Prefab:
       propertyPath: m_Name
       value: RedHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 11481220, guid: 5536f1e62a9fb8648bec5714a46df459, type: 2}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5536f1e62a9fb8648bec5714a46df459, type: 2}
   m_IsPrefabParent: 0
