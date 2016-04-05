@@ -55,6 +55,12 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        if (CharacterSelection.Get(playerNumber) == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         cart = gameObject.GetComponentInChildren<ShoppingCart> ();
 
 		invincibleTime = stunTime + invincibleDuration;
