@@ -22,14 +22,17 @@ public class ConveyorBelt : MonoBehaviour
     {
         items = new List<ConveyorBeltItem>();
         players = new List<Player>();
+        zone = transform.Find("Zone").gameObject.GetComponent<ConveyorZone>();
+    }
 
+    void Start()
+    {
         // Setup start and end points
         Bounds bounds = GetComponent<SpriteRenderer>().sprite.bounds;
-        float extent = (bounds.extents.y * transform.localScale.y) * 0.95f;
+        float extent = (bounds.extents.y) * 0.95f;
+
         startPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.up * extent));
         endPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.down * extent));
-
-        zone = transform.Find("Zone").gameObject.GetComponent<ConveyorZone>();
     }
 
     void Update()
