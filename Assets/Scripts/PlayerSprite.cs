@@ -6,6 +6,7 @@ public class PlayerSprite : MonoBehaviour
     private Rigidbody2D body;
     private SpriteRenderer renderer;
     private float speed = 0;
+    private string character;
 
     void Awake()
     {
@@ -13,6 +14,15 @@ public class PlayerSprite : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
 
         body = transform.parent.GetComponent<Rigidbody2D>();
+
+        int playerNumber = transform.parent.gameObject.GetComponent<Player>().playerNumber;
+        switch (playerNumber)
+        {
+            case 1: character = "Robot"; break;
+            case 2: character = "Steroids"; break;
+            case 3: character = "Fish"; break;
+            case 4: character = "Yv"; break;
+        }
     }
 
     void FixedUpdate()
@@ -56,14 +66,17 @@ public class PlayerSprite : MonoBehaviour
      */
     private void DetectIdle()
     {
+        string idleAnimation = character + "Idle";
+        string walkAnimation = character + "Walk";
+
         if (!IsRunning())
         {
             speed = 0.25f;
-            animator.Play("FishIdle");
+            animator.Play(idleAnimation);
         }
         else
         {
-            animator.Play("FishWalk");
+            animator.Play(walkAnimation);
         }
     }
 
