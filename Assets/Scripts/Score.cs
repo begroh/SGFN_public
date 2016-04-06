@@ -23,7 +23,7 @@ public class Score : MonoBehaviour
         int newScore = ForTeam(team) + (int)score;
         scores[team] = newScore;
 
-        if (newScore >= 150)
+        if (newScore >= 250)
         {
             WinMessage message = (WinMessage) FindObjectOfType(typeof(WinMessage));
             message.Win(team);
