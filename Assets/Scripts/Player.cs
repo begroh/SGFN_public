@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     public float stunTime, invincibleDuration;
     private float invincibleTime;
-    private bool canMove = true;
+    private bool canMove = false;
 
     private TapBumpBehaviour tapBumpBehaviour;
 
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
         transform.position = respawnLoc;
     }
 
-    private void EnableMove()
+    public void EnableMove()
     {
         canMove = true;
     }

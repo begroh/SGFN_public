@@ -38,6 +38,7 @@ public class PlayerSandbox : MonoBehaviour
 
         player.playerNumber = playerNumber;
         player.useKeyboard = false;
+        player.EnableMove();
         if (playerNumber < 3)
         {
             player.team = Team.RED;
