@@ -12,6 +12,7 @@ public class Countdown : MonoBehaviour
     {
         text = transform.Find("Text").GetComponent<Text>();
         text.text = "" + start;
+        text.enabled = true;
     }
 
     void Start()

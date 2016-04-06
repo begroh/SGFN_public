@@ -25,9 +25,14 @@ public class Score : MonoBehaviour
 
         if (newScore >= 150)
         {
-            scores[Team.RED] = 0;
-            scores[Team.BLUE] = 0;
-            Application.LoadLevel("Pregame");
+            WinMessage message = (WinMessage) FindObjectOfType(typeof(WinMessage));
+            message.Win(team);
         }
+    }
+
+    public static void Reset()
+    {
+        scores[Team.RED] = 0;
+        scores[Team.BLUE] = 0;
     }
 }
