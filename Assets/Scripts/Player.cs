@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private bool invincible = false;
     private int counter;
 
-    public float deathTime, respawnDelay, invincibleDuration;
+    public float stunTime, invincibleDuration;
     private float invincibleTime;
     private bool canMove = true;
 
@@ -66,11 +66,11 @@ public class Player : MonoBehaviour
     {
         cart = gameObject.GetComponentInChildren<ShoppingCart> ();
 
-		invincibleTime = deathTime + respawnDelay + invincibleDuration;
+		invincibleTime = stunTime + invincibleDuration;
         respawnLoc = transform.position;
 
         // This will need to be changed if we switch to sprites
-        rend = GetComponent<SpriteRenderer>();
+        rend = transform.Find("Body").GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
 
         this.tapBumpBehaviour = new TapBumpBehaviour();
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         if (invincible)
         {
             counter++;
-            if (counter % 5 != 0)
+            if (counter % 3 != 0)
             {
                 return;
             }
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
             }
             else if (rend.material.color == startColor)
             {
-                rend.material.color = Color.black;
+                rend.material.color = Color.clear;
             }
             else
             {
@@ -163,8 +163,8 @@ public class Player : MonoBehaviour
         lastTimeHit = Time.time;
         invincible = true;
         canMove = false;
-        Invoke("TeleportBack", deathTime);
-        Invoke("EnableMove", respawnDelay + deathTime);
+        //Invoke("TeleportBack", deathTime);
+        Invoke("EnableMove", stunTime);
     }
 
     private void TeleportBack()
