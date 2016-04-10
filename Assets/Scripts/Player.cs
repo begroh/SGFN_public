@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private bool invincible = false;
     private int counter;
 
-    public float deathTime, respawnDelay, invincibleDuration;
+    public float stunTime, invincibleDuration;
     private float invincibleTime;
     private bool canMove = true;
 
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     {
         cart = gameObject.GetComponentInChildren<ShoppingCart> ();
 
-		invincibleTime = deathTime + respawnDelay + invincibleDuration;
+		invincibleTime = stunTime + invincibleDuration;
         respawnLoc = transform.position;
 
         // This will need to be changed if we switch to sprites
@@ -169,8 +169,8 @@ public class Player : MonoBehaviour
         lastTimeHit = Time.time;
         invincible = true;
         canMove = false;
-        Invoke("TeleportBack", deathTime);
-        Invoke("EnableMove", respawnDelay + deathTime);
+        //Invoke("TeleportBack", deathTime);
+        Invoke("EnableMove", stunTime);
     }
 
     private void TeleportBack()
