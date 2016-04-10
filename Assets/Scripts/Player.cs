@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    cart.dropAllItems();
+	            cart.GiveItems(coll.gameObject.GetComponent<Player>().cart);
                 }
                 return;
             }
