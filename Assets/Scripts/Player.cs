@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         respawnLoc = transform.position;
 
         // This will need to be changed if we switch to sprites
-        rend = GetComponent<SpriteRenderer>();
+        rend = transform.Find("Body").GetComponent<SpriteRenderer>();
         startColor = rend.material.color;
 
         this.tapBumpBehaviour = new TapBumpBehaviour();
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         if (invincible)
         {
             counter++;
-            if (counter % 5 != 0)
+            if (counter % 3 != 0)
             {
                 return;
             }
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
             }
             else if (rend.material.color == startColor)
             {
-                rend.material.color = Color.black;
+                rend.material.color = Color.clear;
             }
             else
             {
