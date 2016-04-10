@@ -145,14 +145,8 @@ public class Player : MonoBehaviour
         }
         else if (coll.gameObject.tag == "Player" && !invincible) {
             if (coll.gameObject.GetComponent<Player>().hitBehaviour.CanHit(hitBehaviour)) {
-                if (cart.Count == 0)
-                {
-                    Die();
-                }
-                else
-                {
 	            cart.GiveItems(coll.gameObject.GetComponent<Player>().cart);
-                }
+                Die();
                 return;
             }
         }
