@@ -50,6 +50,7 @@ public class MapGenerator : MonoBehaviour {
 
 		} catch (Exception e) {
 			print ("Error loading map");
+			print (e);
 		}
 	}
 
