@@ -22,6 +22,7 @@ public class OrderHUD : MonoBehaviour {
 	List<HUDIcon> iconObjects;
 
 	Text scoreText;
+	Image progressBar;
 
 	void Start()
 	{
@@ -39,6 +40,9 @@ public class OrderHUD : MonoBehaviour {
 		icons[FoodType.MAYO] = mayoSprite;
 
 		scoreText = gameObject.transform.Find("Score").GetComponent<Text>();
+
+		progressBar = gameObject.transform.Find("Progress").GetComponent<Image>();
+		progressBar.color = team == Team.BLUE ? Color.blue : Color.red;
 
 		Refresh();
 	}
@@ -89,5 +93,6 @@ public class OrderHUD : MonoBehaviour {
 		Order order = OrderManager.OrderForTeam(team);
 		ReceiveOrder(order);
 		scoreText.text = Score.ForTeam(team).ToString();
+		progressBar.fillAmount = Score.ForTeam(team) / 150f;
 	}
 }
