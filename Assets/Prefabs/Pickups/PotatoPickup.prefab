@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11467540}
   - 50: {fileID: 5045822}
   - 58: {fileID: 5823856}
-  - 114: {fileID: 11459166}
+  - 114: {fileID: 11479642}
   m_Layer: 10
   m_Name: PotatoPickup
   m_TagString: FoodPickup
@@ -63,21 +63,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!114 &11459166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfdd106e61a448c79ad085ecdb7265e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickup: {fileID: 0}
-  shouldRespawn: 1
-  destroyTime: 5
-  destroy: 0
 --- !u!114 &11467540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +80,19 @@ MonoBehaviour:
   canKill: 0
   isExploding: 0
   conveyor: {fileID: 0}
+--- !u!114 &11479642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0c40ec8b6234f908105138e04e0820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickup: {fileID: 0}
+  shouldRespawn: 0
 --- !u!212 &21279672
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -131,7 +129,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: shouldRespawn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159438}
