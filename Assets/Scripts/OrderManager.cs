@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class OrderManager {
 
-    private static int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7};
+    private static int[] numbers = {0, 1, 2, 3, 4, 5};
 
     private static Dictionary<Team, Order> orders;
 
