@@ -30702,7 +30702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: useKeyboard
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21231660, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Sprite
@@ -30748,6 +30748,10 @@ Prefab:
     - target: {fileID: 473270, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: stunTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -32358,7 +32362,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: useKeyboard
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: team
@@ -32399,6 +32403,10 @@ Prefab:
     - target: {fileID: 473270, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: stunTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -37923,6 +37931,10 @@ Prefab:
     - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: m_Color.a
       value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471988, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
+      propertyPath: speed
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
@@ -94722,7 +94734,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: useKeyboard
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: team
@@ -94731,6 +94743,10 @@ Prefab:
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: playerNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: stunTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -103580,6 +103596,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 0.78431374
       objectReference: {fileID: 0}
+    - target: {fileID: 11471988, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
+      propertyPath: speed
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
   m_IsPrefabParent: 0
@@ -108743,7 +108763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: useKeyboard
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21231660, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Sprite
@@ -108789,6 +108809,10 @@ Prefab:
     - target: {fileID: 476312, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: stunTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}

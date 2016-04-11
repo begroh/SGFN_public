@@ -133,14 +133,8 @@ public class Player : MonoBehaviour
         if (coll.gameObject.tag == "FoodPickup" && !invincible) {
             if (coll.gameObject.GetComponent<FoodItem>().hitBehaviour.CanHit(hitBehaviour)) {
                 coll.gameObject.GetComponent<FoodItem>().hitBehaviour.NotifyHit();
-                if (cart.Count == 0)
-                {
-                    Die();
-                }
-                else
-                {
-                    cart.dropAllItems();
-                }
+				Die();
+				cart.dropAllItems();
                 body.AddForce(coll.contacts[0].normal * 5000);
                 return;
             }
