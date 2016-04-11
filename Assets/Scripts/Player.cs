@@ -81,7 +81,8 @@ public class Player : MonoBehaviour
 
         if (!canMove)
         {
-            this.body.velocity = Vector2.zero;
+            // Replace with lerp to zero
+            this.body.velocity = Vector2.Lerp(this.body.velocity, Vector2.zero, 0.25f);
             return;
         }
 
@@ -140,6 +141,7 @@ public class Player : MonoBehaviour
                 {
                     cart.dropAllItems();
                 }
+                body.AddForce(coll.contacts[0].normal * 5000);
                 return;
             }
         }
@@ -147,6 +149,7 @@ public class Player : MonoBehaviour
             if (coll.gameObject.GetComponent<Player>().hitBehaviour.CanHit(hitBehaviour)) {
 	            cart.GiveItems(coll.gameObject.GetComponent<Player>().cart);
                 Die();
+                body.AddForce(coll.contacts[0].normal * 5000);
                 return;
             }
         }

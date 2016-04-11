@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HitBehaviour
 {
-    private float chargeVelocity = 3.0f;
+    private float chargeVelocity = 12.0f;
     public bool canHit = false;
 
     private float lastChargeTime;
@@ -15,7 +15,7 @@ public class HitBehaviour
         if (lastChargeTime + waitTime > Time.time)
             return;
 
-        if (velocity < chargeVelocity)
+        if (velocity <= chargeVelocity)
         {
             canHit = false;
         }
