@@ -39,7 +39,7 @@ public class ConveyorBelt : MonoBehaviour
          */
         if (FriendlyPlayers())
         {
-			speed = 1.75f;
+			speed = 3f;
             Run(Direction.FORWARD);
         }
 		else if (!EnemyPlayers())
