@@ -10257,7 +10257,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.097}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &179819952
@@ -11789,7 +11789,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a3bc34ed5eca244e9b72d882afdcf0fe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.097}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &210368024
@@ -20838,7 +20838,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300014, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.097}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &388253057
@@ -37890,7 +37890,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 499378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 28.5
+      value: 29.2
       objectReference: {fileID: 0}
     - target: {fileID: 499378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -37920,29 +37920,9 @@ Prefab:
       propertyPath: m_Name
       value: ConveyorBelt (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_SortingLayerID
-      value: 912869425
-      objectReference: {fileID: 0}
-    - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21202124, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_SortingLayerID
-      value: 912869425
-      objectReference: {fileID: 0}
-    - target: {fileID: 146378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
     - target: {fileID: 11471988, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: speed
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
@@ -84513,7 +84493,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300030, guid: 0cf52630bc64946139fad8f669f88e57, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.097}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1533807477
@@ -86882,7 +86862,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: d5a860e48b83a493891d1064f6d1497a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.097}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1570879101
@@ -94984,7 +94964,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4addb67c7d37247cdb1f60c2b8c269d6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.097}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1746597367
@@ -103550,7 +103530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 499378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 499378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -103602,7 +103582,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471988, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: speed
-      value: 1.75
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
