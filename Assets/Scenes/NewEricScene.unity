@@ -30658,11 +30658,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 52.5
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -30752,6 +30752,10 @@ Prefab:
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: stunTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: speed
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -32318,11 +32322,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.3
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.7
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -32407,6 +32411,10 @@ Prefab:
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: stunTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: speed
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -94698,11 +94706,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.3
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -94739,6 +94747,10 @@ Prefab:
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: team
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: speed
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -108711,11 +108723,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 52.3
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 432670, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -108805,6 +108817,10 @@ Prefab:
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: stunTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: speed
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}

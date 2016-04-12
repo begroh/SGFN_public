@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private TapBumpBehaviour tapBumpBehaviour;
 
     public bool canKill = false;
-    private float chargeVelocity = 10.0f;
+    private float chargeVelocity = 7.0f;
     public HitBehaviour hitBehaviour = new HitBehaviour();
 
     public PortalManager portals;

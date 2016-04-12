@@ -99,7 +99,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 120090}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 7
+  m_LinearDrag: 8
   m_AngularDrag: 1
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -135,7 +135,9 @@ MonoBehaviour:
   _type: 0
   redIndicator: {fileID: 0}
   blueIndicator: {fileID: 0}
+  canKill: 0
   isExploding: 0
+  conveyor: {fileID: 0}
 --- !u!114 &11435076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,6 +251,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: shouldRespawn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

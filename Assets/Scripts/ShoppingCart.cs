@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ShoppingCart : MonoBehaviour
 {
     private float reloadTime = .1f;
-    private float launchForce = 9000f;
+    private float launchForce = 7500f;
 
     private Stack<FoodItem> cart;
     private Stack<FoodItem> extras;
