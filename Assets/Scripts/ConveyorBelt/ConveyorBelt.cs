@@ -47,6 +47,15 @@ public class ConveyorBelt : MonoBehaviour
 			speed = 0.75f;
             Run(Direction.FORWARD);
 		}
+
+        if (NoPlayersWithTeam(currentTeam))
+        {
+            SetItemColliders(true);
+        }
+        else
+        {
+            SetItemColliders(false);
+        }
         // else if (EnemyPlayers())
         // {
         //     Run(Direction.REVERSE);
@@ -300,6 +309,14 @@ public class ConveyorBelt : MonoBehaviour
 		if (items.Count == 0) {
 			ChangeTeam (Team.NONE);
 		}
+    }
+
+    private void SetItemColliders(bool yes)
+    {
+        foreach (ConveyorBeltItem item in items)
+        {
+            item.AsFoodItem().GetComponent<Collider2D>().enabled = yes;
+        }
     }
 
     /*
