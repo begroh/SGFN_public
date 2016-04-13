@@ -65,7 +65,7 @@ public class PortalManager : MonoBehaviour {
 		rot = portalList [nextPortal].transform.rotation; // - portalList [portalNum].transform.rotation;
 
 		//Vector3 offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
-		Vector3 offset = portalList[nextPortal].transform.right * 2;
+		Vector3 offset = portalList[nextPortal].transform.right * 5.8f;
 
 		pos = portalList[nextPortal].transform.position + offset;
 

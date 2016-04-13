@@ -42027,8 +42027,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 730873086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16, z: 0}
-  m_LocalScale: {x: 1, y: 7, z: 1}
+  m_LocalPosition: {x: -4.7, y: 16, z: 0}
+  m_LocalScale: {x: 10, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 281230813}
   m_RootOrder: 0
@@ -60443,8 +60443,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081264199}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
-  m_LocalPosition: {x: 58, y: 16, z: 0}
-  m_LocalScale: {x: 1, y: 7, z: 1}
+  m_LocalPosition: {x: 62.7, y: 16, z: 0}
+  m_LocalScale: {x: 10, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 281230813}
   m_RootOrder: 1
@@ -103555,34 +103555,6 @@ Prefab:
     - target: {fileID: 499378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_SortingLayerID
-      value: 912869425
-      objectReference: {fileID: 0}
-    - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21202124, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_SortingLayerID
-      value: 912869425
-      objectReference: {fileID: 0}
-    - target: {fileID: 146378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6163420, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21227488, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 11471988, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
-      propertyPath: speed
-      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
