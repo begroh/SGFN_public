@@ -19,6 +19,7 @@ public class HUDIcon : MonoBehaviour
 
 	public void ClearSprite()
 	{
+		artwork.color = new Color(1f, 1f, 1f, 1f);
 		artwork.enabled = false;
 		bagged.enabled = false;
 	}
@@ -31,6 +32,7 @@ public class HUDIcon : MonoBehaviour
 
 	public void SetBagged()
 	{
-		bagged.enabled = true;
+		// bagged.enabled = true;
+		artwork.color = new Color(0.2f, 0.2f, 0.2f, 1f);
 	}
 }
