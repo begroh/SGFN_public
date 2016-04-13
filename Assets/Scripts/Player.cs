@@ -283,9 +283,10 @@ public class Player : MonoBehaviour
 	{
 		Team otherTeam = team == Team.BLUE ? Team.RED : Team.BLUE;
 		Order o = OrderManager.OrderForTeam(otherTeam);
+		ShoppingList list = ShoppingList.ForTeam(otherTeam);
 		foreach(FoodType itemType in o.Items)
 		{
-			if (cart.HasFoodType(itemType))
+			if (cart.HasFoodType(itemType) && list.GetState(itemType) != FoodState.BAGGED)
 			{
 				return true;
 			}
