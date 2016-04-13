@@ -12,7 +12,6 @@ public class FoodHitBehaviour
     private float dropWaitTime = 0.5f;
     private float dropTime;
     private bool onConveyor = false;
-	private bool friendlyOnConveyor = false;
 
     public void Update(float velocity)
     {
@@ -46,10 +45,10 @@ public class FoodHitBehaviour
 
     public bool CanPickup(Team otherTeam)
     {
-        if (onConveyor && !friendlyOnConveyor)
-		{
+        if (onConveyor)
+	{
             return team != otherTeam;
-		}
+	}
 
         return !(recentlyDropped || canHit);
     }
@@ -70,24 +69,13 @@ public class FoodHitBehaviour
     public void NotifyOnConveyor(Team _team)
     {
     	team = _team;
-		Debug.Log(team);
-		onConveyor = true;
-		friendlyOnConveyor = true; // always true when dropping off
+	Debug.Log(team);
+	onConveyor = true;
     }
 
     public void NotifyOffConveyor()
     {
         this.team = Team.NONE;
-		onConveyor = false;
+	onConveyor = false;
     }
-
-	public void NotifyFriendlyOnConveyor()
-	{
-		friendlyOnConveyor = true;
-	}
-
-	public void NotifyNoFriendlies()
-	{
-		friendlyOnConveyor = false;
-	}
 }
