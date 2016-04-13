@@ -72,7 +72,7 @@ public class OrderHUD : MonoBehaviour {
 			orderIcons[i].SetSprite(icons[order.Items[i]]);
 			if (list.GetState(type) == FoodState.BAGGED)
 			{
-				print (list.GetState(type));
+				//print (list.GetState(type));
 				orderIcons[i].SetBagged();
 			}
 			i++;

@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36, y: 32, z: 0}
+  m_LocalPosition: {x: 23, y: 29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 476312}
@@ -164,8 +164,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 432670}
   m_RootOrder: 0
@@ -271,11 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f67642772e5477aaa1df5175651099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 3
+  playerNumber: 1
   useKeyboard: 1
-  team: 2
+  team: 1
   playerHUD: {fileID: 0}
-  speed: 12
+  speed: 11
   stunTime: 1
   invincibleDuration: 1
   canKill: 0
@@ -429,7 +429,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -320196435
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 112cde986b4d8487786f3cdd87efe3ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b34dee434ed9b1b4488561e53b8b5dfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -457,7 +457,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 925372485
+  m_SortingLayerID: -740473299
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a939ad9e9719946e39995c6bda9f1ee4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

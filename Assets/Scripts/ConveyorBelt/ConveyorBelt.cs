@@ -261,7 +261,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("enter");
+        //print("enter");
         if (other.tag == "Player")
         {
             PlayerEnter(other.GetComponent<Player>());
@@ -270,7 +270,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        print("exit");
+        //print("exit");
         if (other.tag == "Player")
         {
             PlayerExit(other.GetComponent<Player>());

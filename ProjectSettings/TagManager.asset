@@ -58,11 +58,14 @@ TagManager:
   - name: ConveyorBelt
     uniqueID: 912869425
     locked: 0
-  - name: Player
-    uniqueID: 925372485
+  - name: Cart
+    uniqueID: 3554493997
     locked: 0
   - name: Pickups
     uniqueID: 39059361
+    locked: 0
+  - name: Player
+    uniqueID: 925372485
     locked: 0
   - name: Bagged
     uniqueID: 3568251187
