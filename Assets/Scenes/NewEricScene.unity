@@ -30755,7 +30755,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: speed
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 21252364, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Sprite
@@ -32419,7 +32419,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: speed
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
@@ -94875,6 +94875,10 @@ Prefab:
       propertyPath: m_Name
       value: PlayerRed
       objectReference: {fileID: 0}
+    - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
+      propertyPath: speed
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
   m_IsPrefabParent: 0
@@ -108988,7 +108992,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433524, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: speed
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 21252364, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
       propertyPath: m_Sprite
