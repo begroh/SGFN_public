@@ -27,6 +27,29 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &110202650
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: BigmanIdleBlue
+  m_Speed: 0.25
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 2311760e0e9d346a0946b3f59c3958db, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
 --- !u!1102 &110223026
 AnimatorState:
   serializedVersion: 5
@@ -50,14 +73,14 @@ AnimatorState:
   m_SpeedParameter: myspeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
---- !u!1102 &110237406
+--- !u!1102 &110235754
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SteroidsWalk
-  m_Speed: 1
+  m_Name: BigmanIdleRed
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -65,12 +88,12 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 25bdbe4d0d66a480282e4b2f510ba9db, type: 2}
+  m_Motion: {fileID: 7400000, guid: 216951ce0c14f4acf8d3185e91f091d2, type: 2}
   m_Tag: 
-  m_SpeedParameter: myspeed
+  m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110246506
@@ -96,14 +119,14 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
---- !u!1102 &110253038
+--- !u!1102 &110248898
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SteroidsIdle
-  m_Speed: 0.25
+  m_Name: BigmanWalkBlue
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -111,12 +134,12 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d608aac8d2fa0460da383b15ed33ee4a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 19bf97e6413ab4cb68a6742ae530bb1c, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: myspeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110266986
@@ -161,6 +184,29 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4fa2e8f28dd0b40669300cea7e70a47a, type: 2}
+  m_Tag: 
+  m_SpeedParameter: myspeed
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+--- !u!1102 &110277564
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: BigmanWalkRed
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 1
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: d3e7d4b0a1795405683a07469da52e3b, type: 2}
   m_Tag: 
   m_SpeedParameter: myspeed
   m_MirrorParameter: 
@@ -238,11 +284,17 @@ AnimatorStateMachine:
     m_State: {fileID: 110223026}
     m_Position: {x: 336, y: 348, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 110253038}
-    m_Position: {x: 240, y: 516, z: 0}
+    m_State: {fileID: 110202650}
+    m_Position: {x: 77, y: 535, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 110237406}
-    m_Position: {x: 219, y: 453, z: 0}
+    m_State: {fileID: 110235754}
+    m_Position: {x: 316, y: 570, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110248898}
+    m_Position: {x: 105, y: 489, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110277564}
+    m_Position: {x: 348, y: 504, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

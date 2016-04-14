@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ec773b531e3744628b4119f319f43ac9
-timeCreated: 1460644632
+timeCreated: 1460646941
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,21 @@ TextureImporter:
     21300020: steroids_10
     21300022: steroids_11
     21300024: steroids_12
+    21300026: steroids_13
+    21300028: bigman_0
+    21300030: bigman_1
+    21300032: bigman_2
+    21300034: bigman_3
+    21300036: bigman_4
+    21300038: bigman_5
+    21300040: bigman_6
+    21300042: bigman_7
+    21300044: bigman_8
+    21300046: bigman_9
+    21300048: bigman_10
+    21300050: bigman_11
+    21300052: bigman_12
+    21300054: bigman_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -63,7 +78,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: steroids_0
+    - name: bigman_0
       rect:
         serializedVersion: 2
         x: 0
@@ -74,7 +89,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: steroids_1
+    - name: bigman_1
       rect:
         serializedVersion: 2
         x: 24
@@ -85,7 +100,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: steroids_2
+    - name: bigman_2
       rect:
         serializedVersion: 2
         x: 48
@@ -96,7 +111,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: steroids_3
+    - name: bigman_3
       rect:
         serializedVersion: 2
         x: 72
@@ -104,10 +119,10 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: steroids_4
+    - name: bigman_4
       rect:
         serializedVersion: 2
         x: 96
@@ -118,7 +133,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: steroids_5
+    - name: bigman_5
       rect:
         serializedVersion: 2
         x: 120
@@ -129,10 +144,87 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: steroids_6
+    - name: bigman_6
       rect:
         serializedVersion: 2
         x: 144
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_11
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_12
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: bigman_13
+      rect:
+        serializedVersion: 2
+        x: 312
         y: 0
         width: 24
         height: 24
