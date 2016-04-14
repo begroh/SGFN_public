@@ -11,6 +11,7 @@ public class CharacterSelector : MonoBehaviour
         "Bigman",
         "Catman"
     };
+    private string color;
 
     void Awake()
     {
@@ -20,6 +21,8 @@ public class CharacterSelector : MonoBehaviour
 
     void Start()
     {
+        PlayerBox box = transform.parent.GetComponent<PlayerBox>();
+        color = box.playerNumber < 3 ? "Red" : "Blue";
         SelectCharacter(position);
     }
 
@@ -76,6 +79,6 @@ public class CharacterSelector : MonoBehaviour
         position = (a % b + b) % b;
 
         string name = characters[position];
-        renderer.sprite = Resources.Load<Sprite>("Sprites/Characters/" + name);
+        renderer.sprite = Resources.Load<Sprite>("Sprites/Characters/" + name + color);
     }
 }
