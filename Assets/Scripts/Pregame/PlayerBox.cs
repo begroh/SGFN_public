@@ -50,7 +50,7 @@ public class PlayerBox : MonoBehaviour
 
         if (CharacterSelection.AllReady())
         {
-            Application.LoadLevel("EricScene");
+            Application.LoadLevel("NewEricScene");
         }
     }
 
