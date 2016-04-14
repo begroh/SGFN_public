@@ -7,9 +7,7 @@ public class PlayerSprite : MonoBehaviour
     private SpriteRenderer renderer;
     private float speed = 0;
     private string character;
-
-    private static Color blue = new Color(0f, 0.71f, 1f, 1f);
-    private static Color red = new Color(1f, 0.15f, 0f, 1f);
+    private string color;
 
     void Awake()
     {
@@ -26,11 +24,11 @@ public class PlayerSprite : MonoBehaviour
         character = CharacterSelection.Get(playerNumber);
         if (playerNumber < 3)
         {
-            renderer.color = red;
+            color = "Red";
         }
         else
         {
-            renderer.color = blue;
+            color = "Blue";
         }
     }
 
@@ -75,8 +73,8 @@ public class PlayerSprite : MonoBehaviour
      */
     private void DetectIdle()
     {
-        string idleAnimation = character + "Idle";
-        string walkAnimation = character + "Walk";
+        string idleAnimation = character + "Idle" + color;
+        string walkAnimation = character + "Walk" + color;
 
         if (!IsRunning())
         {
