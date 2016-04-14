@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ec773b531e3744628b4119f319f43ac9
-timeCreated: 1459813897
+timeCreated: 1460644632
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -39,7 +39,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -66,10 +66,10 @@ TextureImporter:
     - name: steroids_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 31
-        width: 17
-        height: 18
+        x: 0
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -77,10 +77,10 @@ TextureImporter:
     - name: steroids_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 34
-        width: 17
-        height: 16
+        x: 24
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -88,10 +88,10 @@ TextureImporter:
     - name: steroids_2
       rect:
         serializedVersion: 2
-        x: 61
-        y: 31
-        width: 17
-        height: 17
+        x: 48
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -99,10 +99,10 @@ TextureImporter:
     - name: steroids_3
       rect:
         serializedVersion: 2
-        x: 89
-        y: 31
-        width: 17
-        height: 18
+        x: 72
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,10 +110,10 @@ TextureImporter:
     - name: steroids_4
       rect:
         serializedVersion: 2
-        x: 118
-        y: 34
-        width: 17
-        height: 16
+        x: 96
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +121,10 @@ TextureImporter:
     - name: steroids_5
       rect:
         serializedVersion: 2
-        x: 145
-        y: 31
-        width: 17
-        height: 17
+        x: 120
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,76 +132,10 @@ TextureImporter:
     - name: steroids_6
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: steroids_7
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 5
-        width: 17
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: steroids_8
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 5
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: steroids_9
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 5
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: steroids_10
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 5
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: steroids_11
-      rect:
-        serializedVersion: 2
         x: 144
-        y: 5
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: steroids_12
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 5
-        width: 17
-        height: 19
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
