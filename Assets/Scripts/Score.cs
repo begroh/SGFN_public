@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Score : MonoBehaviour
 {
     private static Dictionary<Team, int> scores = new Dictionary<Team, int>();
+	public static float MAX_SCORE = 250f;
 
     public static int ForTeam(Team team)
     {
@@ -23,7 +24,7 @@ public class Score : MonoBehaviour
         int newScore = ForTeam(team) + (int)score;
         scores[team] = newScore;
 
-        if (newScore >= 250)
+        if (newScore >= MAX_SCORE)
         {
             WinMessage message = (WinMessage) FindObjectOfType(typeof(WinMessage));
             message.Win(team);

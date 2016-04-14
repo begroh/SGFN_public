@@ -93,6 +93,6 @@ public class OrderHUD : MonoBehaviour {
 		Order order = OrderManager.OrderForTeam(team);
 		ReceiveOrder(order);
 		scoreText.text = Score.ForTeam(team).ToString();
-		progressBar.fillAmount = Score.ForTeam(team) / 250f;
+		progressBar.fillAmount = Score.ForTeam(team) / Score.MAX_SCORE;
 	}
 }
