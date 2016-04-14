@@ -1,5 +1,6 @@
 using InControl;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSelector : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class CharacterSelector : MonoBehaviour
         "Catman"
     };
     private string color;
+    private Text text;
 
     void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
+        text = transform.Find("Canvas").Find("Text").GetComponent<Text>();
         position = 0;
     }
 
@@ -79,6 +82,7 @@ public class CharacterSelector : MonoBehaviour
         position = (a % b + b) % b;
 
         string name = characters[position];
+        text.text = "Press A to choose " + name;
         renderer.sprite = Resources.Load<Sprite>("Sprites/Characters/" + name + color);
     }
 }
