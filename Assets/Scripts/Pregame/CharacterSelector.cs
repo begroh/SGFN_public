@@ -8,10 +8,7 @@ public class CharacterSelector : MonoBehaviour
     private SpriteRenderer renderer;
     private bool needReset = false;
     private string[] characters = {
-        "Robot",
-        "Steroids",
-        "Fish",
-        "Yv"
+        "Bigman"
     };
 
     void Awake()
