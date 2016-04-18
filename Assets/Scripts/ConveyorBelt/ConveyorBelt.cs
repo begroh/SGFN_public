@@ -18,11 +18,16 @@ public class ConveyorBelt : MonoBehaviour
 
     private bool sandboxMode = false;
 
+	public AudioClip checkoutSound;
+	public AudioSource source;
+
     void Awake()
     {
         items = new List<ConveyorBeltItem>();
         players = new List<Player>();
         zone = transform.Find("Zone").gameObject.GetComponent<ConveyorZone>();
+
+		source = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -270,6 +275,7 @@ public class ConveyorBelt : MonoBehaviour
             }
         }
 
+		source.PlayOneShot (checkoutSound);
         items.Remove(item);
         Destroy(item.AsFoodItem().gameObject);
     }

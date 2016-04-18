@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public enum FoodState {IN_CART, ON_CONVEYOR, BAGGED, ON_GROUND}
 public enum Team { NONE = 0, RED = 1, BLUE = 2, YELLOW = 3, GREEN = 4 };
@@ -41,6 +42,11 @@ public class Player : MonoBehaviour
 
 	private SpriteRenderer indicator;
 
+
+	public AudioClip throwSound;
+	public AudioClip hitSound;
+	public AudioSource source;
+
     void Awake()
     {
     	hitBehaviour.team = team;
@@ -51,6 +57,8 @@ public class Player : MonoBehaviour
 
 		indicator = transform.Find("Indicator").GetComponent<SpriteRenderer>();
 		SetIndicatorValues();
+
+		source = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -142,6 +150,7 @@ public class Player : MonoBehaviour
 				Die();
 				cart.dropAllItems();
                 body.AddForce(coll.contacts[0].normal * 5000);
+				source.PlayOneShot (hitSound);
                 return;
             }
         }
@@ -150,6 +159,7 @@ public class Player : MonoBehaviour
 	            cart.GiveItems(coll.gameObject.GetComponent<Player>().cart);
                 Die();
                 body.AddForce(coll.contacts[0].normal * 5000);
+				source.PlayOneShot (hitSound);
                 return;
             }
         }
@@ -226,8 +236,10 @@ public class Player : MonoBehaviour
     public void HandleShoot()
     {
         FoodItem item = cart.Fire();
-        if (item)
-            item.hitBehaviour.NotifyCharge(team);
+		if (item) {
+			item.hitBehaviour.NotifyCharge (team);
+			source.PlayOneShot (throwSound);
+		}
     }
 
     public void HandleTapBump(bool bumping)
