@@ -35,6 +35,7 @@ public class Music : MonoBehaviour
 
         source.Stop();
         source.clip = clip;
+        source.loop = true;
         source.Play();
     }
 
