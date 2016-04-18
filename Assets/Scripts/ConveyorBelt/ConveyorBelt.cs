@@ -57,6 +57,15 @@ public class ConveyorBelt : MonoBehaviour
 			speed = 0.75f;
             Run(Direction.FORWARD);
 		}
+        else if (items.Count == 0)
+        {
+            if (currentTeam == Team.RED)
+                currentTeam = Team.BLUE;
+            else if (currentTeam == Team.BLUE)
+                currentTeam = Team.RED;
+
+            zone.ChangeTeam(currentTeam);
+        }
 
         if (NoPlayersWithTeam(currentTeam))
         {
@@ -66,6 +75,7 @@ public class ConveyorBelt : MonoBehaviour
         {
             SetItemColliders(false);
         }
+
         // else if (EnemyPlayers())
         // {
         //     Run(Direction.REVERSE);
