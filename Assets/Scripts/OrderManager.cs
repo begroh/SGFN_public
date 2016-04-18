@@ -66,6 +66,9 @@ public class OrderManager {
             return false;
         }
 
+		AudioClip orderDone = (AudioClip) Resources.Load("Audio/Sounds/OrderDone", typeof(AudioClip));
+		Music.instance.PlayOneShot(orderDone);
+
         Score.AddForTeam(team, order.Points);
         list.Reset();
         GenerateOrder(team, 4); // pick a length for the new order
