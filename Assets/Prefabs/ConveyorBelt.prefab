@@ -192,7 +192,7 @@ MonoBehaviour:
   endPosition: {x: 0, y: 0}
   players: []
   currentTeam: 0
-  checkoutSound: {fileID: 8300000, guid: 60cd68a190490479f80f3b9ebab15e49, type: 3}
+  checkoutSound: {fileID: 8300000, guid: 9e07670eff5e14deea026d14efdb737f, type: 3}
   source: {fileID: 0}
 --- !u!212 &21202124
 SpriteRenderer:

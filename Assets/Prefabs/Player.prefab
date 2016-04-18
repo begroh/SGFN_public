@@ -355,8 +355,8 @@ MonoBehaviour:
   invincibleDuration: 1
   canKill: 0
   portals: {fileID: 0}
-  throwSound: {fileID: 8300000, guid: 92c8239f292074447a8a7febed36c916, type: 3}
-  hitSound: {fileID: 8300000, guid: 3275f86f302f24e4bb3c955178779e00, type: 3}
+  throwSound: {fileID: 8300000, guid: f5c4fae0301fc494daf98bc11f0e4e02, type: 3}
+  hitSound: {fileID: 8300000, guid: fe0d539b1581b446badeb037f1620e95, type: 3}
   source: {fileID: 0}
 --- !u!114 &11443460
 MonoBehaviour:
