@@ -18,6 +18,8 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        AudioClip halo = (AudioClip) Resources.Load("Audio/Sounds/halo", typeof(AudioClip));
+        Music.instance.PlayOneShot(halo);
     }
 
     void Update()

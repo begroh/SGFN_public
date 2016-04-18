@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Music : MonoBehaviour
 {
-    private static Music instance;
+    public static Music instance;
     private static AudioSource source;
 
     void Awake()
