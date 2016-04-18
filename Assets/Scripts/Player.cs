@@ -202,7 +202,7 @@ public class Player : MonoBehaviour
 		DegradingCollectible collectible = item.gameObject.GetComponent<DegradingCollectible> ();
 		if (collectible != null) {
 			collectible.destroy = false;
-			collectible.pickup.StartRespawn (5f);
+			collectible.pickup.StartRespawn (0f);
 		}
 
 		if (item.conveyor != null)
