@@ -47,7 +47,13 @@ public class ConveyorBelt : MonoBehaviour
          * If there is just an enemy player nearby, run the conveyor backward.
          * If the conveyor is contested, don't run it.
          */
-        if (FriendlyPlayers())
+        if (!NoPlayersWithTeam(Team.RED) && !NoPlayersWithTeam(Team.BLUE))
+        {
+            speed = 0f;
+            print("fuk");
+            Run(Direction.FORWARD);
+        }
+        else if (FriendlyPlayers())
         {
 			speed = 3f;
             Run(Direction.FORWARD);
