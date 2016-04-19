@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlayerSandbox : MonoBehaviour
 {
     public GameObject playerPrefab;
-    public Collectible collectible;
+    public FoodItem[] collectible;
     public GameObject conveyorPrefab;
 
     private int playerNumber;
@@ -23,12 +23,13 @@ public class PlayerSandbox : MonoBehaviour
     {
         this.playerNumber = playerNumber;
 
-        SpawnPlayer();
-        SpawnItem();
+		Team team = SpawnPlayer();
+        SpawnItem(-8f, team);
+		SpawnItem(8f, team);
         SpawnConveyor();
     }
 
-    private void SpawnPlayer()
+    private Team SpawnPlayer()
     {
         GameObject go = Instantiate(playerPrefab);
         go.transform.parent = transform;
@@ -47,13 +48,17 @@ public class PlayerSandbox : MonoBehaviour
         {
             player.team = Team.BLUE;
         }
+
+		return player.team;
     }
 
-    private void SpawnItem()
+	private void SpawnItem(float pos, Team team)
     {
-        Collectible c = (Collectible) Instantiate(collectible);
-        c.transform.parent = transform;
-        c.transform.position = transform.position + Vector3.up * 7;
+		int index = Random.Range (0, 5);
+		FoodItem f = (FoodItem) Instantiate(collectible[index]);
+        f.transform.parent = transform;
+		f.transform.position = transform.position + Vector3.up * 3 + Vector3.right * pos;
+		f.EnableSandbox (team);
     }
 
     private void SpawnConveyor()
@@ -61,7 +66,7 @@ public class PlayerSandbox : MonoBehaviour
         GameObject go = Instantiate(conveyorPrefab);
         ConveyorBelt belt = go.GetComponent<ConveyorBelt>();
         belt.transform.parent = transform;
-        belt.transform.position = transform.position - Vector3.up * 7;
+        belt.transform.position = transform.position - Vector3.up * 6.7f;
         belt.EnableSandbox();
     }
 

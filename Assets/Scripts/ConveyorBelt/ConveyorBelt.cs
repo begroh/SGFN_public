@@ -21,6 +21,8 @@ public class ConveyorBelt : MonoBehaviour
 	public AudioClip checkoutSound;
 	public AudioSource source;
 
+	private int sandboxCount = 0;
+
     void Awake()
     {
         items = new List<ConveyorBeltItem>();
@@ -50,12 +52,15 @@ public class ConveyorBelt : MonoBehaviour
         if (!NoPlayersWithTeam(Team.RED) && !NoPlayersWithTeam(Team.BLUE))
         {
             speed = 0f;
-            print("fuk");
+            //print("fuk");
             Run(Direction.FORWARD);
         }
         else if (FriendlyPlayers())
         {
-			speed = 3f;
+			if (sandboxMode)
+				speed = 1.5f;
+			else
+				speed = 3f;
             Run(Direction.FORWARD);
         }
 		else if (!EnemyPlayers())
@@ -266,22 +271,26 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (sandboxMode)
         {
-            PlayerSandbox sandbox = transform.parent.GetComponent<PlayerSandbox>();
-            sandbox.Ready();
+			sandboxCount++;
+			if (sandboxCount >= 2) {
+				PlayerSandbox sandbox = transform.parent.GetComponent<PlayerSandbox> ();
+				sandbox.Ready ();
+			}
         }
         else
         {
             Score.AddForTeam(currentTeam, 5);
             ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
 
-            OrderManager.CompleteOrderForTeam(currentTeam);
+			if (!OrderManager.CompleteOrderForTeam (currentTeam)) {
+				source.PlayOneShot (checkoutSound);
+			}
             foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
             {
                 hud.Refresh();
             }
         }
 
-		source.PlayOneShot (checkoutSound);
         items.Remove(item);
         Destroy(item.AsFoodItem().gameObject);
 
