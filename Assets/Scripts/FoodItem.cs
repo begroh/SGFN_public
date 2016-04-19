@@ -119,15 +119,15 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(true);
 			blueIndicator.gameObject.SetActive(true);
 			redIndicator.transform.rotation = leftRot;
-			redIndicator.transform.position = transform.position + 2*Vector3.up - 0.75f*Vector3.right;
-			blueIndicator.transform.position = transform.position + 2*Vector3.up + 0.75f*Vector3.right;
+			redIndicator.transform.position = transform.position + (2+Mathf.PingPong(Time.time, 0.5f))*Vector3.up - 0.75f*Vector3.right;
+			blueIndicator.transform.position = transform.position + (2+Mathf.PingPong(Time.time + 0.25f, 0.5f))*Vector3.up + 0.75f*Vector3.right;
 			blueIndicator.transform.rotation = rightRot;
 		}
 		else if (inRedOrder)
 		{
 			blueIndicator.gameObject.SetActive(false);
 			redIndicator.gameObject.SetActive(true);
-			redIndicator.transform.position = transform.position + (2f+Mathf.PingPong(Time.time, 0.75f))*Vector3.up;
+			redIndicator.transform.position = transform.position + (2f+Mathf.PingPong(Time.time, 0.5f))*Vector3.up;
 			redIndicator.transform.rotation = topRot;
 		}
 		else if (inBlueOrder)
@@ -135,7 +135,7 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(false);
 			blueIndicator.gameObject.SetActive(true);
 			//blueIndicator.transform.position = transform.position + 2*Vector3.up;
-			blueIndicator.transform.position = transform.position + (2f+Mathf.PingPong(Time.time, 0.75f))*Vector3.up;
+			blueIndicator.transform.position = transform.position + (2f+Mathf.PingPong(Time.time, 0.5f))*Vector3.up;
 			blueIndicator.transform.rotation = topRot;
 		}
 		else
