@@ -34,6 +34,8 @@ public class WinMessage : MonoBehaviour
     private void Load()
     {
         Score.Reset();
+		ShoppingList.ForTeam(Team.RED).Reset();
+		ShoppingList.ForTeam(Team.BLUE).Reset();
         Application.LoadLevel("Pregame");
     }
 }
