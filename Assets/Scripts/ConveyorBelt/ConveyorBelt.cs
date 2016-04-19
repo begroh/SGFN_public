@@ -284,6 +284,11 @@ public class ConveyorBelt : MonoBehaviour
 		source.PlayOneShot (checkoutSound);
         items.Remove(item);
         Destroy(item.AsFoodItem().gameObject);
+
+		if (!PlayersPresent() && items.Count == 0)
+		{
+			ChangeTeam(Team.NONE);
+		}
     }
 
     private ConveyorBeltItem LastItem()
