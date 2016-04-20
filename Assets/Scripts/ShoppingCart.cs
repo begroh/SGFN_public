@@ -83,7 +83,7 @@ public class ShoppingCart : MonoBehaviour
 
     public void GiveItems(ShoppingCart other_cart)
     {
-        while (cart.Count != 0)
+        while (cart.Count != 0 && extras.Count != 0)
         {
             other_cart.Add(Remove(true));
         }
