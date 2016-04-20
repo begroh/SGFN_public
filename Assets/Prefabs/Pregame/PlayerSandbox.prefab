@@ -63,7 +63,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 163198, guid: 80698cf6606cc40cc96e2bef69e98fcf, type: 2}
-  collectible: {fileID: 11477986, guid: 43ff577fa7628477bb54808570c3f1a4, type: 2}
+  collectible:
+  - {fileID: 11496310, guid: 66a6142eef5404f2eaf8684b77455316, type: 2}
+  - {fileID: 11429310, guid: cb8b49407863f4516a1bcd1587f3b07e, type: 2}
+  - {fileID: 11413756, guid: 43ff577fa7628477bb54808570c3f1a4, type: 2}
+  - {fileID: 11495390, guid: 6a0b1fcefbc2d42d489846c70ded79c8, type: 2}
+  - {fileID: 11495390, guid: 1c000d8af336f4306a2c1bdbd0e1e5be, type: 2}
+  - {fileID: 11413756, guid: ffbf3d2456ded4730a8f40754942f7fc, type: 2}
   conveyorPrefab: {fileID: 146378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
 --- !u!114 &11424216
 MonoBehaviour:
@@ -119,28 +125,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 42
-    m_FontStyle: 0
+    m_FontSize: 55
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 120
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Left stick to move
-
-    Left bumper to dash
-
-
-    Right stick to aim
-
-    Right trigger to shoot
-
-
-    Checkout food to complete orders!'
+  m_Text: Checkout the food items!
 --- !u!222 &22257050
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -185,7 +181,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 1603, y: 811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22412298
@@ -232,9 +228,13 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: collectible.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: collectible
       value: 
-      objectReference: {fileID: 11477986, guid: 43ff577fa7628477bb54808570c3f1a4,
+      objectReference: {fileID: 11496310, guid: 66a6142eef5404f2eaf8684b77455316,
         type: 2}
     - target: {fileID: 0}
       propertyPath: conveyorPrefab
@@ -242,17 +242,7 @@ Prefab:
       objectReference: {fileID: 146378, guid: bdee23bcb6dc346bb9ee56038dfa3e7c, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Text
-      value: 'Left stick to move
-
-        Left bumper to dash
-
-
-        Right stick to aim
-
-        Right trigger to shoot
-
-
-        Checkout food to complete orders!'
+      value: Checkout the food items!
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.r
@@ -265,6 +255,44 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collectible.Array.data[0]
+      value: 
+      objectReference: {fileID: 11496310, guid: 66a6142eef5404f2eaf8684b77455316,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: collectible.Array.data[1]
+      value: 
+      objectReference: {fileID: 11429310, guid: cb8b49407863f4516a1bcd1587f3b07e,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: collectible.Array.data[2]
+      value: 
+      objectReference: {fileID: 11413756, guid: 43ff577fa7628477bb54808570c3f1a4,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: collectible.Array.data[3]
+      value: 
+      objectReference: {fileID: 11495390, guid: 6a0b1fcefbc2d42d489846c70ded79c8,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: collectible.Array.data[4]
+      value: 
+      objectReference: {fileID: 11495390, guid: 1c000d8af336f4306a2c1bdbd0e1e5be,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: collectible.Array.data[5]
+      value: 
+      objectReference: {fileID: 11413756, guid: ffbf3d2456ded4730a8f40754942f7fc,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

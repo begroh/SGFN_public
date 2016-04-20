@@ -66,8 +66,8 @@ public class OrderManager {
             return false;
         }
 
-		AudioClip orderDone = (AudioClip) Resources.Load("Audio/Sounds/OrderDone", typeof(AudioClip));
-		Music.instance.PlayOneShot(orderDone);
+		AudioClip orderDone = (AudioClip) Resources.Load("Audio/Sounds/CashRegister", typeof(AudioClip));
+		Music.instance.PlayOneShot(orderDone, 10f);
 
         Score.AddForTeam(team, order.Points);
         list.Reset();

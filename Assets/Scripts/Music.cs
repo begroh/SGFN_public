@@ -39,8 +39,13 @@ public class Music : MonoBehaviour
         source.Play();
     }
 
-    public void PlayOneShot(AudioClip clip)
+	public void PlayOneShot(AudioClip clip)
     {
         source.PlayOneShot(clip);
     }
+
+	public void PlayOneShot(AudioClip clip, float volume)
+	{
+		source.PlayOneShot(clip, volume);
+	}
 }

@@ -69,7 +69,7 @@ public class FoodHitBehaviour
     public void NotifyOnConveyor(Team _team)
     {
     	team = _team;
-	Debug.Log(team);
+	//Debug.Log(team);
 	onConveyor = true;
     }
 
