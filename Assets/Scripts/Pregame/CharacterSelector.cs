@@ -15,8 +15,6 @@ public class CharacterSelector : MonoBehaviour
     private string color;
     private Text text;
 
-	static string blueTaken, redTaken;
-
     void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -56,16 +54,8 @@ public class CharacterSelector : MonoBehaviour
 
         if (device.Action1.WasPressed)
         {
-			print (color);
             PlayerBox box = transform.parent.GetComponent<PlayerBox>();
             string name = characters[position];
-
-			if (CharacterAlreadySelected(characters[position]))
-			{
-				// play reject sound
-				return;
-			}
-
             box.SelectCharacter(name);
             Destroy(gameObject);
         }
@@ -95,30 +85,4 @@ public class CharacterSelector : MonoBehaviour
         text.text = "Press A to choose " + name;
         renderer.sprite = Resources.Load<Sprite>("Sprites/Characters/" + name + color);
     }
-
-	private bool CharacterAlreadySelected(string name)
-	{
-		print (color);
-		if (color == "Blue" && name == blueTaken)
-		{
-			return true;
-		}
-		else if (color == "Blue")
-		{
-			blueTaken = name;
-			return false;
-		}
-
-		if (color == "Red" && name == redTaken)
-		{
-			return true;
-		}
-		else if (color == "Red")
-		{
-			redTaken = name;
-			print (redTaken);
-			return false;
-		}
-		return false;
-	}
 }
