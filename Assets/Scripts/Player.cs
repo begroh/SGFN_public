@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-    	hitBehaviour.team = team;
 
         this.body = GetComponent<Rigidbody2D>();
 
@@ -63,6 +62,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+    	hitBehaviour.team = team;
         if (CharacterSelection.Get(playerNumber) == null)
         {
             Destroy(gameObject);
