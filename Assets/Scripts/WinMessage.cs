@@ -21,6 +21,9 @@ public class WinMessage : MonoBehaviour
 
     public void Win(Team team)
     {
+        AudioClip clip = (AudioClip) Resources.Load("Audio/Sounds/CashRegister", typeof(AudioClip));
+        Music.instance.PlayOneShot(clip);
+
     	Score.NotifyDone();
         Color color;
         string name;
