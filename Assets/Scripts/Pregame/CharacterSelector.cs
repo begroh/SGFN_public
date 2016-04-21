@@ -6,6 +6,7 @@ public class CharacterSelector : MonoBehaviour
 {
     private InputDevice device;
     private int position;
+    private int playerNumber;
     private SpriteRenderer renderer;
     private bool needReset = false;
     private string[] characters = {
@@ -26,6 +27,7 @@ public class CharacterSelector : MonoBehaviour
     {
         PlayerBox box = transform.parent.GetComponent<PlayerBox>();
         color = box.playerNumber < 3 ? "Red" : "Blue";
+        this.playerNumber = box.playerNumber;
         SelectCharacter(position);
     }
 
@@ -48,6 +50,11 @@ public class CharacterSelector : MonoBehaviour
             SelectCharacter(position - 1);
         }
         else if (device.LeftStickX < -0.9f)
+        {
+            SelectCharacter(position + 1);
+        }
+
+        while (!CharacterSelection.Available(playerNumber, characters[position]))
         {
             SelectCharacter(position + 1);
         }

@@ -46,4 +46,18 @@ public class CharacterSelection
 
         return true;
     }
+
+    public static bool Available(int playerNumber, string character)
+    {
+        int otherPlayer = 0;
+
+        switch(playerNumber) {
+            case 1: otherPlayer = 2; break;
+            case 2: otherPlayer = 1; break;
+            case 3: otherPlayer = 4; break;
+            case 4: otherPlayer = 3; break;
+        }
+
+        return Get(otherPlayer) != character;
+    }
 }
