@@ -4,6 +4,7 @@ public class Music : MonoBehaviour
 {
     public static Music instance;
     private static AudioSource source;
+    private bool playing = false;
 
     void Awake()
     {
@@ -19,6 +20,24 @@ public class Music : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (playing)
+            {
+                source.Stop();
+                playing = false;
+            }
+            else
+            {
+                source.Play();
+                playing = true;
+            }
+        }
+    }
+
 
     void Start()
     {
@@ -37,6 +56,7 @@ public class Music : MonoBehaviour
         source.clip = clip;
         source.loop = true;
         source.Play();
+        playing = true;
     }
 
 	public void PlayOneShot(AudioClip clip)
