@@ -32,6 +32,7 @@ public class EndgameSetup : MonoBehaviour {
             InputManager.Devices[2].MenuWasPressed ||
             InputManager.Devices[3].MenuWasPressed)
         {
+	    WinMessage.won = null;
             Application.LoadLevel("Menu");
             Score.Reset();
         }
