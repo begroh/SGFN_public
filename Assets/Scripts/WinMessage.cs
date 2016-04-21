@@ -6,10 +6,17 @@ using System.Collections;
 public class WinMessage : MonoBehaviour
 {
     private Text text;
+    public static string won;
+    public static Color woncolor;
 
     void Awake()
     {
         text = transform.Find("Text").GetComponent<Text>();
+        if (won != null) {
+            text.text = won;
+            text.color = woncolor;
+            text.enabled = true;
+        }
     }
 
     public void Win(Team team)
@@ -29,6 +36,10 @@ public class WinMessage : MonoBehaviour
         }
 
         text.text = name + " Team Wins!";
+
+        won = name + " Team Wins!";
+        woncolor = color;
+
         text.color = color;
         text.enabled = true;
 	Invoke("FadeToBlack",1.5f);
