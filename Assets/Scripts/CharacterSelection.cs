@@ -36,15 +36,17 @@ public class CharacterSelection
 
     public static bool AllReady()
     {
+        int count = 0;
         foreach (KeyValuePair<int, bool> entry in ready)
         {
+            count++;
             if (entry.Value == false)
             {
                 return false;
             }
         }
 
-        return true;
+        return count == 4;
     }
 
     public static bool Available(int playerNumber, string character)
