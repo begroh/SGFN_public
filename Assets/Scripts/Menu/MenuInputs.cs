@@ -3,6 +3,7 @@ using System.Collections;
 using InControl;
 
 public class MenuInputs : MonoBehaviour {
+
 	void Update () {
         if (InputManager.Devices[0].MenuWasPressed ||
             InputManager.Devices[1].MenuWasPressed ||
@@ -18,7 +19,9 @@ public class MenuInputs : MonoBehaviour {
             InputManager.Devices[2].Action4.WasPressed ||
             InputManager.Devices[3].Action4.WasPressed)
         {
-			print ("Hello");
+			Application.LoadLevel("TutorialVideo");
         }
+			
 	}
+
 }
