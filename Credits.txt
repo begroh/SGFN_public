@@ -1,0 +1,26 @@
+Super Grocery Fight Night 2 (1995) credits
+Benjamin Groh, Eric Riedel, John DeSilva and Nicholas Essenburg
+
+
+InControl: https://github.com/ShreveportArcade/InControl
+	Fork of https://github.com/pbhogan/InControl, which is open source and allowed for free use, modified or unmodified, by the author (Licence on the GitHub page).
+
+Food Sprites taken from http://tdeleeuw.deviantart.com/art/Diamonds-Food-Sprites-pixel-art-502053792
+	©TdeLeeuw
+	Creative Commons Attribution Only
+	Licenced under http://creativecommons.org/licenses/by-nc-nd/3.0/
+
+Milk Sprite taken from http://www.deviantart.com/art/Angry-Milk-and-Spanner-sprite-323486713
+	©RiverKpocc
+	Creative Commons Attribution Only
+	Licenced under http://creativecommons.org/licenses/by-nc-nd/3.0/
+
+Cake sprite from the game Kirby's Epic Yarn.
+
+Xbox controller image from http://www.xbox.com/en-US/xbox-360/accessories/controllers
+
+Textures for map background made in Gimp
+
+Music and sound effects created by Steven Nurushev of PAT 205 for this game
+
+Character sprites were made by John DeSilva for this game.
