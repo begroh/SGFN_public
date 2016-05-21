@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public enum FoodState {IN_CART, ON_CONVEYOR, BAGGED, ON_GROUND}
 public enum Team { NONE = 0, RED = 1, BLUE = 2, YELLOW = 3, GREEN = 4 };
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 
     public float stunTime, invincibleDuration;
     private float invincibleTime;
-    private bool canMove = true;
+    private bool canMove = false;
 
     private TapBumpBehaviour tapBumpBehaviour;
 
@@ -41,29 +42,33 @@ public class Player : MonoBehaviour
 
 	private SpriteRenderer indicator;
 
+
+	public AudioClip throwSound;
+	public AudioClip hitSound;
+	public AudioSource source;
+
     void Awake()
     {
-    	hitBehaviour.team = team;
 
         this.body = GetComponent<Rigidbody2D>();
-
-        if (useKeyboard)
-        {
-            this.input = new PlayerControl.KeyboardAndMouseInput();
-        }
-        else
-        {
-            this.input = new PlayerControl.ControllerInput(this.playerNumber);
-        }
 
         bag = new List<FoodItem>();
 
 		indicator = transform.Find("Indicator").GetComponent<SpriteRenderer>();
 		SetIndicatorValues();
+
+		source = GetComponent<AudioSource>();
     }
 
     void Start()
     {
+    	hitBehaviour.team = team;
+        if (CharacterSelection.Get(playerNumber) == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         cart = gameObject.GetComponentInChildren<ShoppingCart> ();
 
 		invincibleTime = stunTime + invincibleDuration;
@@ -74,6 +79,15 @@ public class Player : MonoBehaviour
         startColor = rend.material.color;
 
         this.tapBumpBehaviour = new TapBumpBehaviour();
+
+        if (useKeyboard)
+        {
+            this.input = new PlayerControl.KeyboardAndMouseInput();
+        }
+        else
+        {
+            this.input = new PlayerControl.ControllerInput(this.playerNumber);
+        }
     }
 
     void Update()
@@ -136,6 +150,7 @@ public class Player : MonoBehaviour
 				Die();
 				cart.dropAllItems();
                 body.AddForce(coll.contacts[0].normal * 5000);
+				source.PlayOneShot (hitSound);
                 return;
             }
         }
@@ -144,6 +159,7 @@ public class Player : MonoBehaviour
 	            cart.GiveItems(coll.gameObject.GetComponent<Player>().cart);
                 Die();
                 body.AddForce(coll.contacts[0].normal * 5000);
+				source.PlayOneShot (hitSound);
                 return;
             }
         }
@@ -169,7 +185,7 @@ public class Player : MonoBehaviour
         transform.position = respawnLoc;
     }
 
-    private void EnableMove()
+    public void EnableMove()
     {
         canMove = true;
     }
@@ -186,7 +202,7 @@ public class Player : MonoBehaviour
 		DegradingCollectible collectible = item.gameObject.GetComponent<DegradingCollectible> ();
 		if (collectible != null) {
 			collectible.destroy = false;
-			collectible.pickup.StartRespawn (5f);
+			collectible.pickup.StartRespawn (0f);
 		}
 
 		if (item.conveyor != null)
@@ -220,8 +236,10 @@ public class Player : MonoBehaviour
     public void HandleShoot()
     {
         FoodItem item = cart.Fire();
-        if (item)
-            item.hitBehaviour.NotifyCharge(team);
+		if (item) {
+			item.hitBehaviour.NotifyCharge (team);
+			source.PlayOneShot (throwSound);
+		}
     }
 
     public void HandleTapBump(bool bumping)

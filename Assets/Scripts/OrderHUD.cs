@@ -23,6 +23,7 @@ public class OrderHUD : MonoBehaviour {
 
 	Text scoreText;
 	Image progressBar;
+	float currentFill = 0f;
 
 	void Start()
 	{
@@ -92,7 +93,21 @@ public class OrderHUD : MonoBehaviour {
 	{
 		Order order = OrderManager.OrderForTeam(team);
 		ReceiveOrder(order);
-		scoreText.text = Score.ForTeam(team).ToString();
-		progressBar.fillAmount = Score.ForTeam(team) / 200f;
+
+		float endFill = Score.ForTeam(team) / Score.MAX_SCORE;
+		float time = 0.25f;
+		StartCoroutine(MoveProgress(currentFill, endFill, time));
+		currentFill = endFill;
+	}
+
+	IEnumerator MoveProgress(float progressBegin, float progressEnd, float time)
+	{
+		float elapsedTime = 0;
+		while (elapsedTime < time)
+		{
+			progressBar.fillAmount = Mathf.Lerp(progressBegin, progressEnd, (elapsedTime / time));
+			elapsedTime += Time.deltaTime;
+			yield return null;
+		}
 	}
 }

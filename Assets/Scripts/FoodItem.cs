@@ -19,6 +19,9 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
 	public ConveyorBelt conveyor;
 
+	private bool sandbox = false;
+	private Team sandboxTeam;
+
     void Awake()
     {
         // Set the size to be the size of the convex box of the sprite
@@ -99,10 +102,22 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 
 	void SetIndicators()
 	{
+
 		bool inRedOrder = OrderManager.FoodItemInTeamOrder(Team.RED, _type)
 			&& FoodItemNotBagged(Team.RED);
 		bool inBlueOrder = OrderManager.FoodItemInTeamOrder(Team.BLUE, _type)
 			&& FoodItemNotBagged(Team.BLUE);
+
+		if (sandbox) {
+			if (sandboxTeam == Team.RED) {
+				inRedOrder = true;
+				inBlueOrder = false;
+			}
+			else if (sandboxTeam == Team.BLUE) {
+				inRedOrder = false;
+				inBlueOrder = true;
+			}
+		}
 
 		if (ShoppingCart.FoodItemInCart(_type))
 		{
@@ -119,22 +134,23 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 			redIndicator.gameObject.SetActive(true);
 			blueIndicator.gameObject.SetActive(true);
 			redIndicator.transform.rotation = leftRot;
-			redIndicator.transform.position = transform.position + 2*Vector3.up - 0.75f*Vector3.right;
-			blueIndicator.transform.position = transform.position + 2*Vector3.up + 0.75f*Vector3.right;
+			redIndicator.transform.position = transform.position + (1.5f+Mathf.PingPong(Time.time, 0.5f))*Vector3.up - 0.75f*Vector3.right;
+			blueIndicator.transform.position = transform.position + (1.5f+Mathf.PingPong(Time.time + 0.25f, 0.5f))*Vector3.up + 0.75f*Vector3.right;
 			blueIndicator.transform.rotation = rightRot;
 		}
 		else if (inRedOrder)
 		{
 			blueIndicator.gameObject.SetActive(false);
 			redIndicator.gameObject.SetActive(true);
-			redIndicator.transform.position = transform.position + 2*Vector3.up;
+			redIndicator.transform.position = transform.position + (1.5f+Mathf.PingPong(Time.time, 0.5f))*Vector3.up;
 			redIndicator.transform.rotation = topRot;
 		}
 		else if (inBlueOrder)
 		{
 			redIndicator.gameObject.SetActive(false);
 			blueIndicator.gameObject.SetActive(true);
-			blueIndicator.transform.position = transform.position + 2*Vector3.up;
+			//blueIndicator.transform.position = transform.position + 2*Vector3.up;
+			blueIndicator.transform.position = transform.position + (1.5f+Mathf.PingPong(Time.time, 0.5f))*Vector3.up;
 			blueIndicator.transform.rotation = topRot;
 		}
 		else
@@ -161,5 +177,10 @@ public class FoodItem : MonoBehaviour, ConveyorBeltItem
 	public bool StopCanKill()
 	{
 		return false;
+	}
+
+	public void EnableSandbox(Team team) {
+		sandbox = true;
+		sandboxTeam = team;
 	}
 }

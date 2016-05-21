@@ -8,7 +8,7 @@ public class Collectible : MonoBehaviour
 
 	virtual protected void OnDestroy()
     {
-		if (shouldRespawn) {
+		if (shouldRespawn && pickup != null) {
 			pickup.StartRespawn (0f);
 		}
     }

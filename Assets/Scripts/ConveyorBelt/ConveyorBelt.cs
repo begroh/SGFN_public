@@ -7,7 +7,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private ConveyorZone zone;
 
-    public float speed = 1.25f;    // 125 cm / second
+    public float speed = 2.25f;    // 125 cm / second
     public float margin = 0.3f;    // 30 cm spacing
     public List<ConveyorBeltItem> items;
     public Vector2 startPosition;
@@ -16,18 +16,30 @@ public class ConveyorBelt : MonoBehaviour
     public List<Player> players;
     public Team currentTeam = Team.NONE;
 
+    private bool sandboxMode = false;
+
+	public AudioClip checkoutSound;
+	public AudioSource source;
+
+	private int sandboxCount = 0;
+
     void Awake()
     {
         items = new List<ConveyorBeltItem>();
         players = new List<Player>();
+        zone = transform.Find("Zone").gameObject.GetComponent<ConveyorZone>();
 
+		source = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    {
         // Setup start and end points
         Bounds bounds = GetComponent<SpriteRenderer>().sprite.bounds;
-        float extent = (bounds.extents.y * transform.localScale.y) * 0.95f;
+        float extent = (bounds.extents.y) * 0.95f;
+
         startPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.up * extent));
         endPosition = (Vector2) (this.transform.position + transform.localRotation * (Vector2.down * extent));
-
-        zone = transform.Find("Zone").gameObject.GetComponent<ConveyorZone>();
     }
 
     void Update()
@@ -37,9 +49,18 @@ public class ConveyorBelt : MonoBehaviour
          * If there is just an enemy player nearby, run the conveyor backward.
          * If the conveyor is contested, don't run it.
          */
-        if (FriendlyPlayers())
+        if (!NoPlayersWithTeam(Team.RED) && !NoPlayersWithTeam(Team.BLUE))
         {
-			speed = 3f;
+            speed = 0f;
+            //print("fuk");
+            Run(Direction.FORWARD);
+        }
+        else if (FriendlyPlayers())
+        {
+			if (sandboxMode)
+				speed = 1.5f;
+			else
+				speed = 3f;
             Run(Direction.FORWARD);
         }
 		else if (!EnemyPlayers())
@@ -152,6 +173,11 @@ public class ConveyorBelt : MonoBehaviour
         }
 
         float maxDistance = Time.deltaTime * speed;
+        if (sandboxMode)
+        {
+            maxDistance *= 1.5f;
+        }
+
         if (direction == Direction.REVERSE)
         {
             maxDistance *= -1;
@@ -243,18 +269,34 @@ public class ConveyorBelt : MonoBehaviour
 
     private void MoveItemToBag(ConveyorBeltItem item)
     {
+        if (sandboxMode)
+        {
+			sandboxCount++;
+			if (sandboxCount >= 2) {
+				PlayerSandbox sandbox = transform.parent.GetComponent<PlayerSandbox> ();
+				sandbox.Ready ();
+			}
+        }
+        else
+        {
+            Score.AddForTeam(currentTeam, 5);
+            ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
+
+			if (!OrderManager.CompleteOrderForTeam (currentTeam)) {
+				source.PlayOneShot (checkoutSound);
+			}
+            foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
+            {
+                hud.Refresh();
+            }
+        }
+
         items.Remove(item);
-        Score.AddForTeam(currentTeam, 5);
-        // item.player.MoveItemToBag(item.AsFoodItem());
-		ShoppingList.ForTeam(currentTeam).SetState(item.AsFoodItem().type, FoodState.BAGGED);
         Destroy(item.AsFoodItem().gameObject);
 
-
-
-        OrderManager.CompleteOrderForTeam(currentTeam);
-		foreach (OrderHUD hud in Object.FindObjectsOfType(typeof(OrderHUD)))
+		if (!PlayersPresent() && items.Count == 0)
 		{
-			hud.Refresh();
+			ChangeTeam(Team.NONE);
 		}
     }
 
@@ -326,5 +368,10 @@ public class ConveyorBelt : MonoBehaviour
     {
 		currentTeam = team;
 		zone.ChangeTeam(team);
+    }
+
+    public void EnableSandbox()
+    {
+        sandboxMode = true;
     }
 }

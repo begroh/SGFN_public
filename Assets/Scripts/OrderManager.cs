@@ -50,7 +50,7 @@ public class OrderManager {
             foods.Add((FoodType) numbers[i]);
         }
 
-        Order order = new Order(foods, (float) 20f, "I like turtles");
+        Order order = new Order(foods, (float) 50f, "I like turtles");
 
         orders[team] = order;
         return order;
@@ -65,6 +65,9 @@ public class OrderManager {
         {
             return false;
         }
+
+		AudioClip orderDone = (AudioClip) Resources.Load("Audio/Sounds/CashRegister", typeof(AudioClip));
+		Music.instance.PlayOneShot(orderDone, 10f);
 
         Score.AddForTeam(team, order.Points);
         list.Reset();
